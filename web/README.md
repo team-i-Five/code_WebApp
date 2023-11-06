@@ -1,2 +1,0 @@
-# 2311_final_front
-2311_encore_playdata_final_project
