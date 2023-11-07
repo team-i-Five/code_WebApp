@@ -1,17 +1,23 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragment/common :: head('리뷰 게시판')">
+<head th:replace="~{fragment/common :: head('리뷰 게시판')}">
 </head>
 
 <body>
     <!-- 상단 네비바 -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragment/common :: top-nav('review')"></nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('review')}"></nav>
 
 
     <!-- 본문시작 -->
     <div class="container">
-        <h2>i-Five 리뷰게시판(미정, 구현예시)</h2>
+        <h1>userName = <span th:text="${userName}"></span></h1>
+        <h2>뮤지컬 리스트</h2>
+        <ul>
+            <li th:each="musical : ${musicalList}">
+                <span th:text="${musical.goodsName}"></span> - <span th:text="${musical.placeName}"></span>
+            </li>
+        </ul>
     </div>
 
 
