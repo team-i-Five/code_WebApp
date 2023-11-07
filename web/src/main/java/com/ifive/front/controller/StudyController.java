@@ -1,17 +1,16 @@
 package com.ifive.front.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Arrays;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import lombok.Data;
-
-import org.springframework.ui.Model;
 
 
 // 타임리프 스터디용 컨트롤러

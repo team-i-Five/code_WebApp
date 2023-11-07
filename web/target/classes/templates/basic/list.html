@@ -1,27 +1,77 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{fragment/common :: head('리뷰 게시판')}">
+<head th:replace="~{fragment/common :: head('i-five')}">
+    <link rel="stylesheet" type="text/css" href="list.css">
 </head>
 
 <body>
     <!-- 상단 네비바 -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('review')}"></nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
 
 
     <!-- 본문시작 -->
     <div class="container">
         <h1>userName = <span th:text="${userName}"></span></h1>
         <h2>뮤지컬 리스트</h2>
-        <ul>
-            <li th:each="musical : ${musicalList}">
-                <span th:text="${musical.goodsName}"></span> - <span th:text="${musical.placeName}"></span>
-            </li>
-        </ul>
+        <div class="musical-list">
+            <div class="row">
+                <div class="col-md-4" th:each="musical, iterStat : ${musicalList}">
+                    <div class="musical-item">
+                        <div th:text="${musical.goodsName}"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="prev-button">이전</button>
+        <button id="next-button">다음</button>
     </div>
 
+    <!-- JavaScript  -->
+    <!-- JavaScript를 추가 -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const musicalList = document.querySelectorAll(".musical-item");
+            const prevButton = document.getElementById("prev-button");
+            const nextButton = document.getElementById("next-button");
+            let currentPage = 1;
+            const itemsPerPage = 3;
+            let totalItems = musicalList.length;
+            let totalPages = Math.ceil(totalItems / itemsPerPage);
 
-    <!-- Optional JavaScript; choose one of the two! -->
+            function showItems(page) {
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+
+                musicalList.forEach((item, index) => {
+                    if (index >= start && index < end) {
+                        item.style.display = "block";
+                    } else {
+                        item.style.display = "none";
+                    }
+                });
+            }
+
+            showItems(currentPage);
+
+            prevButton.addEventListener("click", function () {
+                if (currentPage > 1) {
+                    currentPage--;
+                    showItems(currentPage);
+                }
+            });
+
+            nextButton.addEventListener("click", function () {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    showItems(currentPage);
+                }
+            });
+        });
+    </script>
+
+
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

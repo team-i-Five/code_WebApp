@@ -1,13 +1,13 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragment/common :: head('로그인/회원가입')">   
+<head th:replace="~{fragment/common :: head('로그인/회원가입')}">   
 </head>
 
 <body>
     <!-- 상단 네비바 -->
     <div class="container-sm">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="fragment/common :: top-nav('login')">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('login')}">
         </nav>
     
     

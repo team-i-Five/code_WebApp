@@ -26,9 +26,9 @@ public class MusicalController {
     // 임시 목데이터
     public String jsonStr = "[" +
         "  {" +
-        "    \"goodsCode\": \"NewGoodsCode1\"," +
-        "    \"goodsName\": \"NewGoodsName1\"," +
-        "    \"placeCode\": \"NewPlaceCode1\"," +
+        "    \"goodsCode\": \"223112\"," +
+        "    \"goodsName\": \"삼총사\"," +
+        "    \"placeCode\": \"서울\"," +
         "    \"placeName\": \"NewPlaceName1\"," +
         "    \"genreCode\": \"NewGenreCode1\"," +
         "    \"genreName\": \"NewGenreName1\"," +
@@ -39,8 +39,8 @@ public class MusicalController {
         "    \"runningTime\": \"NewRunningTime1\"" +
         "  }," +
         "  {" +
-        "    \"goodsCode\": \"NewGoodsCode2\"," +
-        "    \"goodsName\": \"NewGoodsName2\"," +
+        "    \"goodsCode\": \"223113\"," +
+        "    \"goodsName\": \"The Moon - 경주\"," +
         "    \"placeCode\": \"NewPlaceCode2\"," +
         "    \"placeName\": \"NewPlaceName2\"," +
         "    \"genreCode\": \"NewGenreCode2\"," +
@@ -81,6 +81,71 @@ public class MusicalController {
         "    \"goodsCode\": \"NewGoodsCode5\"," +
         "    \"goodsName\": \"NewGoodsName5\"," +
         "    \"placeCode\": \"NewPlaceCode5\"," +
+        "    \"placeName\": \"NewPlaceName5\"," +
+        "    \"genreCode\": \"NewGenreCode5\"," +
+        "    \"genreName\": \"NewGenreName5\"," +
+        "    \"genreSubCode\": \"NewGenreSubCode5\"," +
+        "    \"genreSubName\": \"NewGenreSubName5\"," +
+        "    \"viewRateCode\": \"NewViewRateCode5\"," +
+        "    \"viewRateName\": \"NewViewRateName5\"," +
+        "    \"runningTime\": \"NewRunningTime5\"" +
+        "  }," +
+        "  {" +
+        "    \"goodsCode\": \"NewGoodsCode6\"," +
+        "    \"goodsName\": \"NewGoodsName6\"," +
+        "    \"placeCode\": \"NewPlaceCode5\"," +
+        "    \"placeName\": \"NewPlaceName5\"," +
+        "    \"genreCode\": \"NewGenreCode5\"," +
+        "    \"genreName\": \"NewGenreName5\"," +
+        "    \"genreSubCode\": \"NewGenreSubCode5\"," +
+        "    \"genreSubName\": \"NewGenreSubName5\"," +
+        "    \"viewRateCode\": \"NewViewRateCode5\"," +
+        "    \"viewRateName\": \"NewViewRateName5\"," +
+        "    \"runningTime\": \"NewRunningTime5\"" +
+        "  }," +
+        "  {" +
+        "    \"goodsCode\": \"NewGoodsCode7\"," +
+        "    \"goodsName\": \"NewGoodsName7\"," +
+        "    \"placeCode\": \"NewPlaceCode7\"," +
+        "    \"placeName\": \"NewPlaceName5\"," +
+        "    \"genreCode\": \"NewGenreCode5\"," +
+        "    \"genreName\": \"NewGenreName5\"," +
+        "    \"genreSubCode\": \"NewGenreSubCode5\"," +
+        "    \"genreSubName\": \"NewGenreSubName5\"," +
+        "    \"viewRateCode\": \"NewViewRateCode5\"," +
+        "    \"viewRateName\": \"NewViewRateName5\"," +
+        "    \"runningTime\": \"NewRunningTime5\"" +
+        "  }," +
+        "  {" +
+        "    \"goodsCode\": \"NewGoodsCode8\"," +
+        "    \"goodsName\": \"NewGoodsName8\"," +
+        "    \"placeCode\": \"NewPlaceCode8\"," +
+        "    \"placeName\": \"NewPlaceName5\"," +
+        "    \"genreCode\": \"NewGenreCode5\"," +
+        "    \"genreName\": \"NewGenreName5\"," +
+        "    \"genreSubCode\": \"NewGenreSubCode5\"," +
+        "    \"genreSubName\": \"NewGenreSubName5\"," +
+        "    \"viewRateCode\": \"NewViewRateCode5\"," +
+        "    \"viewRateName\": \"NewViewRateName5\"," +
+        "    \"runningTime\": \"NewRunningTime5\"" +
+        "  }," +
+        "  {" +
+        "    \"goodsCode\": \"NewGoodsCode123\"," +
+        "    \"goodsName\": \"NewGoodsName123\"," +
+        "    \"placeCode\": \"NewPlaceCode123\"," +
+        "    \"placeName\": \"NewPlaceName5\"," +
+        "    \"genreCode\": \"NewGenreCode5\"," +
+        "    \"genreName\": \"NewGenreName5\"," +
+        "    \"genreSubCode\": \"NewGenreSubCode5\"," +
+        "    \"genreSubName\": \"NewGenreSubName5\"," +
+        "    \"viewRateCode\": \"NewViewRateCode5\"," +
+        "    \"viewRateName\": \"NewViewRateName5\"," +
+        "    \"runningTime\": \"NewRunningTime5\"" +
+        "  }," +
+        "  {" +
+        "    \"goodsCode\": \"NewGoodsCode44\"," +
+        "    \"goodsName\": \"NewGoodsName445\"," +
+        "    \"placeCode\": \"NewPlaceCode445\"," +
         "    \"placeName\": \"NewPlaceName5\"," +
         "    \"genreCode\": \"NewGenreCode5\"," +
         "    \"genreName\": \"NewGenreName5\"," +
