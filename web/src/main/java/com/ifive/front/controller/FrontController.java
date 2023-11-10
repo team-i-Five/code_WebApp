@@ -33,6 +33,6 @@ public class FrontController {
     public String drawHome(Model model) {
         log.info("log message : {} start","home(index.html)");
 
-        return "index";
+       return "index";
     }
 }

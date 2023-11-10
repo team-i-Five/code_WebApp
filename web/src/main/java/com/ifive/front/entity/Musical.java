@@ -6,26 +6,36 @@ import lombok.Data;
 
 @Data
 public class Musical {
-    @JsonProperty("goodsCode")
-    private String goodsCode;
-    @JsonProperty("goodsName")
-    private String goodsName;
-    @JsonProperty("placeCode")
-    private String placeCode;
-    @JsonProperty("placeName")
-    private String placeName;
-    @JsonProperty("genreCode")
-    private String genreCode;
-    @JsonProperty("genreName")
-    private String genreName;
-    @JsonProperty("genreSubCode")
-    private String genreSubCode;
-    @JsonProperty("genreSubName")
-    private String genreSubName;
-    @JsonProperty("viewRateCode")
-    private String viewRateCode;
-    @JsonProperty("viewRateName")
-    private String viewRateName;
-    @JsonProperty("runningTime")
+    @JsonProperty("musical_id")
+    private int musicalId;
+
+    @JsonProperty("title")
+    private String title;
+
+    @JsonProperty("poster_url")
+    private String posterUrl;
+
+    @JsonProperty("genre")
+    private String genre;
+
+    @JsonProperty("date")
+    private String date;
+
+    @JsonProperty("location")
+    private String location;
+
+    @JsonProperty("actors")
+    private String actors;
+
+    @JsonProperty("age_rating")
+    private String ageRating;
+
+    @JsonProperty("running_time")
     private String runningTime;
+
+    @JsonProperty("describe")
+    private String describe;
+
+    @JsonProperty("synopsis")
+    private String synopsis;
 }

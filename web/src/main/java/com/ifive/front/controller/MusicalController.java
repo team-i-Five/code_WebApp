@@ -160,8 +160,9 @@ public class MusicalController {
 
     @GetMapping("/list/{userName}")
     public String drawMusicalList(@PathVariable String userName, Model model) {
-        List<Musical> musicalList = musicalService.getMusicalList(jsonStr);
-        
+        //List<Musical> musicalList = musicalService.getMusicalsFromJsonString("jsonStr");
+        List<Musical> musicalList = musicalService.getMusicalsFromJsonFile("/static/mock.json");
+
         model.addAttribute("musicalList", musicalList);
         model.addAttribute("userName", userName);
 
