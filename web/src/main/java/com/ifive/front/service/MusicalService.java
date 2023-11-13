@@ -9,5 +9,8 @@ public interface MusicalService {
     List<Musical> getMusicalsFromJsonString(String jsonString);
 
     // JSON파일을 가지고 Musical 객체에 파싱하고, 리스트 만들어 반환, JSON파일은 resources/static에 위치해야함
-    List<Musical> getMusicalsFromJsonFile(String classpathResource);
+    List<Musical> getMusicalsFromJsonFile(String jsonPath);
+
+    // Musical List의 정보가 담긴 Json파일을 읽어와서 DB에 저장하는 메소드
+    void saveMusicalFromJson(String jsonPath) throws Exception;
 }

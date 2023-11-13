@@ -1,41 +1,39 @@
 package com.ifive.front.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ifive.front.dto.MusicalDTO;
 
-import lombok.Data;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-@Data
+@Entity
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class Musical {
-    @JsonProperty("musical_id")
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int musicalId;
 
-    @JsonProperty("title")
     private String title;
-
-    @JsonProperty("poster_url")
     private String posterUrl;
-
-    @JsonProperty("genre")
     private String genre;
-
-    @JsonProperty("date")
     private String date;
-
-    @JsonProperty("location")
     private String location;
-
-    @JsonProperty("actors")
     private String actors;
-
-    @JsonProperty("age_rating")
     private String ageRating;
-
-    @JsonProperty("running_time")
     private String runningTime;
-
-    @JsonProperty("describe")
-    private String describe;
-
-    @JsonProperty("synopsis")
+    private String descrip;
     private String synopsis;
+
+    public MusicalDTO toDTO() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.convertValue(this, MusicalDTO.class);
+    }
 }
