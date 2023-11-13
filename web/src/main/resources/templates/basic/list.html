@@ -1,47 +1,17 @@
-<!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="~{fragment/common :: head('i-five', '/css/list.css')}">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical List</title>
+    <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
 </head>
-
 <body>
-    <!-- 상단 네비바 -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
-        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
 
-
-    <!-- 본문시작 -->
-    <!-- default code -->
-    <div class="musical-list">
-        <div class="row">
-            <div class="col-md-4" th:each="musical, iterStat : ${musicalList}">
-                <div class="musical-item">
-                    <h2>
-                        <div th:text="${musical.title}"></div>
-                    </h2>
-                    <img th:src="${musical.posterUrl}" alt="Musical Image" class="img-fluid" />
-                    <div th:text="${musical.genre}"></div>
-                    <div th:text="${musical.date}"></div>
-                    <div th:text="${musical.location}"></div>
-                    <div th:text="${musical.actors}"></div>
-                    <div th:text="${musical.runningTime}"></div>
-                </div>
-            </div>
-        </div>
+    <div style="padding-top: 56px;">
+        <div class="container mt-5"></div>   
     </div>
-    <!-- 여백 추가 -->
-    <div class="mt-4"></div>
-
-    <!-- 버튼을 우측에 배치 -->
-    <div class="text-right">
-        <button id="prev-button" class="btn btn-primary">이전</button>
-        <button id="next-button" class="btn btn-primary">다음</button>
-    </div>
-
-    <!-- JavaScript  -->
     <script src="/js/list.js"></script>
-
-    <footer th:replace="~{fragment/common :: footer}"></footer>
 </body>
-
 </html>
