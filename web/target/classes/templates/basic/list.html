@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Musical List</title>
     <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
 </head>
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
 
-    <div style="padding-top: 56px;">
-        <div class="container mt-5"></div>   
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+
+    <div class="container" style="padding-top: 56px;">
+        <button id="modalOpenButton">모달창 열기</button>
+        <div id="modalContainer" class="hidden">
+            <div id="modalContent">
+                <img src="https://occ-0-3996-1361.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQFfyEwNwGzijTyJ_utayh_y9tXI6dt59-76qCbt0ghfM1pvSg8YbGz-f45_VAJhzXTT3h4gh4fDHV-ecQSITBlKKP_hEAFA2MJG.webp?r=b22">
+                <button id="modalCloseButton">닫기</button>
+            </div>
+        </div>
     </div>
     <script src="/js/list.js"></script>
 </body>
+
 </html>

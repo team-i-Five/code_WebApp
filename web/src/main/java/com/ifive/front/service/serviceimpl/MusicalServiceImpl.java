@@ -75,4 +75,44 @@ public class MusicalServiceImpl implements MusicalService {
             musicalRepository.save(musical);
         }
     }
+    
+    //     // musicalId를 이용하여 DB에서 Musical 객체를 조회
+    // @Override
+    // public Musical getMusicalFromDB(String musicalId) {
+    //     Optional<Musical> optionalMusical  = musicalRepository.findByMusicalId(musicalId);
+
+    //     // 뮤지컬을 반환하고 없다면 null리턴
+    //     return optionalMusical.orElseGet(() -> {
+    //         Musical dummyMusical = new Musical(0,null,null,null,null,null,null,null,null,null,null);
+    //         return dummyMusical;
+    //     });
+    //  }
+
+    // @Override
+    // public List<MusicalIdWithRankDTO> getMusicalIdWithRankListDTOFromJson(String jsonResponse) {
+    //     try {
+    //         return objectMapper.readValue(jsonResponse, new TypeReference<List<MusicalIdWithRankDTO>>() {});
+    //     } catch (IOException e) {
+    //         // 예외 처리
+    //         e.printStackTrace();
+    //         return null;
+    //     }
+    // }
+
+    // @Override
+    // Map<Integer, Musical> getMusicalRankMapFromJson(String jsonResponse) {
+    //     try {
+    //         List<MusicalIDWithRankDTO> dtoList = objectMapper.readValue(jsonResponse, new TypeReference<List<MusicalIDWithRankDTO>>() {});
+
+    //         return dtoList.stream()
+    //                 .collect(Collectors.toMap(
+    //                         MusicalIDWithRankDTO::getRank,
+    //                         dto -> getMusicalFromDB(dto.getMusicalID())
+    //                 ));
+    //     } catch (IOException e) {
+    //         // 예외 처리
+    //         e.printStackTrace();
+    //         return null;
+    //     }
+    // }
 }

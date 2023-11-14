@@ -19,8 +19,9 @@ public class Musical {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int musicalId;
+    private int numb;
 
+    private int musicalId;
     private String title;
     private String posterUrl;
     private String genre;
@@ -31,6 +32,21 @@ public class Musical {
     private String runningTime;
     private String descrip;
     private String synopsis;
+
+    public Musical(int musicalId, String title, String posterUrl, String genre, String date, String location,
+            String actors, String ageRating, String runningTime, String descrip, String synopsis) {
+        this.musicalId = musicalId;
+        this.title = title;
+        this.posterUrl = posterUrl;
+        this.genre = genre;
+        this.date = date;
+        this.location = location;
+        this.actors = actors;
+        this.ageRating = ageRating;
+        this.runningTime = runningTime;
+        this.descrip = descrip;
+        this.synopsis = synopsis;
+    }
 
     public MusicalDTO toDTO() {
         ObjectMapper objectMapper = new ObjectMapper();
