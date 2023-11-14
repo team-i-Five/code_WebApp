@@ -52,7 +52,8 @@ public class MusicalController {
     @GetMapping("/list/test") 
     @ResponseBody
     public String dbTest(Model model) {
-        String jsonResponse = "[\n" +
+        // 이건 아이디와 랭크 json으로 넘겨줬을때 목데이터
+        String mock_jsonResponse = "[\n" +
                 "    {\"musicalId\": \"3885\", \"rank\": 1},\n" +
                 "    {\"musicalId\": \"3635\", \"rank\": 2},\n" +
                 "    {\"musicalId\": \"4829\", \"rank\": 3},\n" +
