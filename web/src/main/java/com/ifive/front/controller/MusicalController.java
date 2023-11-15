@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ifive.front.dto.MusicalDTO;
 import com.ifive.front.entity.Musical;
 import com.ifive.front.service.MusicalService;
 
@@ -21,7 +22,14 @@ public class MusicalController {
     @Autowired
     private MusicalService musicalService;
 
+    @GetMapping("/list/all") 
+    public String drawAllmusical(Model model) {            
+        model.addAttribute("musicals", musicalService.getAllMusicals());
 
+        log.info("log info : musicalDTOList(0) title = : {}",musicalService.getAllMusicals().get(0).getPosterUrl());
+
+        return "/basic/list";
+    }
     
     @GetMapping("/list/filepath")
     public String drawMusicals(Model model) {
@@ -49,9 +57,10 @@ public class MusicalController {
         }
     }
 
-    @GetMapping("/list/test") 
+    @GetMapping("/list/test")
     @ResponseBody
     public String dbTest(Model model) {
+        log.info("log message : {} start", "test.html");
         // 이건 아이디와 랭크 json으로 넘겨줬을때 목데이터
         String mock_jsonResponse = "[\n" +
                 "    {\"musicalId\": \"3885\", \"rank\": 1},\n" +
@@ -63,7 +72,7 @@ public class MusicalController {
                 "    {\"musicalId\": \"3009\", \"rank\": 7},\n" +
                 "    {\"musicalId\": \"3166\", \"rank\": 8}\n" +
                 "]";
-
-        return "/basic/test";
+        List<MusicalDTO> musicalDTOs = musicalService.getAllMusicals();
+        return musicalDTOs.get(0).toString();
     }
 }

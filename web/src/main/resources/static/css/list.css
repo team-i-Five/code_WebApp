@@ -1,33 +1,52 @@
-#modalOpenButton,
-#modalCloseButton {
-    cursor: pointer;
+.body {
+    display: block;
 }
 
-/* 페이지 화면에 채워서, 위치고정(position), bgcolor에 알파값0.5로 반투명 */
-#modalContainer {  
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
+.list-image {
+    width: 16rem;
+    height: 9rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+}
+
+.navbar {
+    background-color: #333;
+    height: 56px; /* 기본 네비게이션 바 높이 */
+}
+
+.musical-contents {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden; /*가로로 넘어가는내용 안보이게*/
+    z-index: 1;
 }
 
-#modalContent {
-    left: auto;
-    transform-origin: 50% 12.5%;
-    top: 2em;
-    width: 728.76px;
-    opacity: 1;
-    margin-bottom: 2em;
-    min-width: 0px;
+.slider-content {
+    margin: 10px 0.2rem 10px 10px; /* 각 아이템 간의 마진 설정 */
+}
+
+.slider-container {
+    position: relative;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.prev-btn {
+    left: 0;
     z-index: 2;
-    background: rgba(0, 0, 0, 0.5);
 }
 
-#modalContainer.hidden {
-    display: none;
+.next-btn {
+    right: 0;
+    z-index: 2;
 }

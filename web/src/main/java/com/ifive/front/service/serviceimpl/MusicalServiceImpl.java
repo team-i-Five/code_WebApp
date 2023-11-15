@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifive.front.dto.MusicalDTO;
+import com.ifive.front.dto.MusicalJsonParseDTO;
 import com.ifive.front.entity.Musical;
 import com.ifive.front.repository.MusicalRepository;
 import com.ifive.front.service.MusicalService;
@@ -64,16 +65,26 @@ public class MusicalServiceImpl implements MusicalService {
         ClassPathResource resource = new ClassPathResource(jsonPath);
 
         // JSON 파일을 MusicalDTO 리스트로 매핑
-        List<MusicalDTO> musicalDTOList = objectMapper.readValue(
+        List<MusicalJsonParseDTO> musicalJsonDTOs = objectMapper.readValue(
                 resource.getInputStream(),
-                new TypeReference<List<MusicalDTO>>() {}
+                new TypeReference<List<MusicalJsonParseDTO>>() {}
         );
 
         // MusicalListDTO를 Muscial로 분리해서 DB에 저장
-        for (MusicalDTO musicalDTO : musicalDTOList) {
-            Musical musical = musicalDTO.toEntity();
+        for (MusicalJsonParseDTO musicalJsonDTO : musicalJsonDTOs) {
+            Musical musical = musicalJsonDTO.toEntity();
             musicalRepository.save(musical);
         }
+    }
+
+    public List<MusicalDTO> getAllMusicals() {
+        List<Musical> musicalEntities = musicalRepository.findAll();
+        List<MusicalDTO> musicalDTOs = new ArrayList<>();
+        for (Musical musicalEntity : musicalEntities) {
+            musicalDTOs.add(musicalEntity.toDTO());
+        }
+
+        return musicalDTOs;
     }
     
     //     // musicalId를 이용하여 DB에서 Musical 객체를 조회

@@ -1,24 +1,24 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Musical List</title>
-    <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
 </head>
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
         th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
 
-    <div class="container" style="padding-top: 56px;">
-        <button id="modalOpenButton">모달창 열기</button>
-        <div id="modalContainer" class="hidden">
-            <div id="modalContent">
-                <img src="https://occ-0-3996-1361.1.nflxso.net/dnm/api/v6/6gmvu2hxdfnQ55LZZjyzYR4kzGk/AAAABQFfyEwNwGzijTyJ_utayh_y9tXI6dt59-76qCbt0ghfM1pvSg8YbGz-f45_VAJhzXTT3h4gh4fDHV-ecQSITBlKKP_hEAFA2MJG.webp?r=b22">
-                <button id="modalCloseButton">닫기</button>
+    <div class="container" style="margin-top: 56px;">
+        <div class="slider-container">
+            <button class="prev-btn" onclick="prevSlide()">이전</button>
+            <div class="musical-contents">
+                <!-- musicalList를 반복하면서 출력 -->
+                <div th:each="musicalDTO : ${musicals}" class="slider-content">
+                    <!-- 각 MusicalDTO의 속성에 접근 -->
+                    <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" class="list-image">
+                </div>
             </div>
+                <button class="next-btn" onclick="nextSlide()">다음</button>
         </div>
     </div>
     <script src="/js/list.js"></script>
