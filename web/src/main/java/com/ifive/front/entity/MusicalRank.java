@@ -1,5 +1,9 @@
 package com.ifive.front.entity;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ifive.front.dto.MusicalPastDTO;
+import com.ifive.front.dto.MusicalRankDTO;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -47,6 +51,11 @@ public class MusicalRank {
 
     public MusicalRank toEntity(){
         return new MusicalRank(id, siteName, ranking, title, date, location, posterUrl, goodsUrl, updateDate);
+    }
+
+    public MusicalRankDTO toDTO() {
+        ObjectMapper objectMapper = new ObjectMapper();
+        return objectMapper.convertValue(this, MusicalRankDTO.class);
     }
 
 }
