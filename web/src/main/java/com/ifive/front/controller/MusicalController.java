@@ -31,6 +31,7 @@ public class MusicalController {
         return "/basic/list";
     }
     
+
     @GetMapping("/list/filepath")
     public String drawMusicals(Model model) {
         log.info("info log = {}", this.getClass());
@@ -56,6 +57,7 @@ public class MusicalController {
             return "저장 실패: " + e.getMessage();
         }
     }
+    
 
     @GetMapping("/list/test")
     @ResponseBody

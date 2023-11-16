@@ -1,16 +1,20 @@
+.group-start {
+    margin-left: 0; /* 5의 배수일 때 그룹의 첫 번째 요소에는 왼쪽 마진을 0으로 설정 */
+}
+
 .body {
     display: block;
+    color: #FFFFFF;
 }
 
 .list-image {
-    width: 16rem;
-    height: 9rem;
+    width: 8rem;
+    height: 4.5rem;
     object-fit: cover;
     object-position: 50% 50%;
 }
 
 .navbar {
-    background-color: #333;
     height: 56px; /* 기본 네비게이션 바 높이 */
 }
 
