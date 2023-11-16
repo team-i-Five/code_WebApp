@@ -25,7 +25,7 @@
 }
 
 .slider-content {
-    margin: 10px 0.2rem 10px 10px; /* 각 아이템 간의 마진 설정 */
+    margin: 10px 0.5rem; /* 각 아이템 간의 마진 설정 */
 }
 
 .slider-container {
@@ -53,4 +53,10 @@
 .next-btn {
     right: 0;
     z-index: 2;
+}
+
+/* 슬라이더 버튼에 호버 효과 추가 */
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #555;
 }

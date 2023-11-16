@@ -20,7 +20,7 @@
                 <!-- musicalList를 반복하면서 출력 -->
                 <div th:each="musicalDTO, iterStat : ${musicals}" class="slider-content">
                     <!-- 각 MusicalDTO의 속성에 접근 -->
-                    <li th:classappend="${iterStat.index % 5 == 0} ? 'group-start' : ''">
+                    <li>
                         <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" class="list-image" data-index="${iterStat.index}">
                     </li>
                 </div>

@@ -27,20 +27,49 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// ------------------ 슬라이더 버튼 --------------------------------
+
+//슬라이더 업데이트 5개씩
+let startIndex = 0; // 슬라이드 그룹의 시작 인덱스
+
 function prevBtn_click() {
   const container = document.querySelector('.musical-contents');
   const slideWidth = document.querySelector('.slider-content').offsetWidth;
   const visibleSlides = Math.floor(container.clientWidth / slideWidth);
-  container.scrollLeft -= slideWidth * visibleSlides;
+  
+  // 이전 버튼 클릭 시 시작 인덱스를 조절하여 슬라이더를 이동
+  startIndex = Math.max(0, startIndex - visibleSlides);
+  container.scrollLeft = startIndex * slideWidth;
 }
 
 function nextBtn_click() {
   const container = document.querySelector('.musical-contents');
   const slideWidth = document.querySelector('.slider-content').offsetWidth;
   const visibleSlides = Math.floor(container.clientWidth / slideWidth);
-  container.scrollLeft += slideWidth * visibleSlides;
+  const totalSlides = document.querySelectorAll('.slider-content').length;
+
+  // 다음 버튼 클릭 시 시작 인덱스를 조절하여 슬라이더를 이동
+  startIndex = Math.min(totalSlides - visibleSlides, startIndex + visibleSlides);
+  container.scrollLeft = startIndex * slideWidth;
 }
 
 document.querySelector('.prev-btn').addEventListener('click', prevBtn_click);
 document.querySelector('.next-btn').addEventListener('click', nextBtn_click);
+
+
+// ------------------ 슬라이더 버튼 --------------------------------
+// function prevBtn_click() {
+//   const container = document.querySelector('.musical-contents');
+//   const slideWidth = document.querySelector('.slider-content').offsetWidth;
+//   const visibleSlides = Math.floor(container.clientWidth / slideWidth);
+//   container.scrollLeft -= slideWidth * visibleSlides;
+// }
+
+// function nextBtn_click() {
+//   const container = document.querySelector('.musical-contents');
+//   const slideWidth = document.querySelector('.slider-content').offsetWidth;
+//   const visibleSlides = Math.floor(container.clientWidth / slideWidth);
+//   container.scrollLeft += slideWidth * visibleSlides;
+// }
+
+// document.querySelector('.prev-btn').addEventListener('click', prevBtn_click);
+// document.querySelector('.next-btn').addEventListener('click', nextBtn_click);
