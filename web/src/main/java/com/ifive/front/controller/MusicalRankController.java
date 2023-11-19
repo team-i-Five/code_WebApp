@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.ifive.front.dto.MusicalRankDTO;
 import com.ifive.front.service.MusicalRankService;
@@ -26,29 +25,46 @@ public class MusicalRankController {
         this.musicalRankService = musicalRankService;
     }  
 
+    // 각 사이트 별로 GetMapping 개설
     @GetMapping("/rank")
-    public String rankShow(Model model){
-        // log.info("무슨 사이트 조회? : " + siteName);
+    public String interparkRank(Model model){
         LocalDate today = LocalDate.now();
         log.info("오늘 날짜 : "+today);
 
-        List<MusicalRankDTO> mrd1 = musicalRankService.getMusicalRankListByUpdateDateSiteName(today.toString()
+        List<MusicalRankDTO> mrd = musicalRankService.getMusicalRankListByUpdateDateSiteName(today.toString()
         ,"인터파크");
-        List<MusicalRankDTO> mrd2 = musicalRankService.getMusicalRankListByUpdateDateSiteName(today.toString()
+        
+        model.addAttribute("today", today);
+        model.addAttribute("interparkList", mrd);
+
+        return "/rankPage/rank_interpark.html";
+    }
+        
+    @GetMapping("/rank/1")
+    public String ticketlinkRank(Model model){
+        LocalDate today = LocalDate.now();
+        log.info("오늘 날짜 : "+today);
+
+        List<MusicalRankDTO> mrd = musicalRankService.getMusicalRankListByUpdateDateSiteName(today.toString()
         ,"티켓링크");
-        List<MusicalRankDTO> mrd3 = musicalRankService.getMusicalRankListByUpdateDateSiteName(today.toString()
+
+        model.addAttribute("today", today);
+        model.addAttribute("ticketlinkList", mrd);
+
+        return "/rankPage/rank_ticketlink.html";
+    }
+        
+    @GetMapping("/rank/2")
+    public String yes24ticketRank(Model model){
+        LocalDate today = LocalDate.now();
+        log.info("오늘 날짜 : "+today);
+
+        List<MusicalRankDTO> mrd = musicalRankService.getMusicalRankListByUpdateDateSiteName(today.toString()
         ,"예스24티켓");
         
-        log.info("DTO란 이런 것이다1 : " + mrd1);
-        log.info("DTO란 이런 것이다2 : " + mrd2);
-        log.info("DTO란 이런 것이다3 : " + mrd3);
-        log.info("DTO 크기 : "+mrd1.size());
+        model.addAttribute("today", today);
+        model.addAttribute("yes24ticketList", mrd);
 
-        // List<MusicalRankDTO> interparkMrd = new List<MusicalRankDTO>();
-        model.addAttribute("interparkList", mrd1);
-        model.addAttribute("ticketlinkList", mrd2);
-        model.addAttribute("yes24ticketList", mrd3);
-
-        return "/basic/rank.html";
+        return "/rankPage/rank_yes24ticket.html";
     }
 }

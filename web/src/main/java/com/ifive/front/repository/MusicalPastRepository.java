@@ -1,8 +1,8 @@
 package com.ifive.front.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,9 +13,8 @@ public interface MusicalPastRepository extends JpaRepository<MusicalPast, Intege
     //     + "mp.musicalId ,mp.title ,mp.posterUrl ,mp.genre ,mp.startDate "
     //     + ",mp.endDate ,mp.location ,mp.tag1 ,mp.tag2 ,mp.tag3 " 
     //     + "FROM MusicalPast mp "
-    //     + "ORDER BY mp.endDate DESC "
-    //     + "LIMIT 10")
-    // List<MusicalPast> queryOrderByEndDate();
+    //     + "ORDER BY mp.endDate DESC ")
+    // List<MusicalPast> queryOrderByEndDate(Pageable pageable);
 
     // @Query("SELECT "
     //     + "mp.musicalId ,mp.title ,mp.genre ,mp.posterUrl ,mp.location ,mp.tag1 ,mp.tag2 ,mp.tag3 "
