@@ -9,20 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import com.ifive.front.entity.MusicalPast;
 
 public interface MusicalPastRepository extends JpaRepository<MusicalPast, Integer>{
-    // @Query("SELECT "
-    //     + "mp.musicalId ,mp.title ,mp.posterUrl ,mp.genre ,mp.startDate "
-    //     + ",mp.endDate ,mp.location ,mp.tag1 ,mp.tag2 ,mp.tag3 " 
-    //     + "FROM MusicalPast mp "
-    //     + "ORDER BY mp.endDate DESC ")
-    // List<MusicalPast> queryOrderByEndDate(Pageable pageable);
-
-    // @Query("SELECT "
-    //     + "mp.musicalId ,mp.title ,mp.genre ,mp.posterUrl ,mp.location ,mp.tag1 ,mp.tag2 ,mp.tag3 "
-    //     + "FROM MusicalPast mp "
-    //     + "ORDER BY mp.endDate DESC ")
-    // List<MusicalPast> queryAllOrderByEndDate();
-
-    @Override
-    List<MusicalPast> findAll();
+    // Pageable 객체를 통해 SQL문 LIMIT 와 같이 가져올 쿼리 데이터 개수를 정함.
+    // Service에서 해당 개수를 정함.
+    List<MusicalPast> findAllByOrderByEndDateDesc(Pageable pageable);
 
 }

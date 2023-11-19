@@ -30,8 +30,8 @@ public class MusicalPastController {
         // log.info("이게 PAST DTO 다 : "+mpd);
         // log.info("이게 크기야 : "+mpd.size());
 
-        // model.addAttribute("musicalPastList", mpd);
+        model.addAttribute("musicalPastList", mpd);
 
-        return "Good";
+        return "/basic/past";
     }
 }

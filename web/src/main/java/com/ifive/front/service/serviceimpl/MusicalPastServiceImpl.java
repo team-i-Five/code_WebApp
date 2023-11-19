@@ -28,10 +28,11 @@ public class MusicalPastServiceImpl implements MusicalPastService{
 
     @Override
     public List<MusicalPastDTO> getMusicalPastListOrderByEndDate(){
-        // Pageable pageable = PageRequest.of(0,10);
+        // Pageable을 통해 0부터 50까지의 쿼리 데이터만 가져옴.
+        Pageable pageable = PageRequest.of(0,50);
 
-        List<MusicalPast> mpl = musicalPastRepository.findAll();
-        log.info("mpl 보여줘 : "+mpl);
+        List<MusicalPast> mpl = musicalPastRepository.findAllByOrderByEndDateDesc(pageable);
+        // log.info("mpl 보여줘 : "+mpl);
         List<MusicalPastDTO> mplDto = new ArrayList<>();
 
         for(MusicalPast mp : mpl){

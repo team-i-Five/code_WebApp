@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical Rank</title>
+    <link rel="stylesheet" href="/css/past.css" th:replace="~{fragment/common :: head('rank','/css/past.css')}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('rank')}"></nav>
+
+    <div class="past" style="margin-top: 56px;">
+        <div class="past_show">
+            <ol class="musical_past">
+                <!-- Thymeleaf의 th:each로 각 musicals를 iterStat을 사용하여 순회 -->
+                <div th:each="musicals : ${musicalPastList}" class="slider-content">
+                        <!-- 각 MusicalDTO의 속성에 접근하여 이미지와 제목을 출력 -->
+                    <li class="musical_contents">
+                            <img th:src="${musicals.posterUrl}" alt="Image" class="list-image">
+                            <div class="text-container">
+                                <p class ="musical_title" th:text="${musicals.title}" ></p>
+                                <p class ="musical_location" th:text="${musicals.location}"></p>
+                                <p class ="musical_duration" th:text="${musicals.date}"></p>
+                            </div>
+                    </li>
+                </div>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="/js/rank.js"></script>
+</body>
+
+</html>
