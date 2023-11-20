@@ -12,8 +12,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function updateSelectedImage() {
       const selectedImage = document.getElementById("selectedImage");
+      const selectedId = document.getElementById("selectedId");
+      const selectedTitle = document.getElementById("selectedTitle"); // 선택된 제목을 나타내는 요소
+      const selectedSys = document.getElementById("selectedSys");
+      const selectedGenre = document.getElementById("selectedGenre");
+      const selectedDate = document.getElementById("selectedDate");
+      const selectedLocation = document.getElementById("selectedLocation");
+      const selectedRunning = document.getElementById("selectedRunning");
       const index = selectedIndex % musicals.length; // index를 musicals 배열의 길이로 나눈 나머지를 사용하여 배열을 순환하도록 함
       selectedImage.src = musicals[index].posterUrl;
+      selectedId.textContent = musicals[index].musicalId;
+      selectedTitle.textContent = musicals[index].title; // 선택된 이미지의 제목 업데이트
+      selectedSys.textContent = musicals[index].synopsis;
+      selectedGenre.textContent = musicals[index].genre;
+      selectedDate.textContent = musicals[index].date;
+      selectedLocation.textContent = musicals[index].location;
+      selectedRunning.textContent = musicals[index].runningTime;
+
+
+      // console.log(musicals[index].musicalId)
+      // window.location.href = "/list/"+musicals[index].musicalId;
   }
 
   function imageClickHandler(index) {

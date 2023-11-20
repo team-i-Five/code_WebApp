@@ -3,6 +3,7 @@ package com.ifive.front.service.serviceimpl;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -86,6 +87,27 @@ public class MusicalServiceImpl implements MusicalService {
 
         return musicalDTOs;
     }
+
+    @Override
+    public MusicalDTO getMusicalById(int musicalId) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getMusicalById'");
+    }
+
+    // @Override
+    // public MusicalDTO getMusicalById(int musicalId) {
+    //     // MusicalRepository를 통해 해당 ID에 해당하는 Musical 엔티티를 찾습니다.
+    //     Optional<Musical> musicalEntityOptional = musicalRepository.findById((long) musicalId);
+    
+    //     // Musical 엔티티가 존재하면 DTO로 변환하여 반환합니다.
+    //     if (musicalEntityOptional.isPresent()) {
+    //         return musicalEntityOptional.get().toDTO();
+    //     } else {
+    //         // 해당 ID에 해당하는 Musical이 없으면 null을 반환하거나 예외를 던지도록 처리할 수 있습니다.
+    //         // 여기서는 null을 반환하도록 하겠습니다.
+    //         return null;
+    //     }
+    // }
     
     //     // musicalId를 이용하여 DB에서 Musical 객체를 조회
     // @Override
