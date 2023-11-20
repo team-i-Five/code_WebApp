@@ -14,7 +14,6 @@ public interface MusicalService {
 
     // Musical List의 정보가 담긴 Json파일을 읽어와서 DB에 저장하는 메소드
     void saveMusicalFromJson(String jsonPath) throws Exception;
-<<<<<<< HEAD
 
     // DB에서 모든 뮤지컬 가져와서 DTO로 변환해서 반환
     List<MusicalDTO> getAllMusicals();
@@ -31,6 +30,4 @@ public interface MusicalService {
 
     // // jsonResponce를 이용해서 int rank, Musical Musical로 구성된 맵을 생성해서 반환
     // Map<Integer, Musical> getMusicalRankMapFromJson(String jsonResponse);
-=======
->>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
 }

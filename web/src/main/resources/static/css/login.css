@@ -16,10 +16,6 @@ body {
 .form-signin {
   width: 100%;
   max-width: 420px;
-<<<<<<< HEAD
-=======
-  padding: 15px;
->>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
   margin: auto;
 }
 
@@ -71,29 +67,17 @@ body {
 }
 
 .form-label-group input:not(:-moz-placeholder-shown) {
-<<<<<<< HEAD
   padding-top: .25rem;
-=======
-  padding-top: 1.25rem;
->>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
   padding-bottom: .25rem;
 }
 
 .form-label-group input:not(:-ms-input-placeholder) {
-<<<<<<< HEAD
   padding-top: .25rem;
-=======
-  padding-top: 1.25rem;
->>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
   padding-bottom: .25rem;
 }
 
 .form-label-group input:not(:placeholder-shown) {
-<<<<<<< HEAD
   padding-top: .25rem;
-=======
-  padding-top: 1.25rem;
->>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
   padding-bottom: .25rem;
 }
 
