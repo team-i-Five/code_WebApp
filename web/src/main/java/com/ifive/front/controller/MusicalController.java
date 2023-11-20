@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ifive.front.dto.MusicalDTO;
@@ -22,7 +24,7 @@ public class MusicalController {
     @Autowired
     private MusicalService musicalService;
 
-    @GetMapping("/list/all") 
+    @GetMapping("/list/all")
     public String drawAllmusical(Model model) {            
         model.addAttribute("musicals", musicalService.getAllMusicals());
 
@@ -32,7 +34,7 @@ public class MusicalController {
     }
     
 
-    @GetMapping("/list/filepath")
+    @GetMapping("/list/filepath") 
     public String drawMusicals(Model model) {
         log.info("info log = {}", this.getClass());
 
@@ -66,4 +68,16 @@ public class MusicalController {
         List<MusicalDTO> musicalDTOs = musicalService.getAllMusicals();
         return musicalDTOs.get(0).toString();
     }
+
+    // @GetMapping("/list/{musicalId}")
+    // public String detailMusical(@PathVariable int musicalId, Model model) {
+    //     // musicalId를 사용하여 해당 뮤지컬의 정보를 가져옴
+    //     MusicalDTO musicalDTO = musicalService.getMusicalById(musicalId);
+    
+    //     // 가져온 정보를 모델에 추가
+    //     model.addAttribute("musical", musicalDTO);
+    
+    //     // detail.html로 이동
+    //     return "/basic/detail";
+    // }
 }

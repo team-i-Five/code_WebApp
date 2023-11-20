@@ -1,19 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" style="background-color: #000000;">
 
-<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+<head>
+    <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+    <style>
+        .list-image-container {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .musical-details {
+            margin-left: 20px; /* 이미지와의 간격 조절 */
+        }
+    </style>
 </head>
 
 <body style="background-color: #000000;">
-    <nav class="navbar fixed-top"
-        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+    <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
 
     <div class="container" style="margin-top: 60px;">
         <!-- 첫번째 메인이미지 (리스트 첫번째데이터) -->
         <div class="list-image-container">
             <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
+            <!-- 추가된 테이블 -->
+            <table class="musical-details">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <td th:text="${musicals[0].musicalId}" id="selectedId"></td>
+                    </tr>
+                    <tr>
+                        <th>제목</th>
+                        <td th:text="${musicals[0].title}" id="selectedTitle"/>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>줄거리</th>
+                        <!-- 줄거리를 10줄로 제한하여 표시하고, 10줄 이하일 경우 전체 내용을 표시 -->
+                        <td th:if="${musicals[0].synopsis}">
+                            <span th:text="${musicals[0].synopsis}" id="selectedSys"></span>
+                        </td>
+                    </tr>
+                        <th>장르</th>
+                        <td th:text="${musicals[0].genre}" id="selectedGenre"/>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>상영기간</th>
+                        <td th:text="${musicals[0].date}" id="selectedDate"/>
+                    </tr>
+                    <tr>
+                        <th>장소</th>
+                        <td th:text="${musicals[0].location}" id="selectedLocation"/>
+                    </tr>
+                    <tr>
+                        <th>상영시간</th>
+                        <td th:text="${musicals[0].runningTime}" id="selectedRunning"/>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-
         <div class="slider-container">
             <button class="prev-btn">이전</button>
             <ol class="musical-contents">
