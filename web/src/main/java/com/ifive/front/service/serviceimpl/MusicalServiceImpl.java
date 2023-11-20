@@ -3,7 +3,6 @@ package com.ifive.front.service.serviceimpl;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -86,12 +85,6 @@ public class MusicalServiceImpl implements MusicalService {
         }
 
         return musicalDTOs;
-    }
-
-    @Override
-    public MusicalDTO getMusicalById(int musicalId) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getMusicalById'");
     }
 
     // @Override

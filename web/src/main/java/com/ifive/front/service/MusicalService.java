@@ -19,7 +19,7 @@ public interface MusicalService {
     List<MusicalDTO> getAllMusicals();
 
     // ID를 사용하여 특정 뮤지컬 정보를 가져오는 메소드
-    // MusicalDTO getMusicalById(int musicalId);
+    //MusicalDTO getMusicalById(int musicalId);
 
 
     // // jsonResponse(rank, musicalId)를 MusicalWithRankDTO에 매핑하는 메소드, 내부에서 getMusicalFromDB를 호출함.
