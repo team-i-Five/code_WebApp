@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" style="background-color: #000000;">
 
@@ -31,7 +32,22 @@
     <script th:inline="javascript">
         var musicals = /*[[ ${musicals} ]]*/[];
     </script>
+=======
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical List</title>
+    <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+
+    <div style="padding-top: 56px;">
+        <div class="container mt-5"></div>   
+    </div>
+>>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
     <script src="/js/list.js"></script>
 </body>
-
 </html>

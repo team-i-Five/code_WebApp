@@ -3,7 +3,10 @@ package com.ifive.front.entity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ifive.front.dto.MusicalDTO;
 
+<<<<<<< HEAD
 import jakarta.persistence.Column;
+=======
+>>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +23,7 @@ public class Musical {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+<<<<<<< HEAD
     private int numb;
 
     @Column(name = "musical_id")
@@ -63,6 +67,21 @@ public class Musical {
         this.synopsis = synopsis;
     }
 
+=======
+    private int musicalId;
+
+    private String title;
+    private String posterUrl;
+    private String genre;
+    private String date;
+    private String location;
+    private String actors;
+    private String ageRating;
+    private String runningTime;
+    private String descrip;
+    private String synopsis;
+
+>>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
     public MusicalDTO toDTO() {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.convertValue(this, MusicalDTO.class);

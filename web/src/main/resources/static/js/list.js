@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 var selectedIndex = 0; // 초기값 설정
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -91,3 +92,23 @@ document.querySelector('.next-btn').addEventListener('click', nextBtn_click);
 
 // document.querySelector('.prev-btn').addEventListener('click', prevBtn_click);
 // document.querySelector('.next-btn').addEventListener('click', nextBtn_click);
+=======
+// Your JavaScript code for handling pagination and slide animation
+function loadPage(page) {
+    const musicalRow = document.getElementById("musicalRow");
+
+    fetch(`/list?page=${page}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.text())
+    .then(html => {
+        musicalRow.innerHTML = html;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+>>>>>>> fc2814550f9e8268b0c854614ff5b9b597e809db
