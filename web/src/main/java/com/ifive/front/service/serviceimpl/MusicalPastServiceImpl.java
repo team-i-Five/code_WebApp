@@ -13,9 +13,6 @@ import com.ifive.front.entity.MusicalPast;
 import com.ifive.front.repository.MusicalPastRepository;
 import com.ifive.front.service.MusicalPastService;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Service
 public class MusicalPastServiceImpl implements MusicalPastService{
     
@@ -41,4 +38,43 @@ public class MusicalPastServiceImpl implements MusicalPastService{
 
         return mplDto;
     }
+
+    @Override
+    public List<MusicalPastDTO> getMusicalPastListByTag1(String tag1){
+        List<MusicalPast> mpl = musicalPastRepository.queryByTag1(tag1);
+
+        List<MusicalPastDTO> mplDto = new ArrayList<>();
+        
+        for(MusicalPast mp : mpl){
+            mplDto.add(mp.toDTO());
+        }
+
+        return mplDto;
+    }
+
+    @Override
+    public List<MusicalPastDTO> getMusicalPastListByTag1AndTag2(String tag1, String tag2){
+        List<MusicalPast> mpl = musicalPastRepository.queryByTag1AndTag2(tag1, tag2);
+
+        List<MusicalPastDTO> mplDto = new ArrayList<>();
+        
+        for(MusicalPast mp : mpl){
+            mplDto.add(mp.toDTO());
+        }
+
+        return mplDto;
+    }
+
+    @Override
+    public List<MusicalPastDTO> getMusicalPastListByAllTags(String tag1, String tag2, String tag3){
+        List<MusicalPast> mpl = musicalPastRepository.queryByAllTags(tag1, tag2, tag3);
+
+        List<MusicalPastDTO> mplDto = new ArrayList<>();
+        
+        for(MusicalPast mp : mpl){
+            mplDto.add(mp.toDTO());
+        }
+
+        return mplDto;
+    }    
 }

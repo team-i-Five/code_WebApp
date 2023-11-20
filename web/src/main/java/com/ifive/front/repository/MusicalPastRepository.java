@@ -13,4 +13,12 @@ public interface MusicalPastRepository extends JpaRepository<MusicalPast, Intege
     // Service에서 해당 개수를 정함.
     List<MusicalPast> findAllByOrderByEndDateDesc(Pageable pageable);
 
+    @Query("SELECT mp FROM MusicalPast mp WHERE mp.tag1 = :tag1")
+    List<MusicalPast> queryByTag1(String tag1);
+
+    @Query("SELECT mp FROM MusicalPast mp WHERE mp.tag1 = :tag1 AND mp.tag2 = :tag2")
+    List<MusicalPast> queryByTag1AndTag2(String tag1, String tag2);
+    
+    @Query("SELECT mp FROM MusicalPast mp WHERE mp.tag1 = :tag1 AND mp.tag2 = :tag2 AND mp.tag3 = :tag3")
+    List<MusicalPast> queryByAllTags(String tag1, String tag2, String tag3); 
 }
