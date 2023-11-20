@@ -19,13 +19,13 @@
             </div>
     
             <div class="form-label-group">
-                <label for="inputID">Email address</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="ID" required autofocus oninput="hideLabel('inputEmail', 'emailLabel')">
+                <label id="emailLabel">이메일을 입력하세요.</label>
+                <input type="email" id="inputEmail" class="form-signin" placeholder="ID" required autofocus oninput="hideLabel('inputEmail', 'emailLabel')">
             </div>
     
             <div class="form-label-group">
-                <label for="inputPassword">Password</label>
-                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required oninput="hideLabel('inputPassword', 'passwordLabel')">
+                <label id="passwordLabel">비밀번호를 입력해주세요.</label>
+                <input type="password" id="inputPassword" class="form-signin" placeholder="Password" required oninput="hideLabel('inputPassword', 'passwordLabel')">
             </div>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
