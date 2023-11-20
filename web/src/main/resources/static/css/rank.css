@@ -16,22 +16,30 @@
 
 .site_title {
     font-weight: bold;
-    font-size: 25px;
-    margin-left: 60px;
+    font-size: 30px;
+    margin-left: 120px;
     text-align: left;
 }
 
 .today_date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
-    font-size: 25px;
+    font-size: 18px;
     text-align: center;
-    margin: 0
+    margin-left: 220px; 
+}
+
+.arrow {
+    display: inline-block;
+    margin: 0 20px; /* 화살표 사이의 간격 조정 */
 }
 
 .site_list {
     font-weight: bold;
     font-size: 25px;
-    margin-right: 60px;
+    margin-right: 100px;
 }
 
 .site_list ul {
@@ -60,12 +68,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 20px;
+    margin: 30px 80px;
+    
 }
 
 .musical_ranking {
     position: relative;
-    margin: 10px 0;
+    /* margin: 10px 0; */
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;
@@ -87,6 +96,13 @@
     transition: color 0.3s ease-in-out;
 }
 
+.list-image {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
 .rank_num {
     display: block;
     font-size: 22px;
@@ -95,11 +111,16 @@
     margin-bottom: 10px;
 }
 
-.musical_contents img {
-    width: 300px;
-    height: 400px;
-    object-fit: cover;
+.musical_title {
+    white-space: nowrap; /* 줄 바꿈 방지 */
+    overflow: hidden; /* 넘치는 부분 숨김 */
+    text-overflow: ellipsis; /* 생략 부호 (...) 표시 */
+    display: inline-block; /* 한 줄에 표시하기 위해 block 요소를 inline으로 변환 */
+    max-width: 100%; /* 최대 너비 설정 */
+    vertical-align: bottom; /* 텍스트 아래에 정렬 */
+    /* 추가적인 스타일링을 위한 속성들 */
 }
+
 
 .text-container {
     width: 300px; /* 텍스트의 원하는 너비 */

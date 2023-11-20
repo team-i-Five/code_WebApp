@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> 랭킹 | 뮤모 </title>
+    <title> 인터파크 랭킹 | 뮤모 </title>
     <link rel="stylesheet" href="/css/rank.css" th:replace="~{fragment/common :: head('rank','/css/rank.css')}">
+    <!-- 로고 Font Awesome CDN 추가 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -15,7 +17,13 @@
         <div class="head">
             <h1 class="site_title">인터파크</h1>
             <div class="today_date">            
+                <div class="arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
                 <h3 th:text="${today}"></h3>
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
             <div class="site_list">
                 <ul class="tab_list" role="tablist" data-tiara-layer="select">
