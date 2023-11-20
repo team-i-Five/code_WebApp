@@ -63,17 +63,6 @@ public class MusicalController {
     @ResponseBody
     public String dbTest(Model model) {
         log.info("log message : {} start", "test.html");
-        // 이건 아이디와 랭크 json으로 넘겨줬을때 목데이터
-        String mock_jsonResponse = "[\n" +
-                "    {\"musicalId\": \"3885\", \"rank\": 1},\n" +
-                "    {\"musicalId\": \"3635\", \"rank\": 2},\n" +
-                "    {\"musicalId\": \"4829\", \"rank\": 3},\n" +
-                "    {\"musicalId\": \"4941\", \"rank\": 4},\n" +
-                "    {\"musicalId\": \"5188\", \"rank\": 5},\n" +
-                "    {\"musicalId\": \"51942\", \"rank\": 6},\n" +
-                "    {\"musicalId\": \"3009\", \"rank\": 7},\n" +
-                "    {\"musicalId\": \"3166\", \"rank\": 8}\n" +
-                "]";
         List<MusicalDTO> musicalDTOs = musicalService.getAllMusicals();
         return musicalDTOs.get(0).toString();
     }
