@@ -1,0 +1,111 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+</head>
+
+<body>
+    <nav class="navbar fixed-top"
+        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+
+    <div class="container" style="margin-top: 60px;">
+        <h1 th:text="'선택된 태그 : ' + ${tagName}"></h1>
+        <div class="container">
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('love')" th:if="${tag1 ne 'love'}">사랑</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('opera')" th:if="${tag1 ne 'opera'}">오페라</button>
+            
+            <!-- 태그 : 아이 -->
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('child')" th:if="${tag1 ne 'child'}">가족</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('friend')" th:if="${tag1 ne 'friend'}">친구</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('art')" th:if="${tag1 ne 'art'}">예술</button>
+    
+            <!-- 태그 : 마법 -->
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('magic')" th:if="${tag1 ne 'magic'}">판타지</button>
+            
+            <!-- 태그 : 사람 -->
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('person')" th:if="${tag1 ne 'person'}">휴머니즘</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('history')" th:if="${tag1 ne 'history'}">역사</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('fear')" th:if="${tag1 ne 'fear'}">공포</button>
+    
+            <!-- 태그 : 웃음 -->
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('laugh')" th:if="${tag1 ne 'laugh'}">코미디</button>
+            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag2('sad')" th:if="${tag1 ne 'sad'}">슬픔</button>
+        </div>
+
+        <!-- 첫번째 메인이미지 (리스트 첫번째데이터) -->
+        <div class="list-image-container">
+            <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
+            <!-- 추가된 테이블 -->
+            <table class="musical-details">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <td th:text="${musicals[0].musicalId}" id="selectedId"></td>
+                    </tr>
+                    <tr>
+                        <th>제목</th>
+                        <td th:text="${musicals[0].title}" id="selectedTitle"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>줄거리</th>
+                        <!-- 줄거리를 10줄로 제한하여 표시하고, 10줄 이하일 경우 전체 내용을 표시 -->
+                        <td th:if="${musicals[0].synopsis}">
+                            <span th:text="${musicals[0].synopsis}" id="selectedSys"></span>
+                        </td>
+                    </tr>
+                        <th>장르</th>
+                        <td th:text="${musicals[0].genre}" id="selectedGenre"/>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>상영기간</th>
+                        <td th:text="${musicals[0].date}" id="selectedDate"/>
+                    </tr>
+                    <tr>
+                        <th>장소</th>
+                        <td th:text="${musicals[0].location}" id="selectedLocation"/>
+                    </tr>
+                    <tr>
+                        <th>상영시간</th>
+                        <td th:text="${musicals[0].runningTime}" id="selectedRunning"/>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="slider-container">
+            <button class="prev-btn">이전</button>
+            <ol class="musical-contents">
+                <!-- musicalList를 반복하면서 출력 -->
+                <div th:each="musicalDTO, iterStat : ${musicals}" class="slider-content">
+                    <!-- 각 MusicalDTO의 속성에 접근 -->
+                    <li>
+                        <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" class="list-image" data-index="${iterStat.index}">
+                    </li>
+                </div>
+            </ol>
+            <button class="next-btn">다음</button>
+        </div>
+    </div>
+    <script th:inline="javascript">
+        var musicals = /*[[ ${musicals} ]]*/[];
+
+        /*<![CDATA[*/
+        function redirectToUrlWithTag2(tag2) {
+            var baseUrl = '/tags/tag1&tag2';
+            const tag1 = /*[[${tag1}]]*/ ;
+            console.log(tag1);
+            var url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
+    
+            window.location.href = url;
+        }
+        /*]]>*/
+        
+    </script>
+
+    <script src="/js/list.js"></script>
+</body>
+</html>

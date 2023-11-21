@@ -21,7 +21,7 @@ public class MusicalPastController {
     
     // tagName 맵을 클래스 변수로 선언
     private static final Map<String, String> tagName = new HashMap<>();
-
+    private static final Map<String, String> tagNameFront = new HashMap<>();
     // 클래스 변수를 정적 블록에서 초기화
     static {
         tagName.put("love", "사랑");
@@ -35,6 +35,18 @@ public class MusicalPastController {
         tagName.put("fear", "공포");
         tagName.put("laugh", "웃음");
         tagName.put("sad", "슬픔");
+
+        tagNameFront.put("love", "사랑");
+        tagNameFront.put("opera", "오페라");
+        tagNameFront.put("child", "가족");
+        tagNameFront.put("friend", "친구");
+        tagNameFront.put("art", "예술");
+        tagNameFront.put("magic", "판타지");
+        tagNameFront.put("person", "휴머니즘");
+        tagNameFront.put("history", "역사");
+        tagNameFront.put("fear", "공포");
+        tagNameFront.put("laugh", "코미디");
+        tagNameFront.put("sad", "슬픔");
     }
 
     @Autowired
@@ -63,11 +75,16 @@ public class MusicalPastController {
         
         // log.info("쿼리문 결과 DTO : "+mpdl);
         // log.info("쿼리문 결과 개수 : "+mpdl.size());
-
-        model.addAttribute("tag", tag1);
-        // model.addAttribute("musicalTag1", mpdl);
-
-        return "redirect:/tags/tag2?tag1="+tag1;
+        if(mpdl.size() == 0){
+            return "/tag/null_tag" ;
+        }
+        else{
+        model.addAttribute("musicals", mpdl);
+        model.addAttribute("tag1", tag1);
+        model.addAttribute("tagName", tagNameFront.get(tag1));
+        
+        return "/tag/tag1_list" ;
+        }
     }
 
     @GetMapping("/tags/tag1&tag2")
@@ -77,15 +94,24 @@ public class MusicalPastController {
         log.info("태그 1 : "+tag1);
         log.info("태그 2 : "+tag2);
 
-        // List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1AndTag2(tag1, tag2);
+        List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1AndTag2(tagName.get(tag1), tagName.get(tag2));
 
         // log.info("쿼리문 결과 DTO : "+mpdl);
         // log.info("쿼리문 결과 개수 : "+mpdl.size());
 
-        model.addAttribute("tag1", tag1);
-        model.addAttribute("tag2", tag2);
+        if(mpdl.size() == 0){
+            return "/tag/null_tag" ;
+        }
+        else{
+        
+            model.addAttribute("musicals", mpdl);
+            model.addAttribute("tag1", tag1);
+            model.addAttribute("tag2", tag2);
+            model.addAttribute("tagName1", tagNameFront.get(tag1));
+            model.addAttribute("tagName2", tagNameFront.get(tag2));
 
-        return "redirect:/tags/tag3?tag1="+tag1+"&tag2="+tag2;
+            return "/tag/tag2_list";
+        }
         
     }
 
@@ -103,15 +129,19 @@ public class MusicalPastController {
                                             tagName.get(tag1),tagName.get(tag2), tagName.get(tag3)
                                         );
 
-        log.info("쿼리문 결과 DTO : "+mpdl);
-        log.info("쿼리문 결과 개수 : "+mpdl.size());
+        // log.info("쿼리문 결과 DTO : "+mpdl);
+        // log.info("쿼리문 결과 개수 : "+mpdl.size());
+        if(mpdl.size() == 0){
+            return "/tag/null_tag" ;
+        }
+        else{
 
-        model.addAttribute("tagMusicalList", mpdl);
-        // model.addAttribute("tag1", tag1);
-        // model.addAttribute("tag2", tag2);
-        // model.addAttribute("tag3", tag2);
+            model.addAttribute("musicals", mpdl);
+            model.addAttribute("tagName1", tagNameFront.get(tag1));
+            model.addAttribute("tagName2", tagNameFront.get(tag2));
+            model.addAttribute("tagName3", tagNameFront.get(tag3));
 
-        return "good" ;
-        
+            return "/tag/all_tags_list" ;
+        }
     }
 }
