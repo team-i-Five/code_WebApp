@@ -64,7 +64,7 @@ public class MusicalPastController {
 
         model.addAttribute("musicalPastList", mpd);
 
-        return "/basic/past";
+        return "basic/past";
     }
 
     @GetMapping("/tags/tag1")
@@ -76,14 +76,14 @@ public class MusicalPastController {
         // log.info("쿼리문 결과 DTO : "+mpdl);
         // log.info("쿼리문 결과 개수 : "+mpdl.size());
         if(mpdl.size() == 0){
-            return "/tag/null_tag" ;
+            return "tag/null_tag" ;
         }
         else{
         model.addAttribute("musicals", mpdl);
         model.addAttribute("tag1", tag1);
         model.addAttribute("tagName", tagNameFront.get(tag1));
         
-        return "/tag/tag1_list" ;
+        return "tag/tag1_list" ;
         }
     }
 
@@ -100,7 +100,7 @@ public class MusicalPastController {
         // log.info("쿼리문 결과 개수 : "+mpdl.size());
 
         if(mpdl.size() == 0){
-            return "/tag/null_tag" ;
+            return "tag/null_tag" ;
         }
         else{
         
@@ -110,7 +110,7 @@ public class MusicalPastController {
             model.addAttribute("tagName1", tagNameFront.get(tag1));
             model.addAttribute("tagName2", tagNameFront.get(tag2));
 
-            return "/tag/tag2_list";
+            return "tag/tag2_list";
         }
         
     }
@@ -132,7 +132,7 @@ public class MusicalPastController {
         // log.info("쿼리문 결과 DTO : "+mpdl);
         // log.info("쿼리문 결과 개수 : "+mpdl.size());
         if(mpdl.size() == 0){
-            return "/tag/null_tag" ;
+            return "tag/null_tag" ;
         }
         else{
 
@@ -141,7 +141,7 @@ public class MusicalPastController {
             model.addAttribute("tagName2", tagNameFront.get(tag2));
             model.addAttribute("tagName3", tagNameFront.get(tag3));
 
-            return "/tag/all_tags_list" ;
+            return "tag/all_tags_list" ;
         }
     }
 }

@@ -25,7 +25,7 @@ public class MusicalController {
     @GetMapping("/list/all")
     public String drawAllmusical(Model model) {            
         model.addAttribute("musicals", musicalService.getAllMusicals());
-        return "/basic/list";
+        return "basic/list";
     }
     
 
@@ -37,7 +37,7 @@ public class MusicalController {
         
         model.addAttribute("musicalList", musicalList);
 
-        return "/basic/list";
+        return "basic/list";
     }
 
     //JSON데이터 DB에 저장하는 메소드
