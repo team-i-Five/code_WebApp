@@ -1,0 +1,19 @@
+html, body {
+  height: 100%;
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.btn-primary {
+    font-size: 3rem; /* 버튼 텍스트 크기 조절 */
+    margin: 10px; /* 각 버튼 사이 여백 조절 */
+    background-color: #FD7F4F;
+    border-color: #FD7F4F;
+}
