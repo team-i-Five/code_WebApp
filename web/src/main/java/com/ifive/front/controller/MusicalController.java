@@ -22,7 +22,7 @@ public class MusicalController {
     @Autowired
     private MusicalService musicalService;
 
-    @GetMapping("/list/all") 
+    @GetMapping("/list/all")
     public String drawAllmusical(Model model) {            
         model.addAttribute("musicals", musicalService.getAllMusicals());
 
@@ -31,7 +31,8 @@ public class MusicalController {
         return "/basic/list";
     }
     
-    @GetMapping("/list/filepath")
+
+    @GetMapping("/list/filepath") 
     public String drawMusicals(Model model) {
         log.info("info log = {}", this.getClass());
 
@@ -56,23 +57,25 @@ public class MusicalController {
             return "저장 실패: " + e.getMessage();
         }
     }
+    
 
     @GetMapping("/list/test")
     @ResponseBody
     public String dbTest(Model model) {
         log.info("log message : {} start", "test.html");
-        // 이건 아이디와 랭크 json으로 넘겨줬을때 목데이터
-        String mock_jsonResponse = "[\n" +
-                "    {\"musicalId\": \"3885\", \"rank\": 1},\n" +
-                "    {\"musicalId\": \"3635\", \"rank\": 2},\n" +
-                "    {\"musicalId\": \"4829\", \"rank\": 3},\n" +
-                "    {\"musicalId\": \"4941\", \"rank\": 4},\n" +
-                "    {\"musicalId\": \"5188\", \"rank\": 5},\n" +
-                "    {\"musicalId\": \"51942\", \"rank\": 6},\n" +
-                "    {\"musicalId\": \"3009\", \"rank\": 7},\n" +
-                "    {\"musicalId\": \"3166\", \"rank\": 8}\n" +
-                "]";
         List<MusicalDTO> musicalDTOs = musicalService.getAllMusicals();
         return musicalDTOs.get(0).toString();
     }
+
+    // @GetMapping("/list/{musicalId}")
+    // public String detailMusical(@PathVariable int musicalId, Model model) {
+    //     // musicalId를 사용하여 해당 뮤지컬의 정보를 가져옴
+    //     MusicalDTO musicalDTO = musicalService.getMusicalById(musicalId);
+    
+    //     // 가져온 정보를 모델에 추가
+    //     model.addAttribute("musical", musicalDTO);
+    
+    //     // detail.html로 이동
+    //     return "/basic/detail";
+    // }
 }

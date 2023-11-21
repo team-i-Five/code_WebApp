@@ -1,27 +1,36 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" style="background-color: #000000;">
 
 <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+<body style="background-color: #000000;">
+    <nav class="navbar fixed-top"
         th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
 
-    <div class="container" style="margin-top: 56px;">
+    <div class="container" style="margin-top: 60px;">
+        <!-- 첫번째 메인이미지 (리스트 첫번째데이터) -->
+        <div class="list-image-container">
+            <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
+        </div>
+
         <div class="slider-container">
-            <button class="prev-btn" onclick="prevSlide()">이전</button>
-            <div class="musical-contents">
+            <button class="prev-btn">이전</button>
+            <ol class="musical-contents">
                 <!-- musicalList를 반복하면서 출력 -->
-                <div th:each="musicalDTO : ${musicals}" class="slider-content">
+                <div th:each="musicalDTO, iterStat : ${musicals}" class="slider-content">
                     <!-- 각 MusicalDTO의 속성에 접근 -->
-                    <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" class="list-image">
+                    <li>
+                        <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" class="list-image" data-index="${iterStat.index}">
+                    </li>
                 </div>
-            </div>
-                <button class="next-btn" onclick="nextSlide()">다음</button>
+            </ol>
+            <button class="next-btn">다음</button>
         </div>
     </div>
+    <script th:inline="javascript">
+        var musicals = /*[[ ${musicals} ]]*/[];
+    </script>
     <script src="/js/list.js"></script>
 </body>
-
 </html>

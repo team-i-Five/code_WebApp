@@ -18,6 +18,9 @@ public interface MusicalService {
     // DB에서 모든 뮤지컬 가져와서 DTO로 변환해서 반환
     List<MusicalDTO> getAllMusicals();
 
+    // ID를 사용하여 특정 뮤지컬 정보를 가져오는 메소드
+    //MusicalDTO getMusicalById(int musicalId);
+
 
     // // jsonResponse(rank, musicalId)를 MusicalWithRankDTO에 매핑하는 메소드, 내부에서 getMusicalFromDB를 호출함.
     // List<MusicalIdWithRankDTO> getMusicalIdWithRankListDTOFromJson(String jsonResponse);

@@ -32,8 +32,8 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:fragment="top-nav(menu)">
-        <a class="navbar-brand" href="#" th:href="@{/}">i-Five Musical Project</a>
+    <nav class="navbar navbar-expand-md fixed-top" th:fragment="top-nav(menu)" style="background-color: #141517">
+        <a class="navbar-brand" href="#" th:href="@{/}">mumo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -46,7 +46,7 @@
                             th:if="${menu} == 'home'">(current)</span></a>
                 </li>
                 <li class="nav-item" th:classappend="${menu} == 'i-five' ? 'active' ">
-                    <a class="nav-link" href="#" th:href="@{/list}">추천<span class="sr-only"
+                    <a class="nav-link" href="#" th:href="@{/list/all}">추천<span class="sr-only"
                             th:if="${menu} == 'review'">(current)</span></a>
                 </li>
                 <li class="nav-item" th:classappend="${menu} == 'login' ? 'active' ">
