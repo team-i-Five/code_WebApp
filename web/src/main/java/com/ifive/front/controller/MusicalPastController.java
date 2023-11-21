@@ -74,7 +74,8 @@ public class MusicalPastController {
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1(tagName.get(tag1));
         
         // log.info("쿼리문 결과 DTO : "+mpdl);
-        // log.info("쿼리문 결과 개수 : "+mpdl.size());
+        log.info("쿼리문 결과 개수 : "+mpdl.size());
+
         if(mpdl.size() == 0){
             return "tag/null_tag" ;
         }
@@ -96,8 +97,7 @@ public class MusicalPastController {
 
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1AndTag2(tagName.get(tag1), tagName.get(tag2));
 
-        // log.info("쿼리문 결과 DTO : "+mpdl);
-        // log.info("쿼리문 결과 개수 : "+mpdl.size());
+        log.info("쿼리문 결과 개수 : "+mpdl.size());
 
         if(mpdl.size() == 0){
             return "tag/null_tag" ;
@@ -130,7 +130,8 @@ public class MusicalPastController {
                                         );
 
         // log.info("쿼리문 결과 DTO : "+mpdl);
-        // log.info("쿼리문 결과 개수 : "+mpdl.size());
+        log.info("쿼리문 결과 개수 : "+mpdl.size());
+        
         if(mpdl.size() == 0){
             return "tag/null_tag" ;
         }
