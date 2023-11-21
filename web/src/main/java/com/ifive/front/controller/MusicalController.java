@@ -25,9 +25,6 @@ public class MusicalController {
     @GetMapping("/list/all")
     public String drawAllmusical(Model model) {            
         model.addAttribute("musicals", musicalService.getAllMusicals());
-
-        log.info("log info : musicalDTOList(0) title = : {}",musicalService.getAllMusicals().get(0).getPosterUrl());
-
         return "/basic/list";
     }
     

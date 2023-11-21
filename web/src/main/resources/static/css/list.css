@@ -9,16 +9,15 @@
 
 .body {
     display: block;
-    background-color: #000000;
-    color: #000000;
+
 }
 
 #selectedImage {
-    width: 480px;
-    height: 540px;
+    width: 300px;
+    height: 400px;
     object-fit: cover;
     object-position: 50% 50%;
-    opacity: 30%;
+    /*opacity: 90%; 투명도조정*/
 }
 
 .list-image-container {
