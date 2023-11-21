@@ -8,9 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ifive.front.dto.MusicalPresentDTO;
+import com.ifive.front.entity.MusicalPresent;
 import com.ifive.front.service.MusicalPresentService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -45,9 +47,17 @@ public class MusicalPresentController {
         this.musicalPresentService = musicalPresentService;
     }
 
-    @GetMapping("/ml/id")
-    public String drawPresent(@RequestParam(name = "id") String id, Model model) {
-        List<MusicalPresentDTO> mpdl = musicalPresentService.getPresentDTOsbyIdFromML(id);
-        return "/basic/test";
+    @GetMapping("/ml/{id}")
+    @ResponseBody
+    public String drawPresent(@PathVariable(name = "id") String id, Model model) {
+        List<MusicalPresent> musicalPresents = musicalPresentService.getPresentDTOsbyIdFromML(id);
+
+        StringBuilder responseBuilder = new StringBuilder();
+
+        for(MusicalPresent musicalPresent : musicalPresents) {
+            responseBuilder.append(musicalPresent.toString()).append("\n");
+        }
+ 
+        return responseBuilder.toString();
     }
 }

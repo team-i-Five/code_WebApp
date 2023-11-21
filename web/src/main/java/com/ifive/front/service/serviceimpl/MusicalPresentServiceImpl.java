@@ -1,10 +1,9 @@
 package com.ifive.front.service.serviceimpl;
 
-import java.io.BufferedReader;
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.beans.factory.annotation.Value;
 
 import com.ifive.front.dto.MusicalPresentDTO;
 import com.ifive.front.entity.MusicalPresent;
@@ -21,11 +22,18 @@ import com.ifive.front.service.MusicalPresentService;
 @Service
 public class MusicalPresentServiceImpl implements MusicalPresentService {
 
+    // 사용하려면 application-aws에 ml_url={ml url} 추가
+    @Value("${ml_url}")
+    private String mlUrl;
+
+    private final RestTemplate restTemplate;
+
     private MusicalPresentRepository musicalPresentRepository;
 
     @Autowired
-    public MusicalPresentServiceImpl(MusicalPresentRepository musicalPresentRepository) {
+    public MusicalPresentServiceImpl(MusicalPresentRepository musicalPresentRepository, RestTemplate restTemplate) {
         this.musicalPresentRepository = musicalPresentRepository;
+        this.restTemplate = restTemplate;
     }
 
     @Override
@@ -45,41 +53,36 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
     }
 
     public List<Integer> getIDsFromJsonResponse(String jsonResponse) {
-        return ;
+        List<Integer> musicalIds = new ArrayList<>();
+
+        JSONObject jsonObject = new JSONObject(jsonResponse);
+        JSONArray resultArray = jsonObject.getJSONArray("result");
+
+        for (int i = 0; i < resultArray.length(); i++) {
+            JSONObject musicalObject = resultArray.getJSONObject(i);
+            int musicalId = musicalObject.getInt("musical_id");
+            musicalIds.add(musicalId);
+        }
+
+        return musicalIds;
     }
 
-    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id) {
-        try {
-            String apiUrl = "http://13.124.169.226:8080/recommend/" + id;
-            URL url = new URL(apiUrl);
+    public List<MusicalPresent> getPresentDTOsbyIdFromML(String id) {
+        // application-aws.properties
+        String apiUrl = mlUrl + id;
+        // ml에서 받은 json string 파싱할 곳
+        List<Integer> ids;
 
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        // GET 요청 보내고 JSON 응답 받기
+        String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
 
-            // 요청 메소드 설정
-            connection.setRequestMethod("GET");
+        // JSON String 파싱해서 id리스트로 가져옴
+        ids =  getIDsFromJsonResponse(jsonResponse);
 
-            // 응답 코드 확인
-            int responseCode = connection.getResponseCode();
-            if (responseCode == HttpURLConnection.HTTP_OK) {
-                // 응답 데이터 읽기
-                BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                StringBuilder response = new StringBuilder();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    response.append(line);
-                }
-                reader.close();
+        return getMusicalsByIds(ids);
+    }
 
-                // 응답 데이터 출력
-                System.out.println(response.toString());
-            } else {
-                System.out.println("API 호출 실패. 응답 코드: " + responseCode);
-            }
-
-            connection.disconnect();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ;
+    public List<MusicalPresent> getMusicalsByIds(List<Integer> musicalIds) {
+        return musicalPresentRepository.findByMusicalIdIn(musicalIds);
     }
 }
