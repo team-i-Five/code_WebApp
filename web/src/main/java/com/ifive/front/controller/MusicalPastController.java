@@ -89,4 +89,29 @@ public class MusicalPastController {
         
     }
 
+    @GetMapping("/tags/allTagsSelected")
+    public String sendAllTags(@RequestParam(name = "tag1") String tag1, 
+    @RequestParam(name = "tag2") String tag2, @RequestParam(name = "tag3") String tag3, Model model){
+        
+        log.info("태그 1 : "+tag1);
+        log.info("태그 2 : "+tag2);
+        log.info("태그 3 : "+tag3);
+
+        
+
+        List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByAllTags(
+                                            tagName.get(tag1),tagName.get(tag2), tagName.get(tag3)
+                                        );
+
+        log.info("쿼리문 결과 DTO : "+mpdl);
+        log.info("쿼리문 결과 개수 : "+mpdl.size());
+
+        model.addAttribute("tagMusicalList", mpdl);
+        // model.addAttribute("tag1", tag1);
+        // model.addAttribute("tag2", tag2);
+        // model.addAttribute("tag3", tag2);
+
+        return "good" ;
+        
+    }
 }

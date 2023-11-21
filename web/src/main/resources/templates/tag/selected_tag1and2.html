@@ -39,9 +39,12 @@
     <script th:inline="javascript">
         /*<![CDATA[*/
         function redirectToUrlWithTag3(tag3) {
-            var baseUrl = '/tags/tag1&tag2&tag3';
+            var baseUrl = '/tags/allTagsSelected' ;
             const tag1 = /*[[${tag1}]]*/ ;
             const tag2 = /*[[${tag2}]]*/ ;
+            console.log(tag1);
+            console.log(tag2);
+            console.log(tag3);
             var url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 +'&tag3=' + tag3 ; // 수정된 부분: '?' 대신 '&'
     
             window.location.href = url;
