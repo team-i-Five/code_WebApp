@@ -1,4 +1,4 @@
-.group-start {
+group-start {
     margin-left: 0; /* 5의 배수일 때 그룹의 첫 번째 요소에는 왼쪽 마진을 0으로 설정 */
 }
 
