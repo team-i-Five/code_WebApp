@@ -1,0 +1,51 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+</head>
+
+<body>
+    <nav class="navbar fixed-top"
+        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+
+    <div class="container" th:if="${tag2 == null}">
+        <h1 th:text="'선택된 태그 : ' + ${tagName1}" ></h1>
+        
+        <div class="container" th:replace="~{fragment/common_tag :: tagList(${tag1})}"></div>
+
+        <div class="list-image-container" th:replace="~{fragment/common_tag :: musicalList()}"></div>
+
+        <div class="slider-container" th:replace="~{fragment/common_tag :: prevNextBtn()}"></div>
+
+    </div>
+
+    <div class="container" th:if="${tag2 != null}">
+        <h1 th:text="'선택된 태그 : ' + ${tagName1} + ' , ' + ${tagName2}" ></h1>
+        
+        <div class="container" th:replace="~{fragment/common_tag :: tagList2(${tag1}, ${tag2})}"></div>
+
+        <div class="list-image-container" th:replace="~{fragment/common_tag :: musicalList()}"></div>
+
+        <div class="slider-container" th:replace="~{fragment/common_tag :: prevNextBtn()}"></div>
+
+    </div>
+
+    <div class="container" th:if="${tag2 != null and tag3 !=null }">
+        <h1 th:text="'선택된 태그 : ' + ${tagName1} + ' , ' + ${tagName2} +' , ' + ${tagName3}" ></h1>
+            
+        <div class="list-image-container" th:replace="~{fragment/common_tag :: musicalList()}"></div>
+
+        <div class="slider-container" th:replace="~{fragment/common_tag :: prevNextBtn()}"></div>
+    </div>
+
+    <script th:inline="javascript">
+        let musicals = /*[[ ${musicals} ]]*/[];
+        const tag1 = /*[[${tag1}]]*/[] ;
+        const tag2 = /*[[${tag2}]]*/[] ;
+        console.log(tag1);
+        console.log(tag2); 
+    </script>
+
+    <script src="/js/list.js"></script>
+</body>
+</html>

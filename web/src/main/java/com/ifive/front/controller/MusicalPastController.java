@@ -82,9 +82,11 @@ public class MusicalPastController {
         else{
         model.addAttribute("musicals", mpdl);
         model.addAttribute("tag1", tag1);
-        model.addAttribute("tagName", tagNameFront.get(tag1));
+        model.addAttribute("tagName1", tagNameFront.get(tag1));
+        model.addAttribute("tag2", null);
+        model.addAttribute("tagName2", null);
         
-        return "tag/tag1_list" ;
+        return "tag/tag_list" ;
         }
     }
 
@@ -110,7 +112,7 @@ public class MusicalPastController {
             model.addAttribute("tagName1", tagNameFront.get(tag1));
             model.addAttribute("tagName2", tagNameFront.get(tag2));
 
-            return "tag/tag2_list";
+            return "tag/tag_list";
         }
         
     }
@@ -142,7 +144,7 @@ public class MusicalPastController {
             model.addAttribute("tagName2", tagNameFront.get(tag2));
             model.addAttribute("tagName3", tagNameFront.get(tag3));
 
-            return "tag/all_tags_list" ;
+            return "tag/tag_list" ;
         }
     }
 }

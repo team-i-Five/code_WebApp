@@ -92,19 +92,7 @@
     </div>
     <script th:inline="javascript">
         var musicals = /*[[ ${musicals} ]]*/[];
-
-        /*<![CDATA[*/
-        function redirectToUrlWithTag2(tag2) {
-            var baseUrl = '/tags/tag1&tag2';
-            const tag1 = /*[[${tag1}]]*/[] ;
-            console.log(tag1);
-            console.log(tag2);
-            var url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
-    
-            window.location.href = url;
-        }
-        /*]]>*/
-        
+        const tag1 = /*[[${tag1}]]*/[] ;       
     </script>
 
     <script src="/js/list.js"></script>
