@@ -28,11 +28,24 @@
         body {
             font-family: 'Noto Sans KR', sans-serif;
         }
+        .navbar-brand {
+            display: flex;
+            color: #F17F42;
+            font-size: 1.8rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            color : #000000;
+            font-size: 1.3rem;
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md fixed-top" th:fragment="top-nav(menu)" style="background-color: #141517">
+    <!-- 네비게이션 바 배경색 변경, 그림자 추가 -->
+    <nav class="navbar navbar-expand-md fixed-top" th:fragment="top-nav(menu)"
+    style="background-color: #FFFFFF; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
         <a class="navbar-brand" href="#" th:href="@{/}">mumo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
             aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -57,8 +70,10 @@
                     <a class="nav-link" href="#" th:href="@{/rank}">예매사이트별 일간 랭킹<span class="sr-only"
                             th:if="${menu} == 'rank'">(current)</span></a>
                 </li>
+            </ul>
         </div>
     </nav>
+
     <footer th:fragment="footer">
         <!-- footer 내용 -->
         <!-- Bootstrap Bundle -->

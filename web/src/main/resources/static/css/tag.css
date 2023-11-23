@@ -14,6 +14,35 @@ body {
 .btn-primary {
     font-size: 3rem; /* 버튼 텍스트 크기 조절 */
     margin: 10px; /* 각 버튼 사이 여백 조절 */
-    background-color: #FD7F4F;
-    border-color: #FD7F4F;
+    background-color: #F17F42;
+    border-color: #F17F42;
 }
+
+.btn-primary:hover {
+  background-color: #ffffff; /* 커서를 올렸을 때 배경색 */
+  color: #F17F42; /* 커서를 올렸을 때 글자색 */
+  border-color: #F17F42; /* 커서를 올렸을 때 테두리색 */
+}
+
+/*테마 선택하기 박스*/
+.theme-info {
+  background-color: #FFEFD5; /* 연한 주황색 배경색 */
+  padding: 20px; /* 내부 여백 조정 */
+  border-radius: 8px; /* 모서리를 둥글게 */
+  width: 80%; /* 화면의 80%를 차지하도록 설정 */
+  margin: 5px auto 80px; /* 위 20px, 아래 100px, 좌우 가운데 정렬 */
+}
+
+/*테마 버튼 박스*/
+.btn-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px; /* 버튼 사이의 간격 조절 */
+}
+
+.btn {
+  margin: 5px; /* 각 버튼 주변 여백 조절 */
+}
+
+
