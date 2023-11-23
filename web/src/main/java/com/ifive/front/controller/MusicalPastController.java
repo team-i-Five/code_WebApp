@@ -73,7 +73,7 @@ public class MusicalPastController {
 
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1(tagName.get(tag1));
         
-        // log.info("쿼리문 결과 DTO : "+mpdl);
+        log.info("쿼리문 결과 DTO : "+mpdl);
         log.info("쿼리문 결과 개수 : "+mpdl.size());
 
         if(mpdl.size() == 0){

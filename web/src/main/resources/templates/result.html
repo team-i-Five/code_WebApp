@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 인터파크 랭킹 | 뮤모 </title>
+    <link rel="stylesheet" href="/css/rank.css" th:replace="~{fragment/common :: head('rank','/css/rank.css')}">
+    <!-- 로고 Font Awesome CDN 추가 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('rank')}"></nav>
+    <div style="margin-top:100px;">
+        <p th:text="${presentResults}"></p>
+    </div>
+</body>
+
+</html>
