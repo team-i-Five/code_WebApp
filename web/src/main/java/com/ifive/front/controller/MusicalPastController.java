@@ -144,7 +144,7 @@ public class MusicalPastController {
             model.addAttribute("tagName2", tagNameFront.get(tag2));
             model.addAttribute("tagName3", tagNameFront.get(tag3));
 
-            return "tag/tag_list" ;
+            return "tag/all_tags_list" ;
         }
     }
 }

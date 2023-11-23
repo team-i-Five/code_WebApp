@@ -69,10 +69,6 @@ group-start {
     border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.navbar {
-    height: 56px; /* 기본 네비게이션 바 높이 */
-}
-
 .musical-contents {
     display: flex;
     overflow: hidden; /*가로로 넘어가는내용 안보이게*/
