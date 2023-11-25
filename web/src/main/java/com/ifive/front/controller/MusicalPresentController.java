@@ -53,7 +53,9 @@ public class MusicalPresentController {
     @GetMapping("/ml/{id}")
     public String drawPresent(@PathVariable(name = "id") String id, RedirectAttributes redirectAttributes) {
         List<MusicalPresentDTO> musicalPresents = musicalPresentService.getPresentDTOsbyIdFromML(id);
+        // List<MusicalPresentDTO> musicalPresents2 = musicalPresentService.getMusicalById(186925);
 
+        // log.info("wdwdwd : "+musicalPresents2 );
         log.info("ㅇㅈㅇㅈㅇㅈ : " + musicalPresents);
 
         // 데이터를 RedirectAttributes에 추가

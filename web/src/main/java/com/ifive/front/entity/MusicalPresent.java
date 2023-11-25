@@ -8,14 +8,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@ToString(of = {"title", "musicalId", "posterUrl"}, includeFieldNames = false)
+// @ToString(of = {"title", "musicalId", "posterUrl"}, includeFieldNames = false)
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "musical_present")
+@Getter
 public class MusicalPresent {
     @Id
     @Column

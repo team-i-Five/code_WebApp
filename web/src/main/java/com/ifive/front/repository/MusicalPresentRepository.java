@@ -22,5 +22,8 @@ public interface MusicalPresentRepository extends JpaRepository<MusicalPresent, 
     @Query("SELECT mp FROM MusicalPast mp WHERE mp.tag1 = :tag1 AND mp.tag2 = :tag2 AND mp.tag3 = :tag3")
     List<MusicalPresent> queryByAllTags(String tag1, String tag2, String tag3); 
 
+    // SELECT * FROM MusicalPresent WHERE MusicalId IN (musicalIds); 와 같은 쿼리문
     List<MusicalPresent> findByMusicalIdIn(List<Integer> musicalIds);
+
+    // List<MusicalPresent> findByMusicalId(Integer musicalId);
 }

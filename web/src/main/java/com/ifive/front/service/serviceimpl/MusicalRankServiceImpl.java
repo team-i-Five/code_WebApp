@@ -11,7 +11,9 @@ import com.ifive.front.entity.MusicalRank;
 import com.ifive.front.repository.MusicalRankRepository;
 import com.ifive.front.service.MusicalRankService;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Service
 public class MusicalRankServiceImpl implements MusicalRankService {
     
@@ -25,9 +27,12 @@ public class MusicalRankServiceImpl implements MusicalRankService {
     @Override
     public List<MusicalRankDTO> getMusicalRankListByUpdateDateSiteName(String updateDate, String siteName){
         List<MusicalRank> mrList = musicalRankRepository.queryByUpdateDateSiteName(updateDate, siteName);
+        log.info("mrList : "+mrList);
+
         List<MusicalRankDTO> mrd = new ArrayList<>();
         
         for(MusicalRank mr : mrList){
+            log.info("mr : "+mr);
             mrd.add(mr.toDTO());
         }
 

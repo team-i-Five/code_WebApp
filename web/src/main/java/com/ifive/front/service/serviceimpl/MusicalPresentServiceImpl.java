@@ -15,10 +15,14 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.beans.factory.annotation.Value;
 
 import com.ifive.front.dto.MusicalPresentDTO;
+import com.ifive.front.entity.MusicalPast;
 import com.ifive.front.entity.MusicalPresent;
 import com.ifive.front.repository.MusicalPresentRepository;
 import com.ifive.front.service.MusicalPresentService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class MusicalPresentServiceImpl implements MusicalPresentService {
 
@@ -52,6 +56,7 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         return mplDto;
     }
 
+    @Override
     public List<Integer> getIDsFromJsonResponse(String jsonResponse) {
         List<Integer> musicalIds = new ArrayList<>();
 
@@ -67,7 +72,8 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         return musicalIds;
     }
 
-    public List<MusicalPresent> getPresentDTOsbyIdFromML(String id) {
+    @Override
+    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id) {
         // application-aws.properties
         String apiUrl = mlUrl + id;
         // ml에서 받은 json string 파싱할 곳
@@ -75,14 +81,52 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
 
         // GET 요청 보내고 JSON 응답 받기
         String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
+        log.info("jsonResponse : "+jsonResponse);
 
         // JSON String 파싱해서 id리스트로 가져옴
         ids =  getIDsFromJsonResponse(jsonResponse);
+        log.info("ids : " + ids);
 
         return getMusicalsByIds(ids);
     }
 
-    public List<MusicalPresent> getMusicalsByIds(List<Integer> musicalIds) {
-        return musicalPresentRepository.findByMusicalIdIn(musicalIds);
+    @Override
+    public List<MusicalPresentDTO> getMusicalsByIds(List<Integer> musicalIds) {
+        List<MusicalPresent> mpl = musicalPresentRepository.findByMusicalIdIn(musicalIds);
+        // log.info("mpl : "+ mpl);
+
+        List<MusicalPresentDTO> mpdl =  new ArrayList<>();
+
+        for(MusicalPresent mp : mpl){
+            // log.info("mplmpl : "+mpl);
+            // log.info("mpmp : "+mp);
+            
+            mpdl.add(mp.toDTO());
+        }
+
+        log.info("mpdl :  " + mpdl);
+
+        return mpdl;        
     }
+
+    // @Override
+    // public List<MusicalPresentDTO> getMusicalById(Integer musicalId){
+    //     List<MusicalPresent> mpl2 = musicalPresentRepository.findByMusicalId(musicalId);
+    //     log.info("mpl2 : "+ mpl2);
+
+    //     List<MusicalPresentDTO> mpdl2 =  new ArrayList<>();
+
+    //     for(MusicalPresent mp : mpl2){
+    //         log.info("mplmpl2 : "+mpl2);
+    //         log.info("mpmp2 : "+mp);
+            
+    //         mpdl2.add(mp.toDTO());
+    //     }
+
+    //     log.info("mpdl2 :  " + mpdl2);
+
+    //     return mpdl2;  
+
+    // }
 }
+
