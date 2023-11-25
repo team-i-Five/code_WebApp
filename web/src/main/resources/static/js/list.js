@@ -1,99 +1,98 @@
 var selectedIndex = 0; // 초기값 설정
 
-document.addEventListener("DOMContentLoaded", function() {
-  var images = document.querySelectorAll(".list-image");
+document.addEventListener("DOMContentLoaded", function () {
+  var images = document.querySelectorAll("#slider-image");
   images.forEach(function (image, index) {
-      image.addEventListener("click", function () {
-          imageClickHandler(index);
-      });
+    image.addEventListener("click", function () {
+      imageClickHandler(index);
+    });
   });
 
   var selectedIndex = 0; // 초기값 설정
 
   function updateSelectedImage() {
-      const selectedImage = document.getElementById("selectedImage");
-      const selectedId = document.getElementById("selectedId");
-      const selectedTitle = document.getElementById("selectedTitle"); // 선택된 제목을 나타내는 요소
-      const selectedSys = document.getElementById("selectedSys");
-      const selectedGenre = document.getElementById("selectedGenre");
-      const selectedDate = document.getElementById("selectedDate");
-      const selectedLocation = document.getElementById("selectedLocation");
-      const selectedRunning = document.getElementById("selectedRunning");
-      const index = selectedIndex % musicals.length; // index를 musicals 배열의 길이로 나눈 나머지를 사용하여 배열을 순환하도록 함
-      selectedImage.src = musicals[index].posterUrl;
-      selectedId.textContent = musicals[index].musicalId;
-      selectedTitle.textContent = musicals[index].title; // 선택된 이미지의 제목 업데이트
-      selectedSys.textContent = musicals[index].synopsis;
-      selectedGenre.textContent = musicals[index].genre;
-      selectedDate.textContent = musicals[index].date;
-      selectedLocation.textContent = musicals[index].location;
-      selectedRunning.textContent = musicals[index].runningTime;
+    const selectedImage = document.getElementById("selectedImage");
+    const selectedTitle = document.getElementById("selectedTitle"); // 선택된 제목을 나타내는 요소
+    const selectedSys = document.getElementById("selectedSys");
+    const selectedGenre = document.getElementById("selectedGenre");
+    const selectedDate = document.getElementById("selectedDate");
+    const selectedLocation = document.getElementById("selectedLocation");
+    const selectedRunning = document.getElementById("selectedRunning");
+    const index = selectedIndex % musicals.length; // index를 musicals 배열의 길이로 나눈 나머지를 사용하여 배열을 순환하도록 함
+    selectedImage.src = musicals[index].posterUrl;
+    selectedTitle.textContent = musicals[index].title; // 선택된 이미지의 제목 업데이트
+    selectedSys.textContent = musicals[index].synopsis;
+    selectedGenre.textContent = musicals[index].genre;
+    selectedDate.textContent = musicals[index].date;
+    selectedLocation.textContent = musicals[index].location;
+    selectedRunning.textContent = musicals[index].runningTime;
 
 
-      // console.log(musicals[index].musicalId)
-      // window.location.href = "/list/"+musicals[index].musicalId;
+    // console.log(musicals[index].musicalId)
+    // window.location.href = "/list/"+musicals[index].musicalId;
   }
 
   function imageClickHandler(index) {
-      console.log("Selected Index:", index);
-      selectedIndex = index;
-      updateSelectedImage();
+    console.log("Selected Index:", index);
+    selectedIndex = index;
+    updateSelectedImage();
   }
 
   updateSelectedImage(); // 초기 이미지 업데이트
+  //showSlides(); // 초기슬라이더
 });
 
+// --------------------------------------------------------------- 슬라이더 ---------------------------------------------
+// JQuery 문법 $(선택자).동작함수();
 
+$(function () {
+  $('.slick-container').slick({
+    slide: 'div',		//슬라이드 되어야 할 태그 ex) div, li 
+    Infinity: true,
+    slidesToShow: 5,		// 한 화면에 보여질 컨텐츠 개수
+    slidesToScroll: 5,		//스크롤 한번에 움직일 컨텐츠 개수
+    speed: 300,	 // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+  });
+})
+// var currentIndex = 0; // 현재 보이는 슬라이드의 시작 인덱스
+// var itemsPerSlide = 5; // 한 번에 보이는 아이템의 수
+// var slides = document.querySelectorAll('.slider-content');
 
-
-//슬라이더 업데이트 5개씩
-let startIndex = 0; // 슬라이드 그룹의 시작 인덱스
-
-function prevBtn_click() {
-  const container = document.querySelector('.musical-contents');
-  const slideWidth = document.querySelector('.slider-content').offsetWidth;
-  const visibleSlides = Math.floor(container.clientWidth / slideWidth);
-  
-  // 이전 버튼 클릭 시 시작 인덱스를 조절하여 슬라이더를 이동
-  startIndex = Math.max(0, startIndex - visibleSlides);
-  container.scrollLeft = startIndex * slideWidth;
-}
-
-function nextBtn_click() {
-  const container = document.querySelector('.musical-contents');
-  const slideWidth = document.querySelector('.slider-content').offsetWidth;
-  const visibleSlides = Math.floor(container.clientWidth / slideWidth);
-  const totalSlides = document.querySelectorAll('.slider-content').length;
-
-  // 다음 버튼 클릭 시 시작 인덱스를 조절하여 슬라이더를 이동
-  startIndex = Math.min(totalSlides - visibleSlides, startIndex + visibleSlides);
-  container.scrollLeft = startIndex * slideWidth;
-}
-
-document.querySelector('.prev-btn').addEventListener('click', prevBtn_click);
-document.querySelector('.next-btn').addEventListener('click', nextBtn_click);
-
-
-// ------------------ 슬라이더 버튼 --------------------------------
-// function prevBtn_click() {
-//   const container = document.querySelector('.musical-contents');
-//   const slideWidth = document.querySelector('.slider-content').offsetWidth;
-//   const visibleSlides = Math.floor(container.clientWidth / slideWidth);
-//   container.scrollLeft -= slideWidth * visibleSlides;
+// function showSlides() {
+//   // 현재 슬라이드를 기준으로 다음 5개 아이템을 표시
+//   for (var i = 0; i < slides.length; i++) {
+//     slides[i].style.opacity = '0';
+//   }
+//   for (var i = currentIndex; i < currentIndex + itemsPerSlide && i < slides.length; i++) {
+//     slides[i].style.opacity = '1';
+//   }
 // }
 
-// function nextBtn_click() {
-//   const container = document.querySelector('.musical-contents');
-//   const slideWidth = document.querySelector('.slider-content').offsetWidth;
-//   const visibleSlides = Math.floor(container.clientWidth / slideWidth);
-//   container.scrollLeft += slideWidth * visibleSlides;
+// function nextSlide() {
+//   var totalSlides = slides.length;
+//   if (currentIndex + itemsPerSlide < totalSlides) {
+//     currentIndex += itemsPerSlide;
+//     showSlides();
+//     scrollToCurrentSlide();
+//   }
 // }
 
-// document.querySelector('.prev-btn').addEventListener('click', prevBtn_click);
-// document.querySelector('.next-btn').addEventListener('click', nextBtn_click);
+// function prevSlide() {
+//   if (currentIndex - itemsPerSlide >= 0) {
+//     currentIndex -= itemsPerSlide;
+//     showSlides();
+//     scrollToCurrentSlide();
+//   }
+// }
 
+// function scrollToCurrentSlide() {
+//   var currentSlide = slides[currentIndex];
+//   currentSlide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
+// }
+
+// --------------------------------------------- 태그관련 ---------------------------------------------
 function goNext() {
-  let url = '/tags' ;
+  let url = '/tags';
   window.location.href = url;
 }
 
@@ -115,11 +114,11 @@ function redirectToUrlWithTag2(tag2) {
 }
 
 function redirectToUrlWithTag3(tag3) {
-  let baseUrl = '/tags/allTagsSelected' ;
+  let baseUrl = '/tags/allTagsSelected';
   console.log(tag1);
   console.log(tag2);
   console.log(tag3);
-  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 +'&tag3=' + tag3 ; // 수정된 부분: '?' 대신 '&'
+  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
 
   window.location.href = url;
 }

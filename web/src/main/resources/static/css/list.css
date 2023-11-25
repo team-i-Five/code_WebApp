@@ -22,12 +22,19 @@ group-start {
     margin-bottom: 10px;   
 }
 
-.list-image-container {
+.selected-container {
     max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 #selectedImage {
-    width: 40%;
+    flex: 40%;
+}
+
+#selectedInfo{
+    flex: 60%;
+    margin-left: 1rem;
 }
 
 .musical-details {
@@ -44,31 +51,11 @@ group-start {
     vertical-align: top; /* 상단 정렬을 통해 텍스트가 위쪽에 위치하도록 설정 */
     margin-left: 10px; /* 좌측 여백을 조절, 필요에 따라 조절하세요 */
 }
-
 .max-lines {
     max-height: 12em; /* 표시할 최대 높이 */
     overflow: auto; /* 스크롤이 필요할 때만 표시 */
     -webkit-line-clamp: 10; /* 표시할 최대 줄 수 */
 }
-
-#selectedInfo{
-    width: 40%;
-    left: 47%;
-    margin-top: -47%;
-}
-
-.musical-id{
-    color: white;
-}
-
-.list-image {
-    width: 8rem;
-    height: 4.5rem;
-    object-fit: cover;
-    object-position: 50% 50%;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
 .musical-contents {
     display: flex;
     overflow: hidden; /*가로로 넘어가는내용 안보이게*/
@@ -81,39 +68,24 @@ group-start {
     max-width: 550px;
 }
 
-.slider-content {
-    margin: 10px 0.5rem; /* 각 아이템 간의 마진 설정 */
+
+
+/* -------------------여기서 부터 슬라이더 css------------------- */
+
+.slick-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.slider-container {
-    position: relative;
+#slider-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
-.prev-btn,
-.next-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    opacity: 0.8;
-}
-
-.prev-btn {
-    left: 0;
-    z-index: 2;
-}
-
-.next-btn {
-    right: 0;
-    z-index: 2;
-}
-
-/* 슬라이더 버튼에 호버 효과 추가 */
-.prev-btn:hover,
-.next-btn:hover {
-    background-color: #555;
+.slick-next {
+    content: '';
+    background: url('') center center no-repeat;
 }
