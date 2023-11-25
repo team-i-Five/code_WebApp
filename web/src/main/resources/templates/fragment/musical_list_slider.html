@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- 첫번째 메인이미지 (리스트 첫번째데이터) -->
+<div class="selected-container" th:fragment="musicalList()">
+    <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
+    <!-- 추가된 테이블 -->
+    <table class="musical-details" id="selectedInfo">
+        <thead>
+            <tr>
+                <th>제목</th>
+                <td th:text="${musicals[0].title}" id="selectedTitle"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>줄거리</th>
+                <!-- 줄거리를 10줄로 제한하여 표시하고, 10줄 이하일 경우 전체 내용을 표시 -->
+                <td th:if="${musicals[0].synopsis}" class="max-lines">
+                    <span th:text="${musicals[0].synopsis}" id="selectedSys"></span>
+                </td>
+            </tr>
+            <th>장르</th>
+            <td th:text="${musicals[0].genre}" id="selectedGenre"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>상영기간</th>
+                <td th:text="${musicals[0].date}" id="selectedDate"></td>
+            </tr>
+            <tr>
+                <th>장소</th>
+                <td th:text="${musicals[0].location}" id="selectedLocation"></td>
+            </tr>
+            <tr>
+                <th>상영시간</th>
+                <td th:text="${musicals[0].runningTime}" id="selectedRunning"></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<div class="slide-container" th:fragment="sliders(num)" style="margin-top:10px;">
+    <div class="show-slides" th:if="${num == '4'}">
+        <div th:each="musicalDTO : ${musicals}">
+            <!-- 각 MusicalDTO의 속성에 접근 -->
+            <li style="list-style: none;">
+                <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" data-index="${musicalDTO.index}"
+                    id="slider-image">
+            </li>
+        </div>
+        <div id="slide_paging" class="slide_paging mail_paging"></div>
+    </div>
+    <div class="show-one-slide" th:if="${num == '1'}">
+        <div th:each="musicalDTO : ${musicals}">
+            <!-- 각 MusicalDTO의 속성에 접근 -->
+            <li style="list-style: none;">
+                <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" data-index="${musicalDTO.index}"
+                    id="slider-image">
+            </li>
+        </div>
+        <div id="slide_paging" class="slide_paging mail_paging"></div>
+    </div>
+</div>

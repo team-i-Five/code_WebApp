@@ -17,6 +17,9 @@ import com.ifive.front.entity.MusicalPresent;
 import com.ifive.front.repository.MusicalPresentRepository;
 import com.ifive.front.service.MusicalPresentService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class MusicalPresentServiceImpl implements MusicalPresentService {
 
@@ -65,7 +68,7 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         return musicalIds;
     }
 
-    public List<MusicalPresent> getPresentDTOsbyIdFromML(String id) {
+    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id) {
         // application-aws.properties
         String apiUrl = mlUrl + id;
         // ml에서 받은 json string 파싱할 곳
@@ -76,11 +79,20 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
 
         // JSON String 파싱해서 id리스트로 가져옴
         ids =  getIDsFromJsonResponse(jsonResponse);
-
         return getMusicalsByIds(ids);
     }
 
-    public List<MusicalPresent> getMusicalsByIds(List<Integer> musicalIds) {
-        return musicalPresentRepository.findByMusicalIdIn(musicalIds);
+    public List<MusicalPresentDTO> getMusicalsByIds(List<Integer> musicalIds) {
+        List<MusicalPresent> mpl = musicalPresentRepository.findByMusicalIdIn(musicalIds);
+        List<MusicalPresentDTO> mplDto = new ArrayList<>();
+        
+        for(MusicalPresent mp : mpl){
+            log.info("****************add mp : {}",mp.toDTO());
+            mplDto.add(mp.toDTO());
+            log.info("****************added mplDto : {}",mplDto.toString());
+        }
+        
+        
+        return mplDto;
     }
 }

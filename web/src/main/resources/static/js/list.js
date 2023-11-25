@@ -39,56 +39,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   updateSelectedImage(); // 초기 이미지 업데이트
-  //showSlides(); // 초기슬라이더
 });
 
 // --------------------------------------------------------------- 슬라이더 ---------------------------------------------
 // JQuery 문법 $(선택자).동작함수();
-
-$(function () {
-  $('.slick-container').slick({
-    slide: 'div',		//슬라이드 되어야 할 태그 ex) div, li 
-    Infinity: true,
-    slidesToShow: 5,		// 한 화면에 보여질 컨텐츠 개수
-    slidesToScroll: 5,		//스크롤 한번에 움직일 컨텐츠 개수
-    speed: 300,	 // 다음 버튼 누르고 다음 화면 뜨는데까지 걸리는 시간(ms)
+$('.show-slides').slick(
+  {
+    infinite: true, // 무한반복
+    slidesToShow: 4, // 화면에 보여질 갯수
+    slidesToScroll: 4, // 슬라이드 갯수
+    dots: true, // 네비버튼
+    draggable: true, // 드래그기능 
+    speed: 400
   });
-})
-// var currentIndex = 0; // 현재 보이는 슬라이드의 시작 인덱스
-// var itemsPerSlide = 5; // 한 번에 보이는 아이템의 수
-// var slides = document.querySelectorAll('.slider-content');
 
-// function showSlides() {
-//   // 현재 슬라이드를 기준으로 다음 5개 아이템을 표시
-//   for (var i = 0; i < slides.length; i++) {
-//     slides[i].style.opacity = '0';
-//   }
-//   for (var i = currentIndex; i < currentIndex + itemsPerSlide && i < slides.length; i++) {
-//     slides[i].style.opacity = '1';
-//   }
-// }
-
-// function nextSlide() {
-//   var totalSlides = slides.length;
-//   if (currentIndex + itemsPerSlide < totalSlides) {
-//     currentIndex += itemsPerSlide;
-//     showSlides();
-//     scrollToCurrentSlide();
-//   }
-// }
-
-// function prevSlide() {
-//   if (currentIndex - itemsPerSlide >= 0) {
-//     currentIndex -= itemsPerSlide;
-//     showSlides();
-//     scrollToCurrentSlide();
-//   }
-// }
-
-// function scrollToCurrentSlide() {
-//   var currentSlide = slides[currentIndex];
-//   currentSlide.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'start' });
-// }
+  $('.show-one-slide').slick(
+    {
+      infinite: true, // 무한반복
+      slidesToShow: 1, // 화면에 보여질 갯수
+      slidesToScroll: 1, // 슬라이드 갯수
+      dots: true, // 네비버튼
+      draggable: true, // 드래그기능 
+      speed: 400
+    });
 
 // --------------------------------------------- 태그관련 ---------------------------------------------
 function goNext() {

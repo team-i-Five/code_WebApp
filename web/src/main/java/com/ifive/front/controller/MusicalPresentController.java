@@ -9,10 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ifive.front.entity.MusicalPresent;
+import com.ifive.front.dto.MusicalPresentDTO;
 import com.ifive.front.service.MusicalPresentService;
 
 import lombok.extern.slf4j.Slf4j;
@@ -48,16 +46,13 @@ public class MusicalPresentController {
     }
 
     @GetMapping("/ml/{id}")
-    @ResponseBody
     public String drawPresent(@PathVariable(name = "id") String id, Model model) {
-        List<MusicalPresent> musicalPresents = musicalPresentService.getPresentDTOsbyIdFromML(id);
-
-        StringBuilder responseBuilder = new StringBuilder();
-
-        for(MusicalPresent musicalPresent : musicalPresents) {
-            responseBuilder.append(musicalPresent.toString()).append("\n");
-        }
- 
-        return responseBuilder.toString();
+        List<MusicalPresentDTO> mpdl = musicalPresentService.getPresentDTOsbyIdFromML(id);
+        log.info("mpdl = {}",mpdl.toString());
+        model.addAttribute("musicals", mpdl);
+        model.addAttribute("tag1", null);
+        model.addAttribute("tag2", null);
+        
+        return "tag/tag_list";
     }
 }

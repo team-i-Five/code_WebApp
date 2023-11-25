@@ -1,25 +1,27 @@
 group-start {
-    margin-left: 0; /* 5의 배수일 때 그룹의 첫 번째 요소에는 왼쪽 마진을 0으로 설정 */
+    margin-left: 0;
+    /* 5의 배수일 때 그룹의 첫 번째 요소에는 왼쪽 마진을 0으로 설정 */
 }
 
 .navbar {
-    color : #141517;
+    color: #141517;
     background-color: #141517;
 }
 
 .body {
     display: block;
 }
-.container{
+
+.container {
     margin-top: 60px;
 }
 
-.sub_container{
+.sub_container {
     text-align: center;
 }
 
-.btn{
-    margin-bottom: 10px;   
+.btn {
+    margin-bottom: 10px;
 }
 
 .selected-container {
@@ -32,7 +34,7 @@ group-start {
     flex: 40%;
 }
 
-#selectedInfo{
+#selectedInfo {
     flex: 60%;
     margin-left: 1rem;
 }
@@ -43,24 +45,35 @@ group-start {
 }
 
 .musical-details th {
-    display: inline-block; /* 인라인 블록으로 설정하여 가로 배치 */
+    display: inline-block;
+    /* 인라인 블록으로 설정하여 가로 배치 */
 }
 
 .musical-details td {
-    display: inline-block; /* 인라인 블록으로 설정하여 가로 배치 */
-    vertical-align: top; /* 상단 정렬을 통해 텍스트가 위쪽에 위치하도록 설정 */
-    margin-left: 10px; /* 좌측 여백을 조절, 필요에 따라 조절하세요 */
+    display: inline-block;
+    /* 인라인 블록으로 설정하여 가로 배치 */
+    vertical-align: top;
+    /* 상단 정렬을 통해 텍스트가 위쪽에 위치하도록 설정 */
+    margin-left: 10px;
+    /* 좌측 여백을 조절, 필요에 따라 조절하세요 */
 }
+
 .max-lines {
-    max-height: 12em; /* 표시할 최대 높이 */
-    overflow: auto; /* 스크롤이 필요할 때만 표시 */
-    -webkit-line-clamp: 10; /* 표시할 최대 줄 수 */
+    max-height: 12em;
+    /* 표시할 최대 높이 */
+    overflow: auto;
+    /* 스크롤이 필요할 때만 표시 */
+    -webkit-line-clamp: 10;
+    /* 표시할 최대 줄 수 */
 }
+
 .musical-contents {
     display: flex;
-    overflow: hidden; /*가로로 넘어가는내용 안보이게*/
+    overflow: hidden;
+    /*가로로 넘어가는내용 안보이게*/
     z-index: 1;
 }
+
 .musical-details {
     position: relative;
     top: -70%;
@@ -71,21 +84,51 @@ group-start {
 
 
 /* -------------------여기서 부터 슬라이더 css------------------- */
-
-.slick-container {
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.slide-container {
+    height: 15rem;
+    width: 100%;
 }
 
-#slider-image {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
+.slide-container li {
+    display: inline-block !important;
+    position: relative;
+    padding: 0;
+
+    /* 이미지 크기 및 위치조정 */
+    width: auto !important;
+    height: 100%;
+
+    /* 이미지 중앙정렬을 하기 위함 */
+    margin-left: 1.5rem; 
+    margin-right: 1.5rem;
+}
+/* 슬라이드 스크롤버튼 */
+.slick-prev:before,
+.slick-next:before {
+    font-size: 2.5rem;
+    color: #444444;
 }
 
+.slick-prev {
+    left: -2rem;
+    opacity: 0.3;
+}
 .slick-next {
-    content: '';
-    background: url('') center center no-repeat;
+    right: -0.7rem;
+    opacity: 0.3;
+}
+/* 슬라이드 페이징 안내 */
+.slide .slick-dots{
+    display:none!important;
+}
+
+.slide_paging{
+    margin-top:5px;
+    text-align:right;
+    font-size:14px;
+    color:#aaa;
+    cursor:default;
+}
+.slide_paging .page{
+    color:#5f7aff
 }
