@@ -11,7 +11,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Entity
 // @ToString(of = {"title", "musicalId", "posterUrl"}, includeFieldNames = false)
 @ToString
@@ -89,6 +91,8 @@ public class MusicalPresent {
 
     public MusicalPresentDTO toDTO() {
         ObjectMapper objectMapper = new ObjectMapper();
+        // log.info("ObjectMapper : "+ objectMapper.convertValue(this, MusicalPresentDTO.class));
+
         return objectMapper.convertValue(this, MusicalPresentDTO.class);
     }
 }

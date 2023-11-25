@@ -81,11 +81,11 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
 
         // GET 요청 보내고 JSON 응답 받기
         String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
-        log.info("jsonResponse : "+jsonResponse);
+        // log.info("jsonResponse : "+jsonResponse);
 
         // JSON String 파싱해서 id리스트로 가져옴
         ids =  getIDsFromJsonResponse(jsonResponse);
-        log.info("ids : " + ids);
+        // log.info("ids : " + ids);
 
         return getMusicalsByIds(ids);
     }
@@ -93,7 +93,7 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
     @Override
     public List<MusicalPresentDTO> getMusicalsByIds(List<Integer> musicalIds) {
         List<MusicalPresent> mpl = musicalPresentRepository.findByMusicalIdIn(musicalIds);
-        // log.info("mpl : "+ mpl);
+        // log.info("MusicalPresent Entity : "+ mpl);
 
         List<MusicalPresentDTO> mpdl =  new ArrayList<>();
 
@@ -104,7 +104,7 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
             mpdl.add(mp.toDTO());
         }
 
-        log.info("mpdl :  " + mpdl);
+        // log.info("MusicalPresent Entity to DTO :  " + mpdl);
 
         return mpdl;        
     }

@@ -27,15 +27,17 @@ public class MusicalRankServiceImpl implements MusicalRankService {
     @Override
     public List<MusicalRankDTO> getMusicalRankListByUpdateDateSiteName(String updateDate, String siteName){
         List<MusicalRank> mrList = musicalRankRepository.queryByUpdateDateSiteName(updateDate, siteName);
-        log.info("mrList : "+mrList);
+        // log.info("MusicalRank Entity : "+mrList);
 
         List<MusicalRankDTO> mrd = new ArrayList<>();
         
         for(MusicalRank mr : mrList){
             log.info("mr : "+mr);
             mrd.add(mr.toDTO());
+            
         }
 
+        // log.info("MusicalRank Entity to DTO : "+mrd);
         return mrd;        
         // return mrList.stream().map(this::convertToDTO).collect(Collectors.toList());
     }
