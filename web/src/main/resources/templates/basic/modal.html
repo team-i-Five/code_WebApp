@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical List</title>
+    <link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top"
+        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+
+    <div class="container" style="padding-top: 56px;">
+        <button id="modalOpenButton">모달창 열기</button>
+        <div id="modalContainer" class="hidden">
+            <div id="modalContent">
+                <!-- musicalList를 반복하면서 출력 -->
+                <div th:each="musicalDTO : ${musicals}">
+                    <!-- 각 MusicalDTO의 속성에 접근 -->
+                    <p th:text="${musicalDTO.getTitle()}">asd</p>
+                    <p th:text="${musicalDTO.getGenre()}"></p>
+                </div>
+                <button id="modalCloseButton">닫기</button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/list.js"></script>
+</body>
+
+</html>

@@ -16,7 +16,6 @@ body {
 .form-signin {
   width: 100%;
   max-width: 420px;
-  padding: 15px;
   margin: auto;
 }
 
@@ -68,17 +67,17 @@ body {
 }
 
 .form-label-group input:not(:-moz-placeholder-shown) {
-  padding-top: 1.25rem;
+  padding-top: .25rem;
   padding-bottom: .25rem;
 }
 
 .form-label-group input:not(:-ms-input-placeholder) {
-  padding-top: 1.25rem;
+  padding-top: .25rem;
   padding-bottom: .25rem;
 }
 
 .form-label-group input:not(:placeholder-shown) {
-  padding-top: 1.25rem;
+  padding-top: .25rem;
   padding-bottom: .25rem;
 }
 

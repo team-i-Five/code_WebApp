@@ -1,0 +1,128 @@
+<!-- 
+처음만든 랭킹 테이블 html
+-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musical Rank</title>
+    <link rel="stylesheet" href="/css/rank_table.css" th:replace="~{fragment/common :: head('rank','/css/rank_table.css')}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" 
+    th:replace="~{fragment/common :: top-nav('rank')}"></nav>
+
+    <div class="container-fluid" style="margin-top: 56px; ">
+
+        <div class="row">
+            <!-- 첫 번째 열 -->
+            <div class="col-4">
+                <div class="section">
+                    <h2>인터파크</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>순위</th>
+                                <th>이미지</th>
+                                <th>정보</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="interpark : ${interparkList}">
+                                <strong><td th:text="${interpark.ranking}"></td></strong>
+                                <td><img th:src="${interpark.posterUrl}" alt="Image"></td>
+                                <td>
+                                    <div>
+                                        <strong>제목:</strong> <span th:text="${interpark.title}"></span>
+                                    </div>
+                                    <div>
+                                        <strong>날짜:</strong> <span th:text="${interpark.date}"></span>
+                                    </div>
+                                    <div>
+                                        <strong>장소:</strong> <span th:text="${interpark.location}"></span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 두 번째 열 -->
+            <div class="col-4">
+                <div class="section">
+                <h2>티켓링크</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>순위</th>
+                            <th>이미지</th>
+                            <th>정보</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="ticketlink: ${ticketlinkList}">
+                            <strong><td th:text="${ticketlink.ranking}"></td></strong>
+                            <td><img th:src="${ticketlink.posterUrl}" alt=></td>
+                            <td>
+                                <div>
+                                    <strong>제목:</strong> <span th:text="${ticketlink.title}"></span>
+                                </div>
+                                <div>
+                                    <strong>날짜:</strong> <span th:text="${ticketlink.date}"></span>
+                                </div>
+                                <div>
+                                    <strong>장소:</strong> <span th:text="${ticketlink.location}"></span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            <!-- 세 번째 열 -->
+            <div class="col-4">
+                <div class="section">
+                <h2>예스24티켓</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>이미지</th>
+                        <th>정보</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="yes24ticket: ${yes24ticketList}">
+                        <strong><td th:text="${yes24ticket.ranking}"></td></strong>
+                        <td><img th:src="${yes24ticket.posterUrl}" alt=></td>
+                        <td>
+                            <div>
+                                <strong>제목:</strong> <span th:text="${yes24ticket.title}"></span>
+                            </div>
+                            <div>
+                                <strong>날짜:</strong> <span th:text="${yes24ticket.date}"></span>
+                            </div>
+                            <div>
+                                <strong>장소:</strong> <span th:text="${yes24ticket.location}"></span>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+        </div>
+
+    </div>
+
+        
+    <script src="/js/rank.js"></script>
+</body>
+
+</html>

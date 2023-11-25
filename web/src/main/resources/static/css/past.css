@@ -1,0 +1,64 @@
+.past {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.past_show {
+    position: relative;
+    margin: 10px 0;
+    display: flex; 
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.slider-content {
+    flex: 0 0 20%;
+}
+
+.musical_contents {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.musical_contents a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s ease-in-out;
+}
+
+.musical_contents img {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.text-container {
+    width: 300px; /* 텍스트의 원하는 너비 */
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.text-container:hover {
+    white-space: normal;
+    overflow: visible;
+}
+
+.musical_title {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.musical_location {
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.musical_duration {
+    font-size: 15px;
+    margin-bottom: 30px;
+}

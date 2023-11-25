@@ -1,0 +1,119 @@
+group-start {
+    margin-left: 0; /* 5의 배수일 때 그룹의 첫 번째 요소에는 왼쪽 마진을 0으로 설정 */
+}
+
+.navbar {
+    color : #141517;
+    background-color: #141517;
+}
+
+.body {
+    display: block;
+}
+.container{
+    margin-top: 60px;
+}
+
+.sub_container{
+    text-align: center;
+}
+
+.btn{
+    margin-bottom: 10px;   
+}
+
+.list-image-container {
+    max-width: 100%;
+}
+
+#selectedImage {
+    width: 40%;
+}
+
+.musical-details {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.musical-details th {
+    display: inline-block; /* 인라인 블록으로 설정하여 가로 배치 */
+}
+
+.musical-details td {
+    display: inline-block; /* 인라인 블록으로 설정하여 가로 배치 */
+    vertical-align: top; /* 상단 정렬을 통해 텍스트가 위쪽에 위치하도록 설정 */
+    margin-left: 10px; /* 좌측 여백을 조절, 필요에 따라 조절하세요 */
+}
+
+.max-lines {
+    max-height: 12em; /* 표시할 최대 높이 */
+    overflow: auto; /* 스크롤이 필요할 때만 표시 */
+    -webkit-line-clamp: 10; /* 표시할 최대 줄 수 */
+}
+
+#selectedInfo{
+    width: 40%;
+    left: 47%;
+    margin-top: -47%;
+}
+
+.musical-id{
+    color: white;
+}
+
+.list-image {
+    width: 8rem;
+    height: 4.5rem;
+    object-fit: cover;
+    object-position: 50% 50%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.musical-contents {
+    display: flex;
+    overflow: hidden; /*가로로 넘어가는내용 안보이게*/
+    z-index: 1;
+}
+.musical-details {
+    position: relative;
+    top: -70%;
+    min-width: 550px;
+    max-width: 550px;
+}
+
+.slider-content {
+    margin: 10px 0.5rem; /* 각 아이템 간의 마진 설정 */
+}
+
+.slider-container {
+    position: relative;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.prev-btn {
+    left: 0;
+    z-index: 2;
+}
+
+.next-btn {
+    right: 0;
+    z-index: 2;
+}
+
+/* 슬라이더 버튼에 호버 효과 추가 */
+.prev-btn:hover,
+.next-btn:hover {
+    background-color: #555;
+}

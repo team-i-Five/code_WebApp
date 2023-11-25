@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 티켓링크 랭킹 | 뮤모 </title>
+    <link rel="stylesheet" href="/css/rank.css" th:replace="~{fragment/common :: head('rank','/css/rank.css')}">
+    <!-- 로고 Font Awesome CDN 추가 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('rank')}"></nav>
+
+    <div class="ranking">
+        <div class="head">
+            <h1 class="site_title">티켓링크</h1>
+            <div class="today_date">     
+                <div class="arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <h3 th:text="${today}"></h3>
+                <div class="arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+            <div class="site_list">
+                <ul class="tab_list" role="tablist" data-tiara-layer="select">
+                    <li>
+                        <a href="/rank" class="site_tab" role="tab">인터파크</a>
+                    </li>
+                    <li>
+                        <a href="/rank/1" class="site_tab" role="tab" aria-selected="true">티켓링크</a>
+                    </li>
+                    <li>
+                        <a href="/rank/2" class="site_tab" role="tab">예스24티켓</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div th:replace="~{fragment/common_rank :: rankingShow(${ticketlinkList})}"></div>
+    </div>
+    
+    <script src="/js/rank.js"></script>
+</body>
+
+</html>

@@ -2,6 +2,7 @@ package com.ifive.front.service;
 
 import java.util.List;
 
+import com.ifive.front.dto.MusicalDTO;
 import com.ifive.front.entity.Musical;
 
 public interface MusicalService {
@@ -13,4 +14,20 @@ public interface MusicalService {
 
     // Musical List의 정보가 담긴 Json파일을 읽어와서 DB에 저장하는 메소드
     void saveMusicalFromJson(String jsonPath) throws Exception;
+
+    // DB에서 모든 뮤지컬 가져와서 DTO로 변환해서 반환
+    List<MusicalDTO> getAllMusicals();
+
+    // ID를 사용하여 특정 뮤지컬 정보를 가져오는 메소드
+    //MusicalDTO getMusicalById(int musicalId);
+
+
+    // // jsonResponse(rank, musicalId)를 MusicalWithRankDTO에 매핑하는 메소드, 내부에서 getMusicalFromDB를 호출함.
+    // List<MusicalIdWithRankDTO> getMusicalIdWithRankListDTOFromJson(String jsonResponse);
+
+    // // musicalId를 받아왔을때, 이걸로 DB를조회해서 매핑하는 처리
+    // Musical getMusicalFromDB(String musicalId);
+
+    // // jsonResponce를 이용해서 int rank, Musical Musical로 구성된 맵을 생성해서 반환
+    // Map<Integer, Musical> getMusicalRankMapFromJson(String jsonResponse);
 }
