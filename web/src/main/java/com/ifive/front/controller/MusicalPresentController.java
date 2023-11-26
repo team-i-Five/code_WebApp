@@ -52,7 +52,9 @@ public class MusicalPresentController {
         model.addAttribute("musicals", mpdl);
         model.addAttribute("tag1", null);
         model.addAttribute("tag2", null);
-        
+        model.addAttribute("slideNum", '1');
+        model.addAttribute("id", id);
+
         return "tag/tag_list";
     }
 }

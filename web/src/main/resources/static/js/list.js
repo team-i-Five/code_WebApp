@@ -39,59 +39,77 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   updateSelectedImage(); // 초기 이미지 업데이트
-});
 
-// --------------------------------------------------------------- 슬라이더 ---------------------------------------------
-// JQuery 문법 $(선택자).동작함수();
-$('.show-slides').slick(
-  {
-    infinite: true, // 무한반복
-    slidesToShow: 4, // 화면에 보여질 갯수
-    slidesToScroll: 4, // 슬라이드 갯수
-    dots: true, // 네비버튼
-    draggable: true, // 드래그기능 
-    speed: 400
-  });
 
+  // --------------------------------------------------------------- 슬라이더 ---------------------------------------------
+  // JQuery 문법 $(선택자).동작함수();
+  // 이건 태그결과 js
+  $('.show-slides').slick(
+    {
+      infinite: true, // 무한반복
+      slidesToShow: 4, // 화면에 보여질 갯수
+      slidesToScroll: 4, // 슬라이드 갯수
+      dots: true, // 네비버튼
+      speed: 400
+    });
+
+  /*<![CDATA[*/
+  // ml 결과 js
+  console.log(slideNum);
   $('.show-one-slide').slick(
     {
       infinite: true, // 무한반복
       slidesToShow: 1, // 화면에 보여질 갯수
       slidesToScroll: 1, // 슬라이드 갯수
+      centerMode: true,
       dots: true, // 네비버튼
-      draggable: true, // 드래그기능 
+      draggable: false, // 드래그기능 
       speed: 400
     });
+  if (slideNum == '1') {
+    $('.slick-prev').on('click', function () {
+      var currentSlideIndex = $('.show-one-slide').slick('slickCurrentSlide');
+      imageClickHandler(currentSlideIndex);
+    });
 
-// --------------------------------------------- 태그관련 ---------------------------------------------
-function goNext() {
-  let url = '/tags';
-  window.location.href = url;
-}
+    $('.slick-next').on('click', function () {
+      var currentSlideIndex = $('.show-one-slide').slick('slickCurrentSlide');
+      imageClickHandler(currentSlideIndex);
+    });
+  }
 
-function redirectToUrlWithTag1(tag) {
-  let baseUrl = '/tags/tag1';
-  let url = baseUrl + '?tag1=' + tag;
+  // --------------------------------------------- 태그관련 ---------------------------------------------
+  function goNext() {
+    let url = '/tags';
+    window.location.href = url;
+  }
 
-  window.location.href = url;
-}
+  function redirectToUrlWithTag1(tag) {
+    let baseUrl = '/tags/tag1';
+    let url = baseUrl + '?tag1=' + tag;
 
-function redirectToUrlWithTag2(tag2) {
-  let baseUrl = '/tags/tag1&tag2';
+    window.location.href = url;
+  }
 
-  console.log(tag1);
-  console.log(tag2);
-  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
+  function redirectToUrlWithTag2(tag2) {
+    let baseUrl = '/tags/tag1&tag2';
 
-  window.location.href = url;
-}
+    console.log(tag1);
+    console.log(tag2);
+    let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
 
-function redirectToUrlWithTag3(tag3) {
-  let baseUrl = '/tags/allTagsSelected';
-  console.log(tag1);
-  console.log(tag2);
-  console.log(tag3);
-  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
+    window.location.href = url;
+  }
 
-  window.location.href = url;
-}
+  function redirectToUrlWithTag3(tag3) {
+    let baseUrl = '/tags/allTagsSelected';
+    console.log(tag1);
+    console.log(tag2);
+    console.log(tag3);
+    let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
+
+    window.location.href = url;
+  }
+
+
+});

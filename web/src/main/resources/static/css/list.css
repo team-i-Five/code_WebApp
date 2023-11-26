@@ -1,8 +1,4 @@
-group-start {
-    margin-left: 0;
-    /* 5의 배수일 때 그룹의 첫 번째 요소에는 왼쪽 마진을 0으로 설정 */
-}
-
+/* -------------------container detail css------------------- */
 .navbar {
     color: #141517;
     background-color: #141517;
@@ -30,67 +26,31 @@ group-start {
     flex-wrap: nowrap;
 }
 
+/* 선택된 뮤지컬 이미지 영역크기 */
 #selectedImage {
     flex: 40%;
 }
-
+/* 선택된 뮤지컬 디테일 영역크기 */
 #selectedInfo {
     flex: 60%;
     margin-left: 1rem;
 }
-
-.musical-details {
-    max-width: 100%;
-    max-height: 100%;
+/* -------------------selected detail css------------------- */
+/* 컬럼명 */
+.column {
+    font-weight: 10rem;
 }
-
-.musical-details th {
-    display: inline-block;
-    /* 인라인 블록으로 설정하여 가로 배치 */
-}
-
-.musical-details td {
-    display: inline-block;
-    /* 인라인 블록으로 설정하여 가로 배치 */
-    vertical-align: top;
-    /* 상단 정렬을 통해 텍스트가 위쪽에 위치하도록 설정 */
-    margin-left: 10px;
-    /* 좌측 여백을 조절, 필요에 따라 조절하세요 */
-}
-
-.max-lines {
-    max-height: 12em;
-    /* 표시할 최대 높이 */
-    overflow: auto;
-    /* 스크롤이 필요할 때만 표시 */
-    -webkit-line-clamp: 10;
-    /* 표시할 최대 줄 수 */
-}
-
-.musical-contents {
-    display: flex;
-    overflow: hidden;
-    /*가로로 넘어가는내용 안보이게*/
-    z-index: 1;
-}
-
-.musical-details {
-    position: relative;
-    top: -70%;
-    min-width: 550px;
-    max-width: 550px;
-}
-
 
 
 /* -------------------여기서 부터 슬라이더 css------------------- */
+/* 여러개에서 고르는 슬라이더 */
 .slide-container {
     height: 15rem;
     width: 100%;
 }
 
 .slide-container li {
-    display: inline-block !important;
+    display: inline-block;
     position: relative;
     padding: 0;
 
@@ -99,9 +59,15 @@ group-start {
     height: 100%;
 
     /* 이미지 중앙정렬을 하기 위함 */
-    margin-left: 1.5rem; 
+    margin-left: 1.5rem;
     margin-right: 1.5rem;
 }
+
+/* ML추천시 5개중에 고르는 슬라이더 */
+#show-one {
+    margin: auto 4rem;
+}
+
 /* 슬라이드 스크롤버튼 */
 .slick-prev:before,
 .slick-next:before {
@@ -113,11 +79,13 @@ group-start {
     left: -2rem;
     opacity: 0.3;
 }
+
 .slick-next {
     right: -0.7rem;
     opacity: 0.3;
 }
-#slider-image-title{
+
+#slider-image-title {
     position: absolute;
     background-color: rgba(255, 255, 255, 0.7);
     width: 100%;
