@@ -46,20 +46,28 @@
         <div th:each="musicalDTO : ${musicals}">
             <!-- 각 MusicalDTO의 속성에 접근 -->
             <li style="list-style: none;">
-                <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" data-index="${musicalDTO.index}"
-                    id="slider-image">
+                <div style="position: relative;">
+                    <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" data-index="${musicalDTO.index}"
+                        id="slider-image">
+                    <div id="slider-image-title">
+                        <p th:text="${musicalDTO.getTitle()}" style="margin: 0;"></p>
+                    </div>
+                </div>
             </li>
         </div>
-        <div id="slide_paging" class="slide_paging mail_paging"></div>
     </div>
     <div class="show-one-slide" th:if="${num == '1'}">
         <div th:each="musicalDTO : ${musicals}">
             <!-- 각 MusicalDTO의 속성에 접근 -->
             <li style="list-style: none;">
-                <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" data-index="${musicalDTO.index}"
-                    id="slider-image">
+                <div style="position: relative;">
+                    <img th:src="${musicalDTO.getPosterUrl()}" alt="Image" data-index="${musicalDTO.index}"
+                        id="slider-image">
+                    <div id="slider-image-title">
+                        <p th:text="${musicalDTO.getTitle()}" style="margin: 0;"></p>
+                    </div>
+                </div>
             </li>
         </div>
-        <div id="slide_paging" class="slide_paging mail_paging"></div>
     </div>
 </div>

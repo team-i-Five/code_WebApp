@@ -117,18 +117,12 @@ group-start {
     right: -0.7rem;
     opacity: 0.3;
 }
-/* 슬라이드 페이징 안내 */
-.slide .slick-dots{
-    display:none!important;
+#slider-image-title{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
 }
 
-.slide_paging{
-    margin-top:5px;
-    text-align:right;
-    font-size:14px;
-    color:#aaa;
-    cursor:default;
-}
-.slide_paging .page{
-    color:#5f7aff
+#slider-image-title p {
+    text-align: center;
 }
