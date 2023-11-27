@@ -18,6 +18,9 @@
 
 .btn {
     margin-bottom: 10px;
+    background-color: #F17F42;
+    border: #F17F42;
+
 }
 
 .selected-container {
@@ -32,17 +35,64 @@
     height: 550px;
     object-fit: cover;
     flex: 40%;
-
 }
+
 /* 선택된 뮤지컬 디테일 영역크기 */
 #selectedInfo {
     flex: 60%;
     margin-left: 1rem;
+    margin-top: 7%;
 }
 /* -------------------selected detail css------------------- */
 /* 컬럼명 */
 .column {
     font-weight: 10rem;
+    font-weight: bold;
+}
+
+/* 줄거리 스크롤*/
+.musical_detail{
+    position: relative;
+    overflow: auto; /* 내용이 넘칠 때 스크롤이 표시되도록 설정 */
+    max-height: 200px; /* 스크롤 창의 최대 높이를 설정 (원하는 값으로 조절) */
+}
+
+#selectedTitle,
+#selectedGenre,
+#selectedLocation{
+    position: absolute;
+    margin-top: -2.3%;
+    margin-left: 5%;
+}
+#selectedDate,
+#selectedRunning{
+    position: absolute;
+    margin-top: -2.3%;
+    margin-left: 8%;
+}
+
+/*버튼 설명*/
+.musical_btn_description{
+    font-weight: bold;
+}
+
+/*버튼*/
+.musical_btn{
+    background-color: transparent;
+    border:#ffffff; /* 버튼 테두리 스타일을 설정 */
+    color: #F17F42;
+    padding: 10px 20px;
+    font-size: 21px;
+    cursor: pointer; /*손모양 나오게*/
+    transition: background-color 0.3s, color 0.3s; /* 부드러운 전환을 위한 트랜지션 속성을 추가 */
+    border-radius: 15px; /* 테두리를 둥글게 */
+}
+
+/*버튼선택 시*/
+.musical_btn:hover{
+    background-color: #F17F42;
+    color: #ffffff;
+    border-color: transparent; /* 클릭시 테두리를 투명하게 */
 }
 
 

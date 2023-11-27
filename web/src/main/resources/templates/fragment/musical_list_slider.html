@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
 
 <!-- 선택된 뮤지컬 정보, 초기값은 인덱스0 -->
 <div class="selected-container" th:fragment="musicalList()">
@@ -24,7 +25,11 @@
 
             <div class="column">줄거리</div>
             <div class="musical_detail"  th:text="${musicals[0].synopsis}" id="selectedSys"></div>
-
+            <br>
+            <div class="musical_btn_description"> 해당 작품과 유사한 현재 상영중인 작품 추천받기
+                <div id="musicalIdContainer" data-musical-id="${musicals[0].musicalId}"></div>
+                <button class="musical_btn" onclick="recommendSimilar()">click</button>
+            </div>
     </div>
 </div>
 
