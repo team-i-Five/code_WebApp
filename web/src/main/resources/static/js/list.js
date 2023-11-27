@@ -78,38 +78,39 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --------------------------------------------- 태그관련 ---------------------------------------------
-  function goNext() {
-    let url = '/tags';
-    window.location.href = url;
-  }
-
-  function redirectToUrlWithTag1(tag) {
-    let baseUrl = '/tags/tag1';
-    let url = baseUrl + '?tag1=' + tag;
-
-    window.location.href = url;
-  }
-
-  function redirectToUrlWithTag2(tag2) {
-    let baseUrl = '/tags/tag1&tag2';
-
-    console.log(tag1);
-    console.log(tag2);
-    let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
-
-    window.location.href = url;
-  }
-
-  function redirectToUrlWithTag3(tag3) {
-    let baseUrl = '/tags/allTagsSelected';
-    console.log(tag1);
-    console.log(tag2);
-    console.log(tag3);
-    let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
-
-    window.location.href = url;
-  }
-
-
 });
+
+// --------------------------------------------- 태그관련 ---------------------------------------------
+
+function goNext() {
+  console.log("goNext() 호출됨22");
+  let url = '/tags';
+  window.location.href = url;
+}
+
+function redirectToUrlWithTag1(tag) {
+  let baseUrl = '/tags/tag1';
+  let url = baseUrl + '?tag1=' + tag;
+
+  window.location.href = url;
+}
+
+function redirectToUrlWithTag2(tag2) {
+  let baseUrl = '/tags/tag1&tag2';
+
+  console.log(tag1);
+  console.log(tag2);
+  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
+
+  window.location.href = url;
+}
+
+function redirectToUrlWithTag3(tag3) {
+  let baseUrl = '/tags/allTagsSelected';
+  console.log(tag1);
+  console.log(tag2);
+  console.log(tag3);
+  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
+
+  window.location.href = url;
+}
