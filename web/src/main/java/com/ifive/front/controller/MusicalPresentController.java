@@ -46,7 +46,7 @@ public class MusicalPresentController {
     }
 
     @GetMapping("/ml/{id}")
-    public String drawPresent(@PathVariable(name = "id") String id, Model model) {
+    public String drawPresent(@PathVariable(name = "id") Integer id, Model model) {
         List<MusicalPresentDTO> mpdl = musicalPresentService.getPresentDTOsbyIdFromML(id);
         log.info("mpdl = {}",mpdl.toString());
         model.addAttribute("musicals", mpdl);
