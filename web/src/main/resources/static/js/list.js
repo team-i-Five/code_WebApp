@@ -48,10 +48,11 @@ document.addEventListener("DOMContentLoaded", function () {
   // 이건 태그결과 js
   $('.show-slides').slick(
     {
-      infinite: true, // 무한반복
+      infinite: false, // 무한반복
       slidesToShow: 4, // 화면에 보여질 갯수
       slidesToScroll: 4, // 슬라이드 갯수
       dots: true, // 네비버튼
+      variableWidth: true,
       speed: 400
     });
 
