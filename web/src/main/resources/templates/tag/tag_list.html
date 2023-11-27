@@ -1,0 +1,44 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+</head>
+
+<body>
+    <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('')}"></nav>
+
+    <!-- 태그없을때, ml 결과페이지 -->
+    <div class="container" th:if="${tag1 == null}" style="margin-top: 100px;">
+        <div><h1>"고른 뮤지컬 타이틀"와 유사한 현재 상영중인 뮤지컬입니다.</h1></div>
+        <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
+        <div class th:replace="~{fragment/musical_list_slider :: sliders('1')}"></div>
+    </div>
+    <!-- 태그1만 선택 -->
+    <div class="container" th:if="${tag2 == null && tag1 != null}" style="margin-top: 100px;">
+        <h1 th:text="'선택된 태그 : ' + ${tagName1}"></h1>
+        <div class="container" th:replace="~{fragment/common_tag :: tagList(${tag1})}"></div>
+        <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
+        <div class th:replace="~{fragment/musical_list_slider :: sliders('4')}"></div>
+    </div>
+    <!-- 태그2까지 선택 -->
+    <div class="container" th:if="${tag1 != null && tag2 != null}" style="margin-top: 100px;">
+        <h1 th:text="'선택된 태그 : ' + ${tagName1} + ' , ' + ${tagName2}"></h1>
+        <div class="container" th:replace="~{fragment/common_tag :: tagList2(${tag1}, ${tag2})}"></div>
+        <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
+        <div class th:replace="~{fragment/musical_list_slider :: sliders('4')}"></div>
+    </div>
+
+    <script th:inline="javascript">
+        let musicals = /*[[ ${musicals} ]]*/[];
+        const tag1 = /*[[${tag1}]]*/[];
+        const tag2 = /*[[${tag2}]]*/[];
+        const slideNum = /*[[${slideNum}]]*/ [];
+        console.log(slideNum);
+        console.log(tag1);
+        console.log(tag2); 
+    </script>
+
+    <script src="/js/list.js"></script>
+</body>
+
+</html>

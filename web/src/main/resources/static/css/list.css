@@ -1,0 +1,100 @@
+/* -------------------container detail css------------------- */
+.navbar {
+    color: #141517;
+    background-color: #141517;
+}
+
+.body {
+    display: block;
+}
+
+.container {
+    margin-top: 60px;
+}
+
+.sub_container {
+    text-align: center;
+}
+
+.btn {
+    margin-bottom: 10px;
+}
+
+.selected-container {
+    max-width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+/* 선택된 뮤지컬 이미지 영역크기 */
+#selectedImage {
+    width:300px;
+    height: 550px;
+    object-fit: cover;
+    flex: 40%;
+
+}
+/* 선택된 뮤지컬 디테일 영역크기 */
+#selectedInfo {
+    flex: 60%;
+    margin-left: 1rem;
+}
+/* -------------------selected detail css------------------- */
+/* 컬럼명 */
+.column {
+    font-weight: 10rem;
+}
+
+
+/* -------------------여기서 부터 슬라이더 css------------------- */
+/* 여러개에서 고르는 슬라이더 */
+.slide-container {
+    height: 15rem;
+    width: 100%;
+}
+
+.slide-container li {
+    display: inline-block;
+    position: relative;
+    padding: 0;
+
+    /* 이미지 크기 및 위치조정 */
+    width: auto !important;
+    height: 100%;
+
+    /* 이미지 중앙정렬을 하기 위함 */
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+/* ML추천시 5개중에 고르는 슬라이더 */
+#show-one {
+    margin: auto 4rem;
+}
+
+/* 슬라이드 스크롤버튼 */
+.slick-prev:before,
+.slick-next:before {
+    font-size: 2.5rem;
+    color: #444444;
+}
+
+.slick-prev {
+    left: -2rem;
+    opacity: 0.3;
+}
+
+.slick-next {
+    right: -0.7rem;
+    opacity: 0.3;
+}
+
+#slider-image-title {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+}
+
+#slider-image-title p {
+    text-align: center;
+}

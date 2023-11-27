@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ifive.front.dto.MusicalDTO;
 import com.ifive.front.entity.Musical;
 import com.ifive.front.service.MusicalService;
 
@@ -21,9 +22,14 @@ public class MusicalController {
     @Autowired
     private MusicalService musicalService;
 
-
+    @GetMapping("/list/all")
+    public String drawAllmusical(Model model) {            
+        model.addAttribute("musicals", musicalService.getAllMusicals());
+        return "basic/list";
+    }
     
-    @GetMapping("/list/filepath")
+
+    @GetMapping("/list/filepath") 
     public String drawMusicals(Model model) {
         log.info("info log = {}", this.getClass());
 
@@ -31,7 +37,7 @@ public class MusicalController {
         
         model.addAttribute("musicalList", musicalList);
 
-        return "/basic/list";
+        return "basic/list";
     }
 
     //JSON데이터 DB에 저장하는 메소드
@@ -48,4 +54,25 @@ public class MusicalController {
             return "저장 실패: " + e.getMessage();
         }
     }
+    
+
+    @GetMapping("/list/test")
+    @ResponseBody
+    public String dbTest(Model model) {
+        log.info("log message : {} start", "test.html");
+        List<MusicalDTO> musicalDTOs = musicalService.getAllMusicals();
+        return musicalDTOs.get(0).toString();
+    }
+
+    // @GetMapping("/list/{musicalId}")
+    // public String detailMusical(@PathVariable int musicalId, Model model) {
+    //     // musicalId를 사용하여 해당 뮤지컬의 정보를 가져옴
+    //     MusicalDTO musicalDTO = musicalService.getMusicalById(musicalId);
+    
+    //     // 가져온 정보를 모델에 추가
+    //     model.addAttribute("musical", musicalDTO);
+    
+    //     // detail.html로 이동
+    //     return "/basic/detail";
+    // }
 }
