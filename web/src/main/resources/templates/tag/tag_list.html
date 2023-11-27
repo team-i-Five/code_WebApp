@@ -1,7 +1,9 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<link rel="stylesheet" th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+<head th:replace="~{fragment/common :: head('i-five','/css/list.css')}">
+    <!-- 로고 Font Awesome CDN 추가 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 
 <body>
@@ -13,20 +15,32 @@
         <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
         <div class th:replace="~{fragment/musical_list_slider :: sliders('1')}"></div>
     </div>
-    <!-- 태그1만 선택 -->
+   <!----------------------태그1만 선택 ---------------------->
     <div class="container" th:if="${tag2 == null && tag1 != null}" style="margin-top: 100px;">
-        <h1 th:text="'선택된 태그 : ' + ${tagName1}"></h1>
+        <h1>
+            <i class="fas fa-search" style="color: #747272; width:27px; height:auto;"></i> <!-- 돋보기 아이콘 -->
+            <span style="color: #747272;">선택된 테마 : </span>
+            <span th:text="${tagName1}" style="color: #f88100; font-weight: bold;"></span>
+        </h1>
         <div class="container" th:replace="~{fragment/common_tag :: tagList(${tag1})}"></div>
         <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
         <div class th:replace="~{fragment/musical_list_slider :: sliders('4')}"></div>
     </div>
-    <!-- 태그2까지 선택 -->
+    <!---------------------- 태그2까지 선택 ---------------------->
     <div class="container" th:if="${tag1 != null && tag2 != null}" style="margin-top: 100px;">
-        <h1 th:text="'선택된 태그 : ' + ${tagName1} + ' , ' + ${tagName2}"></h1>
+        <h1>
+            <i class="fas fa-search" style="color: #747272; width:27px; height:auto;"></i> <!-- 돋보기 아이콘 -->
+            <span style="color: #747272;">선택된 테마 : </span>
+            <span th:text="${tagName1}" style="color: #f88100; font-weight: bold;"></span>
+            <span style="color: #747272;"> , </span>
+            <span th:text="${tagName2}" style="color: #f88100; font-weight: bold;"></span>
+        </h1>
         <div class="container" th:replace="~{fragment/common_tag :: tagList2(${tag1}, ${tag2})}"></div>
         <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
         <div class th:replace="~{fragment/musical_list_slider :: sliders('4')}"></div>
     </div>
+
+
 
     <script th:inline="javascript">
         let musicals = /*[[ ${musicals} ]]*/[];
