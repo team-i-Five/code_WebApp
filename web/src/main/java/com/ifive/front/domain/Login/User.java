@@ -1,4 +1,4 @@
-package com.ifive.front.login;
+package com.ifive.front.domain.Login;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

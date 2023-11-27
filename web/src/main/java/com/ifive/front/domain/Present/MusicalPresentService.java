@@ -1,4 +1,4 @@
-package com.ifive.front.Present;
+package com.ifive.front.domain.Present;
 
 import java.util.List;
 

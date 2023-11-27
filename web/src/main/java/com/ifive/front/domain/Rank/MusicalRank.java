@@ -1,4 +1,4 @@
-package com.ifive.front.Rank;
+package com.ifive.front.domain.Rank;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

@@ -1,4 +1,4 @@
-package com.ifive.front.Rank;
+package com.ifive.front.domain.Rank;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.ifive.front.Present;
+package com.ifive.front.domain.Present;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

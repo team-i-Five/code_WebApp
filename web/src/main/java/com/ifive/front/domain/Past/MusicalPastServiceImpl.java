@@ -1,4 +1,4 @@
-package com.ifive.front.Past;
+package com.ifive.front.domain.Past;
 
 import java.util.ArrayList;
 import java.util.List;

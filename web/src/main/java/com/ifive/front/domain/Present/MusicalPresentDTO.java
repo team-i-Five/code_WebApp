@@ -1,4 +1,5 @@
-package com.ifive.front.Past;
+package com.ifive.front.domain.Present;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -12,7 +13,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true) // DTO에는 numb가없어서 무시하게함
-public class MusicalPastDTO {
+public class MusicalPresentDTO {
 
     private Integer musicalId;
     private String title;

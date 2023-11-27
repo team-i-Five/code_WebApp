@@ -1,4 +1,4 @@
-package com.ifive.front.Rank;
+package com.ifive.front.domain.Rank;
 
 import java.util.List;
 
@@ -10,8 +10,4 @@ public interface MusicalRankRepository extends JpaRepository<MusicalRank, Intege
     @Query("SELECT mr FROM MusicalRank mr WHERE mr.updateDate = :updateDate and mr.siteName = :siteName")
     List<MusicalRank> queryByUpdateDateSiteName(String updateDate, String siteName);
     
-    // 테스트 : 사이트 이름 값으로 뮤지컬 랭크 데이터 조회
-    // @Query("SELECT mr FROM MusicalRank mr WHERE mr.siteName = :siteName")
-    // List<MusicalRank> queryBySiteName(String siteName);
-
 }

@@ -1,4 +1,4 @@
-package com.ifive.front.login;
+package com.ifive.front.domain.Login;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
