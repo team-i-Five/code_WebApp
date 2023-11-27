@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifive.front.dto.MusicalPresentDTO;
 import com.ifive.front.service.MusicalPresentService;
@@ -46,10 +47,13 @@ public class MusicalPresentController {
     }
 
     @GetMapping("/ml/{id}")
-    public String drawPresent(@PathVariable(name = "id") Integer id, Model model) {
+    public String drawPresent(@PathVariable(name = "id") String id
+    ,@RequestParam(name = "title") String title
+    ,Model model) {
         List<MusicalPresentDTO> mpdl = musicalPresentService.getPresentDTOsbyIdFromML(id);
         log.info("mpdl = {}",mpdl.toString());
         model.addAttribute("musicals", mpdl);
+        model.addAttribute("selectedTitle", title);
         model.addAttribute("tag1", null);
         model.addAttribute("tag2", null);
         model.addAttribute("slideNum", '1');

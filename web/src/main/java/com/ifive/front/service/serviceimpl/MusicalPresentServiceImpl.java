@@ -68,7 +68,7 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         return musicalIds;
     }
 
-    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(Integer id) {
+    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id) {
         // application-aws.properties
         String apiUrl = mlUrl + id;
         // ml에서 받은 json string 파싱할 곳

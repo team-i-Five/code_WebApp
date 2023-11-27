@@ -1,4 +1,4 @@
-var selectedIndex = 0; // 초기값 설정
+let musicalId =0;
 
 document.addEventListener("DOMContentLoaded", function () {
   var images = document.querySelectorAll("#slider-image");
@@ -28,7 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
     selectedRunning.textContent = musicals[index].runningTime;
 
 
-    // console.log(musicals[index].musicalId)
+    musicalId = musicals[index].musicalId;
+
+    console.log(musicalId)
     // window.location.href = "/list/"+musicals[index].musicalId;
   }
 
@@ -78,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+
 });
 
 // --------------------------------------------- 태그관련 ---------------------------------------------
@@ -85,6 +88,18 @@ document.addEventListener("DOMContentLoaded", function () {
 function goNext() {
   console.log("goNext() 호출됨22");
   let url = '/tags';
+  window.location.href = url;
+}
+
+function recommendSimilar(){
+  console.log(musicalId);  
+  let baseUrl = "/ml/";
+  let selectedTitle = document.getElementById("selectedTitle").textContent;
+  let encodedTitle = encodeURIComponent(selectedTitle);
+
+  let url = baseUrl + musicalId +"?title="+encodedTitle;
+
+
   window.location.href = url;
 }
 
