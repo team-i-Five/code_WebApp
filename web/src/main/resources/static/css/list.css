@@ -28,17 +28,19 @@
 
 /* 선택된 뮤지컬 이미지 영역크기 */
 #selectedImage {
-    width:300px;
+    width: 300px;
     height: 550px;
     object-fit: cover;
     flex: 40%;
 
 }
+
 /* 선택된 뮤지컬 디테일 영역크기 */
 #selectedInfo {
     flex: 60%;
     margin-left: 1rem;
 }
+
 /* -------------------selected detail css------------------- */
 /* 컬럼명 */
 .column {
@@ -48,6 +50,8 @@
 
 /* -------------------여기서 부터 슬라이더 css------------------- */
 /* 여러개에서 고르는 슬라이더 */
+
+
 .slide-container {
     height: 15rem;
     width: 100%;
@@ -65,6 +69,12 @@
     /* 이미지 중앙정렬을 하기 위함 */
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+}
+
+#slider-image {
+    width: 230px;
+    height: 280px;
+    object-fit: cover;
 }
 
 /* ML추천시 5개중에 고르는 슬라이더 */
