@@ -73,7 +73,7 @@
                             th:if="${menu} == 'home'">(current)</span></a>
                 </li>
                 <li class="nav-item" th:classappend="${menu} == 'login' ? 'active' ">
-                    <a class="nav-link" href="#" th:href="@{/member/signin}">로그인/회원가입<span class="sr-only"
+                    <a class="nav-link" href="#" th:href="@{/member/signup}">로그인/회원가입<span class="sr-only"
                             th:if="${menu} == 'signin'">(current)</span></a>
                 </li>
                 <li class="nav-item" th:classappend="${menu} == 'rank' ? 'active' ">

@@ -20,8 +20,9 @@ public class SecurityConfig {
                 .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()) // 모든 인증되지않은 요청허락, 로그인없이도 접근가능
             //.csrf((csrf) -> csrf.ignoringRequestMatchers(new AntPathRequestMatcher(h2경로)), 우리는 Workbench를 쓰기에 필요없음
             .headers((headers) -> headers.addHeaderWriter(new XFrameOptionsHeaderWriter(
-                XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))); // 클릭재킹(CSRF) 공격방지, 다른사이트에서 프레임으로 포함 불가
-
+                XFrameOptionsHeaderWriter.XFrameOptionsMode.SAMEORIGIN))) // 클릭재킹(CSRF) 공격방지, 다른사이트에서 프레임으로 포함 불가
+            
+            ;
         return http.build();
     }
 
