@@ -32,11 +32,10 @@ public class MusicalFutureServiceImpl implements MusicalFutureService{
     public List<Integer> getIDsFromJsonResponse(String jsonResponse) {
         List<Integer> musicalIds = new ArrayList<>();
 
-        JSONObject jsonObject = new JSONObject(jsonResponse);
-        JSONArray resultArray = jsonObject.getJSONArray("result");
+        JSONArray recommendArray = new JSONArray(jsonResponse);
 
-        for (int i = 0; i < resultArray.length(); i++) {
-            JSONObject musicalObject = resultArray.getJSONObject(i);
+        for (int i = 0; i < recommendArray.length(); i++) {
+            JSONObject musicalObject = recommendArray.getJSONObject(i);
             int musicalId = musicalObject.getInt("musical_id");
             musicalIds.add(musicalId);
         }

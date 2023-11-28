@@ -4,9 +4,6 @@ import java.util.List;
 
 public interface MusicalPresentService {
     
-    // 과거의 뮤지컬에서 end_date 최신순으로 정렬한 전체 데이터 조회
-    List<MusicalPresentDTO> getMusicalPresentListOrderByEndDate();
-
     // ID값 파라미터로 넣어서 호출하면, ML서버에 접속해서 ID값으로 유사한 뮤지컬 5개의 ID값을 가져오고
     // 해당 ID값으로 DB를 조회해서 MusicalPresent 정보를 가져와서 DTO에 담습니다.
     List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id);

@@ -27,9 +27,14 @@
             <div class="musical_detail"  th:text="${musicals[0].synopsis}" id="selectedSys"></div>
             <br>
             <div class="musical_btn_description">
-                <button class="musical_btn" onclick="recommendSimilar()">
-                    해당 작품과 <span class="bold-text">비슷한 작품</span> 추천받기
-                </button>
+                <form id="recommendForm" method="post" th:action="@{/result/ml}" th:csrf>
+                    <input type="hidden" name="id" id="musicalIdInput"/>
+                    <input type="hidden" name="title" id="musicalTitleInput"/>
+
+                    <button class="musical_btn" onclick="recommendSimilar()">
+                        해당 작품과 <span class="bold-text">비슷한 작품</span> 추천받기
+                    </button>
+                </form>
                 <div id="musicalIdContainer" data-musical-id="${musicals[0].musicalId}"></div>
             </div>
     </div>
