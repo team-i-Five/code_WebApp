@@ -27,14 +27,14 @@ public class MusicalFutureController {
     public String drawFuture(@PathVariable(name = "id") String id
     ,@RequestParam(name = "title") String title
     ,Model model) {
-        List<MusicalFutureDTO> mpdl = musicalFutureService.getFutureDTOsbyIdFromML(id);
-        log.info("mpdl = {}",mpdl.toString());
-        model.addAttribute("musicals", mpdl);
-        model.addAttribute("selectedTitle", title);
-        model.addAttribute("tag1", null);
-        model.addAttribute("tag2", null);
-        model.addAttribute("slideNum", '1');
-        model.addAttribute("id", id);
+        // List<MusicalFutureDTO> mpdl = musicalFutureService.getFutureDTOsbyIdFromML(id);
+        // log.info("mpdl = {}",mpdl.toString());
+        // model.addAttribute("musicals", mpdl);
+        // model.addAttribute("selectedTitle", title);
+        // model.addAttribute("tag1", null);
+        // model.addAttribute("tag2", null);
+        // model.addAttribute("slideNum", '1');
+        // model.addAttribute("id", id);
 
         return "tag/tag_list";
     }

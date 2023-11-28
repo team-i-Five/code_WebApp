@@ -19,7 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 public class MusicalPresentServiceImpl implements MusicalPresentService {
 
     // 사용하려면 application-aws에 ml_url={ml url} 추가
-    @Value("${ml_url}")
+    @Value("${ml_url}"+"/recommend/present/")
     private String mlUrl;
 
     private final RestTemplate restTemplate;

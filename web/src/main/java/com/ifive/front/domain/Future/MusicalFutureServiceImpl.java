@@ -15,7 +15,7 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class MusicalFutureServiceImpl implements MusicalFutureService{
 // 사용하려면 application-aws에 ml_url={ml url} 추가
-    @Value("${ml_url}"+"/recommend_future/")
+    @Value("${ml_url}"+"/recommend/future/")
     private String mlUrl;
 
     private final RestTemplate restTemplate;

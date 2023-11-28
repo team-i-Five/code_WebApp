@@ -86,12 +86,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // --------------------------------------------- 태그관련 ---------------------------------------------
 
-function goNext() {
-  console.log("goNext() 호출됨22");
-  let url = '/tags';
-  window.location.href = url;
-}
-
 function recommendSimilar(){
   console.log(musicalId);  
   let baseUrl = "/ml/";
@@ -105,14 +99,14 @@ function recommendSimilar(){
 }
 
 function redirectToUrlWithTag1(tag) {
-  let baseUrl = '/tags/tag1';
+  let baseUrl = '/past/tags/tag1';
   let url = baseUrl + '?tag1=' + tag;
 
   window.location.href = url;
 }
 
 function redirectToUrlWithTag2(tag2) {
-  let baseUrl = '/tags/tag1&tag2';
+  let baseUrl = '/past/tags/tag1&tag2';
 
   console.log(tag1);
   console.log(tag2);
@@ -122,7 +116,7 @@ function redirectToUrlWithTag2(tag2) {
 }
 
 function redirectToUrlWithTag3(tag3) {
-  let baseUrl = '/tags/allTagsSelected';
+  let baseUrl = '/past/tags/allTagsSelected';
   console.log(tag1);
   console.log(tag2);
   console.log(tag3);
