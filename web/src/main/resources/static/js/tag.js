@@ -1,5 +1,5 @@
 function redirectToUrlWithTag(tag) {
-    var baseUrl = '/tags/tag1';
+    var baseUrl = '/past/tags/tag1';
     
     var url = baseUrl + '?tag1=' + tag;
 

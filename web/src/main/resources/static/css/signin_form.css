@@ -10,7 +10,13 @@ body {
   align-items: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
+  background-color: #FFFFFF;
+}
+
+#logo-image {
+  width:15rem;
+  height:auto;
+  object-fit: cover;
 }
 
 .form-signin {

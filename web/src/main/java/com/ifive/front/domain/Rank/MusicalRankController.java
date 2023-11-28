@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
+@RequestMapping("/rank")
 public class MusicalRankController {
     
     @Autowired
@@ -23,7 +25,7 @@ public class MusicalRankController {
     }  
 
     // 각 사이트 별로 GetMapping 개설
-    @GetMapping("/rank")
+    @GetMapping("/interpark")
     public String interparkRank(Model model){
         LocalDate today = LocalDate.now();
         log.info("오늘 날짜 : "+today);
@@ -34,10 +36,10 @@ public class MusicalRankController {
         model.addAttribute("today", today);
         model.addAttribute("interparkList", mrd);
 
-        return "rankPage/rank_interpark.html";
+        return "rankPage/rank_interpark";
     }
         
-    @GetMapping("/rank/1")
+    @GetMapping("/ticketlink")
     public String ticketlinkRank(Model model){
         LocalDate today = LocalDate.now();
         log.info("오늘 날짜 : "+today);
@@ -48,10 +50,10 @@ public class MusicalRankController {
         model.addAttribute("today", today);
         model.addAttribute("ticketlinkList", mrd);
 
-        return "rankPage/rank_ticketlink.html";
+        return "rankPage/rank_ticketlink";
     }
         
-    @GetMapping("/rank/2")
+    @GetMapping("/yes24")
     public String yes24ticketRank(Model model){
         LocalDate today = LocalDate.now();
         log.info("오늘 날짜 : "+today);
@@ -62,6 +64,6 @@ public class MusicalRankController {
         model.addAttribute("today", today);
         model.addAttribute("yes24ticketList", mrd);
 
-        return "rankPage/rank_yes24ticket.html";
+        return "rankPage/rank_yes24ticket";
     }
 }

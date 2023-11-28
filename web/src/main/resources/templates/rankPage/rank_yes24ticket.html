@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Yes24 랭킹 | 뮤모 </title>
-    <link rel="stylesheet" href="/css/rank.css" th:replace="~{fragment/common :: head('rank','/css/rank.css')}">
-    <!-- 로고 Font Awesome CDN 추가 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<head th:replace="~{fragment/common :: head('Yes24 랭킹 | 뮤모','/css/rank.css')}">
 </head>
 
 <body>
@@ -28,13 +22,13 @@
             <div class="site_list">
                 <ul class="tab_list" role="tablist" data-tiara-layer="select">
                     <li>
-                        <a href="/rank" class="site_tab" role="tab">인터파크</a>
+                        <a href="/rank/interpark" class="site_tab" role="tab">인터파크</a>
                     </li>
                     <li>
-                        <a href="/rank/1" class="site_tab" role="tab">티켓링크</a>
+                        <a href="/rank/ticketlink" class="site_tab" role="tab">티켓링크</a>
                     </li>
                     <li>
-                        <a href="/rank/2" class="site_tab" role="tab" aria-selected="true">예스24티켓</a>
+                        <a href="/rank/yes24" class="site_tab" role="tab" aria-selected="true">예스24티켓</a>
                     </li>
                 </ul>
             </div>
