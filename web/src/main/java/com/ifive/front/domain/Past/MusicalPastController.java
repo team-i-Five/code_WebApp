@@ -15,7 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/past/")
+@RequestMapping("/past")
 public class MusicalPastController {
     
     // tagName 맵을 클래스 변수로 선언
@@ -68,13 +68,9 @@ public class MusicalPastController {
 
     @GetMapping("/tags/tag1")
     public String sendTag1(@RequestParam(name = "tag1") String tag1, Model model){
-        log.info("ㅅㅁㅅㅁㅅ : "+tag1);
-
+        
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1(tagName.get(tag1));
         
-        // log.info("쿼리문 결과 DTO : "+mpdl);
-        log.info("쿼리문 결과 개수 : "+mpdl.size());
-
         if(mpdl.size() == 0){
             return "tag/null_tag" ;
         }
@@ -82,6 +78,8 @@ public class MusicalPastController {
         model.addAttribute("musicals", mpdl);
         model.addAttribute("tag1", tag1);
         model.addAttribute("tagName1", tagNameFront.get(tag1));
+        model.addAttribute("tagList", tagName.keySet());
+        model.addAttribute("tagNameList", tagName.values());
         model.addAttribute("tag2", null);
         model.addAttribute("tagName2", null);
         
@@ -93,12 +91,7 @@ public class MusicalPastController {
     public String sendTag2(@RequestParam(name = "tag1") String tag1, 
     @RequestParam(name = "tag2") String tag2, Model model){
         
-        log.info("태그 1 : "+tag1);
-        log.info("태그 2 : "+tag2);
-
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1AndTag2(tagName.get(tag1), tagName.get(tag2));
-
-        log.info("쿼리문 결과 개수 : "+mpdl.size());
 
         if(mpdl.size() == 0){
             return "tag/null_tag" ;
@@ -119,20 +112,11 @@ public class MusicalPastController {
     @GetMapping("/tags/allTagsSelected")
     public String sendAllTags(@RequestParam(name = "tag1") String tag1, 
     @RequestParam(name = "tag2") String tag2, @RequestParam(name = "tag3") String tag3, Model model){
-        
-        log.info("태그 1 : "+tag1);
-        log.info("태그 2 : "+tag2);
-        log.info("태그 3 : "+tag3);
-
-        
-
+    
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByAllTags(
                                             tagName.get(tag1),tagName.get(tag2), tagName.get(tag3)
                                         );
 
-        // log.info("쿼리문 결과 DTO : "+mpdl);
-        log.info("쿼리문 결과 개수 : "+mpdl.size());
-        
         if(mpdl.size() == 0){
             return "tag/null_tag" ;
         }

@@ -48,11 +48,15 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         return mplDto;
     }
 
+    @Override
     public List<Integer> getIDsFromJsonResponse(String jsonResponse) {
+        // 이전 출력값과 다름;;
+        // 함수 다시 짜야할 듯
         List<Integer> musicalIds = new ArrayList<>();
 
         JSONObject jsonObject = new JSONObject(jsonResponse);
         JSONArray resultArray = jsonObject.getJSONArray("result");
+        log.info("결과 어레이 : "+resultArray);
 
         for (int i = 0; i < resultArray.length(); i++) {
             JSONObject musicalObject = resultArray.getJSONObject(i);
@@ -63,20 +67,7 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         return musicalIds;
     }
 
-    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id) {
-        // application-aws.properties
-        String apiUrl = mlUrl + id;
-        // ml에서 받은 json string 파싱할 곳
-        List<Integer> ids;
-
-        // GET 요청 보내고 JSON 응답 받기
-        String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
-
-        // JSON String 파싱해서 id리스트로 가져옴
-        ids =  getIDsFromJsonResponse(jsonResponse);
-        return getMusicalsByIds(ids);
-    }
-
+    @Override
     public List<MusicalPresentDTO> getMusicalsByIds(List<Integer> musicalIds) {
         List<MusicalPresent> mpl = musicalPresentRepository.findByMusicalIdIn(musicalIds);
         List<MusicalPresentDTO> mplDto = new ArrayList<>();
@@ -89,5 +80,25 @@ public class MusicalPresentServiceImpl implements MusicalPresentService {
         
         
         return mplDto;
+    }
+
+    @Override
+    public List<MusicalPresentDTO> getPresentDTOsbyIdFromML(String id) {
+        // application-aws.properties
+        String apiUrl = mlUrl + id;
+        // ml에서 받은 json string 파싱할 곳
+        List<Integer> ids;
+
+        // GET 요청 보내고 JSON 응답 받기
+        String jsonResponse = restTemplate.getForObject(apiUrl, String.class);
+
+        log.info("제이슨 : "+jsonResponse);
+
+        // JSON String 파싱해서 id리스트로 가져옴
+        ids =  getIDsFromJsonResponse(jsonResponse);
+
+        log.info("아이디스 : "+ids);
+
+        return getMusicalsByIds(ids);
     }
 }
