@@ -1,0 +1,21 @@
+
+
+<form class="d-flex">
+    <input id="searchInput" class="form-control me-2" type="search" placeholder="검색어를 입력하세요" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit" onclick="performSearch()" style="margin-right: 10px;">검색</button>
+    {{#isAdminValueZero}}
+    <button class="btn btn-outline-success"><a href="/members">회원관리</a></button>
+    {{/isAdminValueZero}}
+    <button class="btn btn-outline-success logout-button"><a href="/logout" style="color: #FFFFFF; text-decoration: none">로그아웃</a></button>
+</form>
+<script>
+    function performSearch() {
+        const searchTerm = document.getElementById('searchInput').value;
+        
+        const newURL = '/stores/' + searchTerm;
+    
+        history.pushState({ path: newURL }, '', newURL);
+    
+        updateSearchResults(searchTerm);
+    }
+</script>

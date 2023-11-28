@@ -35,7 +35,7 @@ public class SearchController {
         return "basic/search";
     }
 
-    @GetMapping("/bar")
+    @GetMapping("/result")
     public String search(Model model) {
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
 
