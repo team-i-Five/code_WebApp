@@ -19,25 +19,30 @@
 
         <!-- 버튼들을 담을 컨테이너 -->
         <div class="btn-container">
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('love')">사랑</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('opera')">오페라</button>
-            
-            <!-- 태그 : 아이 -->
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('child')">가족</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('friend')">친구</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('art')">예술</button>
+            <form id="tagForm" method="post" th:action="@{/past/tags1}" th:csrf>
+                <!-- tag1을 위한 숨겨진 입력 필드 -->
+                <input type="hidden" name="tag1" id="tag1Input" />
 
-            <!-- 태그 : 마법 -->
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('magic')">판타지</button>
-            
-            <!-- 태그 : 사람 -->
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('person')">휴머니즘</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('history')">역사</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('fear')">공포</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('love')">사랑</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('opera')">오페라</button>
+                
+                <!-- 태그 : 아이 -->
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('child')">가족</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('friend')">친구</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('art')">예술</button>
 
-            <!-- 태그 : 웃음 -->
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('laugh')">코미디</button>
-            <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('sad')">슬픔</button>
+                <!-- 태그 : 마법 -->
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('magic')">판타지</button>
+                
+                <!-- 태그 : 사람 -->
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('person')">휴머니즘</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('history')">역사</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('fear')">공포</button>
+
+                <!-- 태그 : 웃음 -->
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('laugh')">코미디</button>
+                <button type="button" class="btn btn-primary btn-lg" onclick="redirectToUrlWithTag1('sad')">슬픔</button>
+            </form>
         </div>
     </div>
     

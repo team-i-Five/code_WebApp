@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -15,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/past/")
+@RequestMapping("/past")
 public class MusicalPastController {
     
     // tagName 맵을 클래스 변수로 선언
@@ -57,7 +58,7 @@ public class MusicalPastController {
     }
 
 
-    @GetMapping("/past")
+    @GetMapping()
     public String pastShow(Model model){
         List<MusicalPastDTO> mpd = musicalPastService.getMusicalPastListOrderByEndDate();
 
@@ -66,10 +67,8 @@ public class MusicalPastController {
         return "basic/past";
     }
 
-    @GetMapping("/tags/tag1")
+    @PostMapping("/tags1")
     public String sendTag1(@RequestParam(name = "tag1") String tag1, Model model){
-        log.info("ㅅㅁㅅㅁㅅ : "+tag1);
-
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1(tagName.get(tag1));
         
         // log.info("쿼리문 결과 DTO : "+mpdl);
@@ -89,7 +88,7 @@ public class MusicalPastController {
         }
     }
 
-    @GetMapping("/tags/tag1&tag2")
+    @PostMapping("/tags2")
     public String sendTag2(@RequestParam(name = "tag1") String tag1, 
     @RequestParam(name = "tag2") String tag2, Model model){
         
@@ -116,15 +115,13 @@ public class MusicalPastController {
         
     }
 
-    @GetMapping("/tags/allTagsSelected")
+    @PostMapping("/allTags")
     public String sendAllTags(@RequestParam(name = "tag1") String tag1, 
-    @RequestParam(name = "tag2") String tag2, @RequestParam(name = "tag3") String tag3, Model model){
+        @RequestParam(name = "tag2") String tag2, @RequestParam(name = "tag3") String tag3, Model model){
         
         log.info("태그 1 : "+tag1);
         log.info("태그 2 : "+tag2);
         log.info("태그 3 : "+tag3);
-
-        
 
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByAllTags(
                                             tagName.get(tag1),tagName.get(tag2), tagName.get(tag3)

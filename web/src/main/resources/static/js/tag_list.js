@@ -98,29 +98,73 @@ function recommendSimilar(){
   window.location.href = url;
 }
 
-function redirectToUrlWithTag1(tag) {
-  let baseUrl = '/past/tags/tag1';
-  let url = baseUrl + '?tag1=' + tag;
+function redirectToUrlWithTag1(tag1) {
 
-  window.location.href = url;
+  // ID로 엘리먼트를 찾아서 존재하는 경우에만 값을 설정합니다.
+  const tag1Input = document.getElementById('tag1Input');
+  // console.log(tag1Input)
+  if (tag1Input) {
+    // tag2Input 의 value 값을 매개 변수인 tag2 값으로 대입.
+    tag1Input.value = tag1;
+
+    // 폼을 프로그래밍적으로 제출합니다.
+    document.getElementById('tagForm').submit();
+  } else {
+      console.error("Element with ID 'tag1Input' not found");
+  }
 }
 
-function redirectToUrlWithTag2(tag2) {
-  let baseUrl = '/past/tags/tag1&tag2';
+// function redirectToUrlWithTag1(tag) {
+//   let baseUrl = '/past/tags/tag1';
+//   let url = baseUrl + '?tag1=' + tag;
 
+//   window.location.href = url;
+
+// }
+
+
+function redirectToUrlWithTag2(tag2) {
   console.log(tag1);
   console.log(tag2);
-  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2; // 수정된 부분: '?' 대신 '&'
+  
+  // ID로 엘리먼트를 찾아서 존재하는 경우에만 값을 설정합니다.
+  const tag2Input = document.getElementById('tag2Input');
+  console.log(tag2Input)
+  if (tag2Input) {
+    // tag2Input 의 value 값을 매개 변수인 tag2 값으로 대입.
+    tag2Input.value = tag2;
 
-  window.location.href = url;
+    // 폼을 프로그래밍적으로 제출합니다.
+    document.getElementById('tagForm').submit();
+  } else {
+      console.error("Element with ID 'tag2Input' not found");
+  }
 }
 
 function redirectToUrlWithTag3(tag3) {
-  let baseUrl = '/past/tags/allTagsSelected';
-  console.log(tag1);
-  console.log(tag2);
-  console.log(tag3);
-  let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
+  // console.log(tag1);
+  // console.log(tag2);
 
-  window.location.href = url;
+  // ID로 엘리먼트를 찾아서 존재하는 경우에만 값을 설정합니다.
+  const tag3Input = document.getElementById('tag3Input');
+  
+  if (tag3Input) {
+    // tag2Input 의 value 값을 매개 변수인 tag2 값으로 대입.
+    tag3Input.value = tag3;
+
+    // 폼을 프로그래밍적으로 제출합니다.
+    document.getElementById('tagForm').submit();
+  } else {
+      console.error("Element with ID 'tag2Input' not found");
+  }
 }
+
+// function redirectToUrlWithTag3(tag3) {
+//   let baseUrl = '/past/tags/allTagsSelected';
+//   console.log(tag1);
+//   console.log(tag2);
+//   console.log(tag3);
+//   let url = baseUrl + '?tag1=' + tag1 + '&tag2=' + tag2 + '&tag3=' + tag3; // 수정된 부분: '?' 대신 '&'
+
+//   window.location.href = url;
+// }
