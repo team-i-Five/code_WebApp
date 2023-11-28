@@ -50,8 +50,8 @@ public class MusicalPastController {
 
     @Autowired
     private MusicalPastService musicalPastService;
-
-    @Autowired
+ 
+    
     public MusicalPastController(MusicalPastService musicalPastService){
         this.musicalPastService = musicalPastService;
     }
@@ -59,7 +59,7 @@ public class MusicalPastController {
 
     @GetMapping("/list")
     public String pastShow(Model model){
-        List<MusicalPastDTO> mpd = musicalPastService.getMusicalPastListOrderByEndDate();
+        List<MusicalPastDTO> mpd = musicalPastService.getMusicalPastListOrderByEndDate(50);
 
         model.addAttribute("musicalPastList", mpd);
 

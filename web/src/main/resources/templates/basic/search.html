@@ -1,0 +1,29 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head rel="stylesheet" th:replace="~{fragment/common :: head('mumo','/css/search.css')}">
+</head>
+
+<body>
+    <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('')}"></nav>
+
+    <!-- 태그없을때, ml 결과페이지 -->
+    <div class="container" th:if="${tag1 == null}" style="margin-top: 100px;">
+        <div><h1>찾으시는 뮤지컬이 없으신가요? 검색해보세요.</h1></div>
+        <div class="list-image-container" th:replace="~{fragment/musical_list_slider :: musicalList()}"></div>
+        <div class th:replace="~{fragment/musical_list_slider :: sliders('4')}"></div>
+    </div>
+
+
+
+
+    <script th:inline="javascript">
+        let musicals = /*[[ ${musicals} ]]*/[];
+        const slideNum = /*[[${slideNum}]]*/ [];
+        console.log(slideNum);
+    </script>
+
+    <script src="/js/tag_list.js"></script>
+</body>
+
+</html>

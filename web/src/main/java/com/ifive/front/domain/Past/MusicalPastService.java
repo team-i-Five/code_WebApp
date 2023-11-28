@@ -5,7 +5,7 @@ import java.util.List;
 public interface MusicalPastService {
     
     // 과거의 뮤지컬에서 end_date 최신순으로 정렬한 전체 데이터 조회
-    List<MusicalPastDTO> getMusicalPastListOrderByEndDate();
+    List<MusicalPastDTO> getMusicalPastListOrderByEndDate(int count);
 
     // tag1에 해당하는 뮤지컬 가져오기
     List<MusicalPastDTO> getMusicalPastListByTag1(String tag1);
