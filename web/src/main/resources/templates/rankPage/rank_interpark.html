@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head rel="stylesheet" href="/css/rank.css" th:replace="~{fragment/common :: head(' 인터파크 랭킹 | 뮤모 ','/css/rank.css')}">
+<head th:replace="~{fragment/common :: head(' 인터파크 랭킹 | 뮤모 ','/css/rank.css')}">
 </head>
 
 <body>
@@ -23,13 +23,13 @@
             <div class="site_list">
                 <ul class="tab_list" role="tablist" data-tiara-layer="select">
                     <li>
-                        <a href="/rank" class="site_tab" role="tab" aria-selected="true">인터파크</a>
+                        <a href="/rank/interpark" class="site_tab" role="tab" aria-selected="true">인터파크</a>
                     </li>
                     <li>
-                        <a href="/rank/1" class="site_tab" role="tab">티켓링크</a>
+                        <a href="/rank/ticketlink" class="site_tab" role="tab">티켓링크</a>
                     </li>
                     <li>
-                        <a href="/rank/2" class="site_tab" role="tab">예스24티켓</a>
+                        <a href="/rank/yes24" class="site_tab" role="tab">예스24티켓</a>
                     </li>
                 </ul>
             </div>
@@ -55,8 +55,6 @@
             </ol>
         </div>
     </div>
-
-    <script src="/js/rank.js"></script>
 </body>
 
 </html>

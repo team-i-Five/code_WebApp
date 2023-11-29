@@ -1,6 +1,9 @@
 function goNext() {
-    console.log("goNext() 호출됨22");
     let url = '/tags';
     window.location.href = url;
   }
   
+function goNext2() {
+    let url = '/search/';
+    window.location.href = url;
+  }

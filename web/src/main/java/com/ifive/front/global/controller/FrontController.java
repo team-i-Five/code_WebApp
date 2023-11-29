@@ -22,4 +22,5 @@ public class FrontController {
     public String tagList() {
         return "tag/init_tag";
     }
+
 }

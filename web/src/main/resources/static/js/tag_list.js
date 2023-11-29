@@ -87,14 +87,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // --------------------------------------------- 태그관련 ---------------------------------------------
 
 function redirectToUrlWithTag1(tag) {
-  let baseUrl = '/past/tags/tag1';
+  let baseUrl = '/past/past/tags/tag1';
   let url = baseUrl + '?tag1=' + tag;
 
   window.location.href = url;
 }
 
 function redirectToUrlWithTag2(tag2) {
-  let baseUrl = '/past/tags/tag1&tag2';
+  let baseUrl = '/tags/tag1&tag2';
 
   console.log(tag1);
   console.log(tag2);
@@ -104,7 +104,7 @@ function redirectToUrlWithTag2(tag2) {
 }
 
 function redirectToUrlWithTag3(tag3) {
-  let baseUrl = '/past/tags/allTagsSelected';
+  let baseUrl = '/past/past/tags/allTagsSelected';
   console.log(tag1);
   console.log(tag2);
   console.log(tag3);
@@ -120,25 +120,13 @@ function recommendSimilar(){
   console.log(musicalId);
   console.log(document.getElementById("selectedTitle").textContent);
 
-  // let selectedTitle = document.getElementById("selectedTitle").textContent;
-  // let encodedTitle = encodeURIComponent(selectedTitle);
-
   // Id로 해당 엘리먼트를 찾아서 존재하면 값 설정
   const musicalIdInput = document.getElementById("musicalIdInput");
   const musicalTitleInput = document.getElementById("musicalTitleInput");
-  // if(musicalIdInput){
-    // 선택한 뮤지컬의 id 값을 value로 지정
+
   musicalIdInput.value = musicalId;
   musicalTitleInput.value = document.getElementById("selectedTitle").textContent;
 
+  // 폼 안에 해당 value 값들 포함해서 action url로 전달
   document.getElementById("recommendForm").submit();
-  // }
-  // else{
-  //   console.error()
-  // }
-  // let selectedTitle = document.getElementById("selectedTitle").textContent;
-  // let encodedTitle = encodeURIComponent(selectedTitle);
-
-  // let url = baseUrl + musicalId +"?title="+encodedTitle;
-  // window.location.href = url;
 }
