@@ -2,6 +2,7 @@ package com.ifive.front.domain.Past;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -18,6 +19,21 @@ public class MusicalPastServiceImpl implements MusicalPastService{
         this.musicalPastRepository = musicalPastRepository;
     }
 
+    // 검색
+    @Override
+    public List<MusicalPastDTO> getMusicalPastListBySearch(String searchKeyword){
+        Pageable pageable = PageRequest.of(0,50);
+        List<MusicalPast> mpl = musicalPastRepository.queryBySearchKeyword(pageable, searchKeyword);
+        List<MusicalPastDTO> mplDto = new ArrayList<>(); // mplDto 변수 선언 및 초기화
+    
+        for(MusicalPast mp : mpl){
+            mplDto.add(mp.toDTO());
+        }
+    
+        return mplDto;
+    }
+    
+    // past 데이터 count 갯수만큼 화면에 넘겨주기
     @Override
     public List<MusicalPastDTO> getMusicalPastListOrderByEndDate(int count){
         // Pageable을 통해 0부터 count까지의 쿼리 데이터만 가져옴.
@@ -34,6 +50,7 @@ public class MusicalPastServiceImpl implements MusicalPastService{
         return mplDto;
     }
 
+    // 태그 관련
     @Override
     public List<MusicalPastDTO> getMusicalPastListByTag1(String tag1){
         Pageable pageable = PageRequest.of(0,50);
@@ -77,5 +94,6 @@ public class MusicalPastServiceImpl implements MusicalPastService{
         }
 
         return mplDto;
-    }    
+    }
+  
 }

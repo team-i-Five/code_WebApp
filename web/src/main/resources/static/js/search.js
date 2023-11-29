@@ -1,22 +1,11 @@
 
 // 검색어 가져와서 전송
-function submitForm() {
-    let searchInput = document.getElementById('searchInput').value; // 입력된 검색어를 가져옵니다.
-    if (searchInput.trim() !== '') { // 입력된 검색어가 비어있지 않은지 확인합니다.
+function sendSearchKeyword() {
+    let searchKeyword = document.getElementById('searchKeyword').value; // 입력된 검색어를 가져옵니다.
+    if (searchKeyword.trim() !== '') { // 입력된 검색어가 비어있지 않은지 확인합니다.
         // 현재 폼을 가져와서 submit 합니다.
         document.querySelector('form').submit();
     }
-}
-
-// 참고용
-function performSearch() {
-    const searchTerm = document.getElementById('searchInput').value;
-    
-    const newURL = '/stores/' + searchTerm;
-
-    history.pushState({ path: newURL }, '', newURL);
-
-    updateSearchResults(searchTerm);
 }
 
 // 태그 관련 js

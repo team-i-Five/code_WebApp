@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ifive.front.domain.Past.MusicalPastDTO;
 import com.ifive.front.domain.Past.MusicalPastServiceImpl;
@@ -26,21 +29,23 @@ public class SearchController {
         this.musicalPastServiceImpl = musicalPastServiceImpl;
     }
 
-    // 두번째 선택지
+    // 검색
     @GetMapping("/")
-    public String searchList(Model model) {
-        List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
-
-        model.addAttribute("musicals", mpdl);
-        return "basic/search";
-    }
-
-    @GetMapping("/result")
     public String search(Model model) {
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
 
         model.addAttribute("musicals", mpdl);
         return "basic/search";
     }
-}
 
+    // 검색 결과
+    @PostMapping("/result")
+    public String searchResult(Model model, @RequestParam("searchKeyword") String searchKeyword) {
+        log.info("***** resultSearchKeyword={}", searchKeyword);
+        List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListBySearch(searchKeyword);
+
+        model.addAttribute("musicals", mpdl);
+        model.addAttribute("searchKeyword", searchKeyword);
+        return "basic/search";
+    }
+}

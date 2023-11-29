@@ -15,4 +15,7 @@ public interface MusicalPastService {
 
     // 모든 tag를 통해 필터링된 뮤지컬 가져오기
     List<MusicalPastDTO> getMusicalPastListByAllTags(String tag1, String tag2, String tag3);    
+
+    // 검색 기능
+    List<MusicalPastDTO> getMusicalPastListBySearch(String searchKeyword);
 }
