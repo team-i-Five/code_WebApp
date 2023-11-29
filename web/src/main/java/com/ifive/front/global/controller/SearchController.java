@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +28,7 @@ public class SearchController {
         this.musicalPastServiceImpl = musicalPastServiceImpl;
     }
 
-    // 검색
+    // 검색 페이지
     @GetMapping("/")
     public String search(Model model) {
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
@@ -38,7 +37,7 @@ public class SearchController {
         return "basic/search";
     }
 
-    // 검색 결과
+    // 검색 결과 페이지
     @PostMapping("/result")
     public String searchResult(Model model, @RequestParam("searchKeyword") String searchKeyword) {
         log.info("***** resultSearchKeyword={}", searchKeyword);
