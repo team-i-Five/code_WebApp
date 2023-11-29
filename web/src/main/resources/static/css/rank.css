@@ -100,7 +100,8 @@
     width: 300px;
     height: 400px;
     object-fit: cover;
-    border-radius: 20px;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-radius: 1.2rem;
 }
 
 .rank_num {

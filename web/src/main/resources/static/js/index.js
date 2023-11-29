@@ -1,4 +1,4 @@
-function goNext() {
+function goNext1() {
     let url = '/tags';
     window.location.href = url;
   }

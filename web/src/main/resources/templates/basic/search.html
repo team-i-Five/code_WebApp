@@ -8,7 +8,7 @@
     <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('')}"></nav>
 
     <div class="container" th:if="${tag1 == null}" style="margin-top: 100px;">
-        <form th:action="@{/search/result}" method="post" th:csrf > <!-- POST 방식으로 '/search/result' 경로로 검색어 전송 -->
+        <form method="post" th:action="@{/search/result}" th:csrf > <!-- POST 방식으로 '/search/result' 경로로 검색어 전송 -->
             <input type="text" name="searchKeyword" placeholder="찾으시는 뮤지컬이 없으신가요? 검색해보세요." id="searchKeyword"/>
             <button type="submit">검색</button> 
         </form>
@@ -16,12 +16,9 @@
         <div th:replace="~{fragment/musical_list_slider :: sliders('4')}"></div>    
     </div>
 
-
-
     <script th:inline="javascript">
         let musicals = /*[[ ${musicals} ]]*/[];
     </script>
-    <script src="/js/tag_list.js"></script>
 </body>
 
 </html>

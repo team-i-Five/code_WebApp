@@ -5,42 +5,55 @@
 
 <!-- 선택된 뮤지컬 정보, 초기값은 인덱스0 -->
 <div class="selected-container" th:fragment="musicalList()">
-    <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
+    <div class="selected-image-wrap">
+        <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
+    </div>
     <!-- 추가된 테이블 -->
     <div id="selectedInfo">
+        <div class="info-row">
             <div class="column">제목</div>
             <div class="musical_detail" th:text="${musicals[0].title}" id="selectedTitle"></div>
+        </div>
 
+        <div class="info-row">
             <div class="column">장르</div>
-            <div th:text="${musicals[0].genre}" id="selectedGenre"></div>
+            <div class="musical_detail" th:text="${musicals[0].genre}" id="selectedGenre"></div>
+        </div>
 
+        <div class="info-row">
             <div class="column">상영 기간</div>
-            <div class="musical_detail"  th:text="${musicals[0].date}" id="selectedDate"></div>
+            <div class="musical_detail" th:text="${musicals[0].date}" id="selectedDate"></div>
+        </div>
 
+        <div class="info-row">
             <div class="column">장소</div>
-            <div class="musical_detail"  th:text="${musicals[0].location}" id="selectedLocation"></div>
+            <div class="musical_detail" th:text="${musicals[0].location}" id="selectedLocation"></div>
+        </div>
 
+        <div class="info-row">
             <div class="column">상영 시간</div>
-            <div class="musical_detail"  th:text="${musicals[0].runningTime}" id="selectedRunning"></div>
+            <div class="musical_detail" th:text="${musicals[0].runningTime}" id="selectedRunning"></div>
+        </div>
 
-            <div class="column">줄거리</div>
-            <div class="musical_detail"  th:text="${musicals[0].synopsis}" id="selectedSys"></div>
-            <br>
-            <div class="musical_btn_description">
-                <form id="recommendForm" method="post" th:action="@{/result/ml}" th:csrf>
-                    <input type="hidden" name="id" id="musicalIdInput"/>
-                    <input type="hidden" name="title" id="musicalTitleInput"/>
+        <div class="column">줄거리</div>
+        <div class="musical_detail" th:text="${musicals[0].synopsis}" id="selectedSys"></div>
+        
+        <div class="musical_btn_description">
+            <form id="recommendForm" method="post" th:action="@{/result/ml}" th:csrf>
+                <input type="hidden" name="id" id="musicalIdInput" />
+                <input type="hidden" name="title" id="musicalTitleInput" />
 
-                    <button class="musical_btn" onclick="recommendSimilar()">
-                        해당 작품과 <span class="bold-text">비슷한 작품</span> 추천받기
-                    </button>
-                </form>
-                <div id="musicalIdContainer" data-musical-id="${musicals[0].musicalId}"></div>
-            </div>
+                <button class="musical_btn" onclick="recommendSimilar()">
+                    해당 작품과 <span class="bold-text">비슷한 작품</span> 추천받기
+                </button>
+            </form>
+            <div id="musicalIdContainer" data-musical-id="${musicals[0].musicalId}"></div>
+        </div>
     </div>
+    <script src="/js/musical_info.js"></script>
 </div>
 
-<!-- 슬라이더 영역 시작 --> 
+<!-- 슬라이더 영역 시작 -->
 <div class="slide-container" th:fragment="sliders(num)" style="margin-top:10px;">
     <!-- num이 4일때 여기만 출력 -->
     <div class="show-slides" th:if="${num == '4'}">
@@ -69,4 +82,5 @@
             </li>
         </div>
     </div>
+    <script src="/js/slider.js"></script>
 </div>
