@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragment/common :: head('로그인', '/css/signin_form.css')}">   
+</head>
+
+<body>
+    <!-- 상단 네비바 -->
+    <div class="container-sm">
+        <nav class="navbar fixed-top"
+        th:replace="~{fragment/common :: top-nav('signin')}"></nav>
+    
+        <!-- 본문시작 -->
+        <form class="form-signin">
+            <div class="text-center mb-4">
+                <img class="mb-4" src="/img/mumo_logo.png" alt="logo" id="logo-image">
+            </div>
+    
+            <div class="form-label-group">
+                <label id="emailLabel">이메일을 입력하세요.</label>
+                <input type="email" id="inputEmail" class="form-signin" placeholder="ID" required autofocus oninput="hideLabel('inputEmail', 'emailLabel')">
+            </div>
+    
+            <div class="form-label-group">
+                <label id="passwordLabel">비밀번호를 입력해주세요.</label>
+                <input type="password" id="inputPassword" class="form-signin" placeholder="Password" required oninput="hideLabel('inputPassword', 'passwordLabel')">
+            </div>
+            <!-- sign in 으로 사용하지만 사용자가 알기 쉽게 로그인으로 텍스트를 사용합니다. -->
+            <button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+            <p class="mt-3 text-muted text-center">Copyright &copy; team i-Five</p>
+        </form>
+    </div>
+    
+    <!-- JavaScript  -->
+    <script src="/js/signin.js"></script>
+
+    <footer th:replace="~{fragment/common :: footer}"></footer>
+</body>
+
+</html>
