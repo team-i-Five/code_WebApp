@@ -1,0 +1,78 @@
+<table class="musical-details" id="selectedInfo">
+        <thead>
+            <tr>
+                <th>제목</th>
+                <td th:text="${musicals[0].title}" id="selectedTitle"></td>
+            </tr>
+        </thead>
+        <tbody>
+            <th>장르</th>
+            <td th:text="${musicals[0].genre}" id="selectedGenre"></td>
+            </tr>
+            <tr>
+                <th>상영기간</th>
+                <td th:text="${musicals[0].date}" id="selectedDate"></td>
+            </tr>
+            <tr>
+                <th>장소</th>
+                <td th:text="${musicals[0].location}" id="selectedLocation"></td>
+            </tr>
+            <tr>
+                <th>상영시간</th>
+                <td th:text="${musicals[0].runningTime}" id="selectedRunning"></td>
+            </tr>
+            <tr>
+                <th>줄거리</th>
+                <!-- 줄거리를 10줄로 제한하여 표시하고, 10줄 이하일 경우 전체 내용을 표시 -->
+                <td th:if="${musicals[0].synopsis}" class="max-lines">
+                    <span th:text="${musicals[0].synopsis}" id="selectedSys"></span>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+
+
+
+
+
+
+
+
+
+.musical-details {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+}
+
+.musical-details th {
+    flex : 2;    /* 인라인 블록으로 설정하여 가로 배치 */
+}
+
+.musical-details td {
+   flex : 8;
+    /* display: inline-block;   인라인 블록으로 설정하여 가로 배치 */
+    vertical-align: top;    /* 상단 정렬을 통해 텍스트가 위쪽에 위치하도록 설정 */
+    margin-left: 10px;
+}
+
+.max-lines {
+    max-height: 20em;     /* 표시할 최대 높이 */
+       /* 스크롤이 필요할 때만 표시 */
+    -webkit-line-clamp: 20;    /* 표시할 최대 줄 수 */
+}
+
+.musical-contents {
+    display: flex;
+    overflow: hidden;    /*가로로 넘어가는내용 안보이게*/
+    z-index: 1;
+}
+
+.musical-details {
+    position: relative;
+    top: -70%;
+    min-width: 550px;
+    max-width: 550px;
+}

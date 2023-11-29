@@ -15,10 +15,10 @@ RUN apt install openjdk-17-jre-headless -y
 
 RUN apt install maven -y
 
-RUN mvn package -Dmaven.test.skip=true
+RUN mvn clean package
 
 # 사용포트 
-EXPOSE 8080
+EXPOSE 8081
 
 # nohub 실행 명령
-ENTRYPOINT [ "java", "-jar", "/ifive_boot/target/demo-0.0.1-SNAPSHOT.jar" ]
+ENTRYPOINT [ "java", "-jar", "/ifive_boot/target/front-0.0.1-SNAPSHOT.jar" ]
