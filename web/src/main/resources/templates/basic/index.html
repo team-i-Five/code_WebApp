@@ -1,10 +1,11 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
 <head th:replace="~{fragment/common :: head('i-Five 뮤지컬 프로젝트','css/default.css')}">
 </head>
 <body>
     <!-- 상단 네비바 -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('home')}">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common_nav :: top-nav('home')}">
     </nav>
 
     <!-- 본문시작 -->

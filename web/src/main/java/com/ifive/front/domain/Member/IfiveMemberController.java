@@ -8,6 +8,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -16,19 +20,36 @@ import lombok.RequiredArgsConstructor;
 public class IfiveMemberController {
 
     private final IfiveMemberServiceImpl memberService;
-   
 
-    @GetMapping("/signup") // Get으로 signup url이 요청되면 회원가입 템플릿을 렌더링
+    // Get으로 signup url이 요청되면 회원가입 렌더링
+    @GetMapping("/signin")
+    public String signin() {
+        return "basic/signin_form";
+    }
+
+    @GetMapping("/member/signout")
+    public String signout() {
+        // 세션 로그아웃 처리
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            SecurityContextHolder.getContext().setAuthentication(null);
+        }
+
+        return "redirect:/";
+    }
+
+    // Get으로 signup url이 요청되면 회원가입폼 렌더링
+    @GetMapping("/signup") 
     public String signup(MemberCreateForm memberCreateForm) {
         return "basic/signup_form";
     }
 
-    @PostMapping("/signup") // Post로 요청시 회원가입 진행 , @Valid는 유효성 검사를 위해서 사용함.
+    // Post로 요청시 회원가입 진행 , @Valid는 유효성 검사를 위해서 사용함.
+    @PostMapping("/signup") 
     public String signup(@Valid MemberCreateForm memberCreateForm, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "basic/signup_form";
         }
-
         // bindingResult.rejectValue(필드명, 오류코드, 에러메시지)
         if (!memberCreateForm.getPassword1().equals(memberCreateForm.getPassword2())) {
             bindingResult.rejectValue("password2", "passwordInCorrect",
@@ -36,15 +57,22 @@ public class IfiveMemberController {
             return "basic/signup_form";
         }
 
-        memberService.create(
-                memberCreateForm.getMemberName(), memberCreateForm.getEmail(), memberCreateForm.getPassword1());
-
+        // 회원가입시 오류 체크 어노테이션에 체크한 unique=true값으로 중복이 체크되면, DataIntegrityViolationException발생
+        // 기타 에러는 Exception 메세지 처리
+        try {
+            memberService.create(
+                    memberCreateForm.getMemberName(), memberCreateForm.getEmail(), memberCreateForm.getPassword1());
+        } catch (DataIntegrityViolationException e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", "이미 등록된 멤버.");
+            return "basic/sigunup_form";
+        } catch (Exception e) {
+            e.printStackTrace();
+            bindingResult.reject("signupFailed", e.getMessage());
+            return "basic/sigunup_form";
+        }
         return "redirect:/";
     }
 
-
-    @GetMapping("/signin") // Get으로 signup url이 요청되면 회원가입 템플릿을 렌더링
-    public String signin() {
-        return "basic/signin_form";
-    }
+    
 }

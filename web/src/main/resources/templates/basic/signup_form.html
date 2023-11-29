@@ -7,15 +7,15 @@
 <body>
     <!-- 상단 네비바 -->
     <div class="container-sm">
-        <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('signin')}"></nav>
+        <nav class="navbar fixed-top" sec:authorize="isAuthenticated()" th:replace="~{fragment/common_nav :: top-nav('signup')}"></nav>
 
         <!-- 본문시작 -->
         <form class="form-signin" th:action="@{/member/signup}" th:object="${memberCreateForm}" method="post" th:csrf>
             <div class="form-wrap">
-                <div th:replace="~{fragment/form_errors :: formErrorsFragment}"></div>
                 <div class="text-center mb">
                     <img class="mb-4" src="/img/mumo_logo.png" alt="logo" id="logo-image">
                 </div>
+                <div th:replace="~{fragment/form_errors :: formErrorsFragment}"></div>
                 <div class="form-label-group">
                     <label for="memberName" id="nameLabel">아이디</label>
                     <input type="text" th:field="*{memberName}" id="inputName" class="form-signin">

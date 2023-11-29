@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-
-<html xmlns:th="http://www.thymeleaf.org">
-<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/tag_list.css')}">
-
 <!-- 선택된 뮤지컬 정보, 초기값은 인덱스0 -->
 <div class="selected-container" th:fragment="musicalList()">
     <img th:src="${musicals[0].getPosterUrl()}" alt="Image" id="selectedImage">
