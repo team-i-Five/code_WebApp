@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
 
 // 뷰와 연결하는 컨트롤러
@@ -12,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 public class FrontController {
     
     @GetMapping("/")
-    public String drawHome(Model model) {
+    public String drawHome(Model model, HttpSession session) {
         log.info("log message : {} start", "home(index.html)");
         return "global/index";
     }
