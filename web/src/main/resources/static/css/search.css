@@ -64,11 +64,13 @@ button[type="submit"] {
     max-height: 70%;
 }
 
+/* 선택된 뮤지컬 이미지 테두리 */
 .selected-image-wrap {
     background-color: #FFFFFF;
     border: 0.1rem solid rgba(0, 0, 0, 0.2);
     border-radius: 1rem;
 }
+
 /* 선택된 뮤지컬 이미지 */
 #selectedImage {
     width: 450px; /* 이미지 고정 너비 */
