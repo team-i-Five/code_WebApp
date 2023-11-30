@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,17 +23,6 @@ public class IfiveMemberController {
     @GetMapping("/signin")
     public String signin() {
         return "basic/signin_form";
-    }
-
-    @GetMapping("/member/signout")
-    public String signout() {
-        // 세션 로그아웃 처리
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            SecurityContextHolder.getContext().setAuthentication(null);
-        }
-
-        return "redirect:/";
     }
 
     // Get으로 signup url이 요청되면 회원가입폼 렌더링
@@ -74,5 +61,8 @@ public class IfiveMemberController {
         return "redirect:/";
     }
 
-    
+    @GetMapping("/test") 
+    public String testHtml() {
+        return "basic/test";
+    }
 }

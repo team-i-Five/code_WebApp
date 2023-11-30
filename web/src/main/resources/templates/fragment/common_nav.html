@@ -20,10 +20,8 @@
             </li>
             <!-- 스프링시큐리티를 이용해서, 로그인 상태랑 로그아웃 상태에 따라 노출메뉴 변경 -->
             <li class="nav-item">
-                <a class="nav-link" href="#" th:href="@{/member/signin}">로그인</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" th:href="@{/member/signout}">로그아웃</a>
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/member/signin}">로그인</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/member/signout}">로그아웃</a>
             </li>
 
             <li class="nav-item" th:classappend="${menu} == 'signup' ? 'active' ">
