@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     
-<head th:replace="~{fragment/common :: head('i-Five 뮤지컬 프로젝트','css/index.css')}">
+<head th:replace="~{fragment/common :: head('i-Five 뮤지컬 프로젝트','global/index.css')}">
 </head>
 <body>
     <!-- 상단 네비바 -->
@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-        <script src="/js/index.js"></script>
+        <script src="/global/index.js"></script>
         <footer th:replace="~{fragment/common :: footer}"></footer>
 </body>
 </html>

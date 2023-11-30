@@ -62,18 +62,21 @@ public class MusicalPastController {
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1(tagName.get(tag1));
         
         if(mpdl.size() == 0){
-            return "Tag/null_tag" ;
+            return "domain/Tag/null_tag" ;
         }
         else{
-        model.addAttribute("musicals", mpdl);
-        model.addAttribute("tag1", tag1);
-        model.addAttribute("tagName1", tagNameFront.get(tag1));
-        model.addAttribute("tagList", tagName.keySet());
-        model.addAttribute("tagNameList", tagName.values());
-        model.addAttribute("tag2", null);
-        model.addAttribute("tagName2", null);
+            log.info("dwdw : "+ tagName.keySet());
+            log.info("dwdw : "+ tagName.values());
+            
+            model.addAttribute("musicals", mpdl);
+            model.addAttribute("tag1", tag1);
+            model.addAttribute("tagName1", tagNameFront.get(tag1));
+            model.addAttribute("tagList", tagName.keySet());
+            model.addAttribute("tagNameList", tagName.values());
+            model.addAttribute("tag2", null);
+            model.addAttribute("tagName2", null);
         
-        return "Tag/tag_list" ;
+        return "domain/Tag/tag_list" ;
         }
     }
 
@@ -84,7 +87,7 @@ public class MusicalPastController {
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1AndTag2(tagName.get(tag1), tagName.get(tag2));
 
         if(mpdl.size() == 0){
-            return "Tag/null_tag" ;
+            return "domain/Tag/null_tag" ;
         }
         else{
         
@@ -94,7 +97,7 @@ public class MusicalPastController {
             model.addAttribute("tagName1", tagNameFront.get(tag1));
             model.addAttribute("tagName2", tagNameFront.get(tag2));
 
-            return "Tag/tag_list";
+            return "domain/Tag/tag_list";
         }
         
     }
@@ -108,7 +111,7 @@ public class MusicalPastController {
                                         );
 
         if(mpdl.size() == 0){
-            return "Tag/null_tag" ;
+            return "domain/Tag/null_tag" ;
         }
         else{
 
@@ -117,7 +120,7 @@ public class MusicalPastController {
             model.addAttribute("tagName2", tagNameFront.get(tag2));
             model.addAttribute("tagName3", tagNameFront.get(tag3));
 
-            return "Tag/all_tags_list" ;
+            return "domain/Tag/all_tags_list" ;
         }
     }
 }

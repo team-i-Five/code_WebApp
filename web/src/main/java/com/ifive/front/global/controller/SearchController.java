@@ -34,7 +34,7 @@ public class SearchController {
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
 
         model.addAttribute("musicals", mpdl);
-        return "searchPage/search";
+        return "domain/Search/search";
     }
 
     // 검색 결과
@@ -45,12 +45,12 @@ public class SearchController {
 
         // 검색 결과가 없을 때 null 페이지로, 하나라도 있으면 search 페이지로 리턴
         if (mpdl.size()==0){
-            return "searchPage/null_search";
+            return "domain/Search/null_search";
         }
         else{
             model.addAttribute("musicals", mpdl);
             model.addAttribute("searchKeyword", searchKeyword);
-            return "searchPage/search";
+            return "domain/Search/search";
         }
     }
 }

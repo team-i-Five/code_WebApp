@@ -20,7 +20,7 @@ public class FrontController {
     // 처음 모든 태그 리스트 값 출력된 페이지 이동
     @GetMapping("/tags")
     public String tagList() {
-        return "Tag/init_tag";
+        return "domain/Tag/init_tag";
     }
 
 }

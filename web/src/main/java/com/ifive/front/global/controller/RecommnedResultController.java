@@ -72,6 +72,6 @@ public class RecommnedResultController {
         model.addAttribute("musicals", combinedDTOs);
 
         model.addAttribute("title", title);
-        return "basic/recommendResult";
+        return "global/recommendResult";
     }
 }

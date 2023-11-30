@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head th:replace="~{fragment/common :: head('i-five','/css/tag_list.css')}">
+<head th:replace="~{fragment/common :: head('i-five','/domain/Tag/tag_list.css')}">
 </head>
 
 <body>
@@ -27,6 +27,6 @@
         let musicals = /*[[ ${musicals} ]]*/[];
     </script>
     
-    <script src="/js/tag_list.js"></script>
+    <script src="/domain/Tag/tag_list.js"></script>
 </body>
 </html>

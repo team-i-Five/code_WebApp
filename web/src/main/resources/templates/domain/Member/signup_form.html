@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{fragment/common :: head('회원가입', '/css/signup_form.css')}">
+<head th:replace="~{fragment/common :: head('회원가입', '/domain/Member/signup_form.css')}">
 </head>
 
 <body>
@@ -43,7 +43,7 @@
     </div>
 
     <!-- JavaScript  -->
-    <script src="/js/signin.js"></script>
+    <script src="/domain/Member/signin.js"></script>
 
     <footer th:replace="~{fragment/common :: footer}"></footer>
 </body>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/css/recommendResult.css')}">
+<link rel="stylesheet" href="/css/list.css" th:replace="~{fragment/common :: head('i-five','/global/recommendResult.css')}">
 </head>
 
 <body>
@@ -58,6 +58,6 @@
     <script th:inline="javascript">
         let musicals = /*[[ ${musicals} ]]*/[];
     </script>
-    <script src="/js/musical_info.js"></script>
+    <script src="/fragment/musical_info.js"></script>
 </body>
 </html>

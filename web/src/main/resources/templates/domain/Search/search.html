@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<head rel="stylesheet" th:replace="~{fragment/common :: head('mumo','/Search/search.css')}">
+<head rel="stylesheet" th:replace="~{fragment/common :: head('mumo','/domain/Search/search.css')}">
 </head>
 
 <body>
@@ -22,7 +22,7 @@
     <script th:inline="javascript">
         let musicals = /*[[ ${musicals} ]]*/[];
     </script>
-    <script src="/Search/search.js"></script>
+    <script src="/domain/Search/search.js"></script>
 
 </body>
 

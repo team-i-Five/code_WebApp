@@ -24,7 +24,10 @@
 
     <!-- 호출시 pageCss가 있다면(not null) 추가합니다-->
     <link rel="stylesheet" type="text/css" th:if="${pageCss != null}" th:href="${pageCss}">
-    <link rel="stylesheet" type="text/css" th:if="${pageCss == null}" href="/css/default.css">
+    <link rel="stylesheet" type="text/css" th:if="${pageCss == null}" href="/global/index.css">
+
+    <link rel="stylesheet" type="text/css" href="/fragment/slider.css">
+
 
 
 
