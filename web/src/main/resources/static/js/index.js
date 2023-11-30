@@ -4,6 +4,6 @@ function goNext1() {
   }
   
 function goNext2() {
-    let url = '/search';
+    let url = '/search/';
     window.location.href = url;
   }

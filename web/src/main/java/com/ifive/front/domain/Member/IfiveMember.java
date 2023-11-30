@@ -6,7 +6,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Member {  // 스프링 시큐리티에 User가있어서 참조 문제가 생길 수 있음.
+public class IfiveMember {  // 스프링 시큐리티에 User가있어서 참조 문제가 생길 수 있음.
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

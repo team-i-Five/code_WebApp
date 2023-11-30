@@ -29,7 +29,7 @@ public class SearchController {
     }
 
     // 검색
-    @GetMapping("")
+    @GetMapping("/")
     public String search(Model model) {
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
 

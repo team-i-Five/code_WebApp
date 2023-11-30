@@ -1,47 +1,47 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="~{fragment/common :: head('회원가입', '/css/signin_form.css')}">   
+<head th:replace="~{fragment/common :: head('회원가입', '/css/signup_form.css')}">
 </head>
 
 <body>
     <!-- 상단 네비바 -->
     <div class="container-sm">
-        <nav class="navbar fixed-top"
-        th:replace="~{fragment/common :: top-nav('signin')}"></nav>
-    
+        <nav class="navbar fixed-top" sec:authorize="isAuthenticated()" th:replace="~{fragment/common_nav :: top-nav('signup')}"></nav>
+
         <!-- 본문시작 -->
-        <form class="form-signin" th:action="@{/member/signup}" th:object="${memberCreateForm}" method="post">
-            <div th:replace="~{form_error :: common_form_errors}"></div>
-            <div class="text-center mb-4">
-                <img class="mb-4" src="/img/mumo_logo.png" alt="logo" id="logo-image">
-            </div>
-            <div class="form-label-group">
-                <label for="memberName" id="nameLabel">사용할 ID를 입력하세요.</label>
-                <input type="text" th:field="*{username}" id="inputName" class="form-signin" placeholder="ID" required autofocus oninput="hideLabel('inputName', 'nameLabel')">
-            </div>
+        <form class="form-signin" th:action="@{/member/signup}" th:object="${memberCreateForm}" method="post" th:csrf>
+            <div class="form-wrap">
+                <div class="text-center mb">
+                    <img class="mb-4" src="/img/mumo_logo.png" alt="logo" id="logo-image">
+                </div>
+                <div th:replace="~{fragment/form_errors :: formErrorsFragment}"></div>
+                <div class="form-label-group">
+                    <label for="memberName" id="nameLabel">아이디</label>
+                    <input type="text" th:field="*{memberName}" id="inputName" class="form-signin">
+                </div>
 
-            <div class="form-label-group">
-                <label for= "email" id="emailLabel">이메일을 입력하세요.</label>
-                <input type="email" th:field="*{email}" id="inputEmail" class="form-signin" placeholder="ID" required autofocus oninput="hideLabel('inputEmail', 'emailLabel')">
-            </div>
-    
-            <div class="form-label-group">
-                <label for="password" id="passwordLabel">비밀번호를 입력해주세요.</label>
-                <input type="password" th:field="*{password}" id="inputPassword" class="form-signin" placeholder="Password" required oninput="hideLabel('inputPassword', 'passwordLabel')">
-            </div>
+                <div class="form-label-group">
+                    <label for="email" id="emailLabel">이메일</label>
+                    <input type="email" th:field="*{email}" id="inputEmail" class="form-signin">
+                </div>
 
-            <div class="form-label-group">
-                <label id="passwordLabel2">비밀번호 확인을 위해 다시 입력해주세요.</label>
-                <input type="password" th:field="*{password2}" id="inputPassword2" class="form-signin" placeholder="Password" required oninput="hideLabel('inputPassword2', 'passwordLabel2')">
-            </div>
+                <div class="form-label-group">
+                    <label for="password1" id="passwordLabel">비밀번호</label>
+                    <input type="password" th:field="*{password1}" id="inputPassword" class="form-signin">
+                </div>
 
-            
-            <button class="btn btn-lg btn-primary btn-block" type="submit">회원가입</button>
-            <p class="mt-3 text-muted text-center">Copyright &copy; team i-Five</p>
+                <div class="form-label-group">
+                    <label for="password2" id="passwordLabel2">비밀번호 확인</label>
+                    <input type="password" th:field="*{password2}" id="inputPassword2" class="form-signin">
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" id="signin-btn" type="submit"
+                    style="margin-top:1rem;">회원가입</button>
+                <p class="mt-3 text-muted text-center">Copyright &copy; team i-Five</p>
+            </div>
         </form>
     </div>
-    
+
     <!-- JavaScript  -->
     <script src="/js/signin.js"></script>
 

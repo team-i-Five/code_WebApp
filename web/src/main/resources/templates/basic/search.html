@@ -1,11 +1,11 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head rel="stylesheet" th:replace="~{fragment/common :: head('mumo','/css/search.css')}">
 </head>
 
 <body>
-    <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('')}"></nav>
+    <nav class="navbar fixed-top" th:replace="~{fragment/common_nav :: top-nav('')}"></nav>
 
     <div class="container" th:if="${tag1 == null}" style="margin-top: 100px;">
         

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head th:replace="~{fragment/common :: head('티켓링크 랭킹 | 뮤모','/css/rank.css')}">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common :: top-nav('rank')}"></nav>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:replace="~{fragment/common_nav :: top-nav('rank')}"></nav>
 
     <div class="ranking">
         <div class="head">

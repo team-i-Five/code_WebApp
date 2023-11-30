@@ -1,12 +1,11 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-<link rel="stylesheet" th:replace="~{fragment/common :: head('i-five','/css/tag_list.css')}">
+<head th:replace="~{fragment/common :: head('i-five','/css/tag_list.css')}">
 </head>
 
 <body>
-    <nav class="navbar fixed-top"
-        th:replace="~{fragment/common :: top-nav('i-five')}"></nav>
+    <nav th:replace="~{fragment/common_nav :: top-nav('i-five')}"></nav>
 
     <div class="null-box">
         <h1 class="text1">😢</h1>

@@ -1,12 +1,12 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head rel="stylesheet" th:replace="~{fragment/common :: head('i-five','/css/tag_list.css')}">
 </head>
 
 <body>
-    <nav class="navbar fixed-top" th:replace="~{fragment/common :: top-nav('')}"></nav>
-    
+    <nav class="navbar fixed-top" th:replace="~{fragment/common_nav :: top-nav('')}"></nav>
+
    <!----------------------태그1만 선택 ---------------------->
     <div class="container" th:if="${tag2 == null && tag1 != null}" style="margin-top: 100px;">
         <h1>

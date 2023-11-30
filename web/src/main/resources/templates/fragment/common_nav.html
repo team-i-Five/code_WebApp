@@ -1,0 +1,33 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    
+
+<!-- 네비게이션 바 배경색 변경, 그림자 추가 -->
+<nav class="navbar navbar-expand-md fixed-top" th:fragment="top-nav(menu)"
+    style="background-color: #FFFFFF; box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);">
+    <a class="navbar-brand" th:href="@{/}"><img src="/img/mumo_logo.png" style="width:10rem; height:auto;"></a>
+
+    <!-- menu 파라미러값으로 선택된 메뉴에 대해서 css변화를 주기위해 -->
+    <div>
+        <ul class="navbar-nav">
+            <li class="nav-item" th:classappend="${menu} == 'home' ? 'active' ">
+                <a class="nav-link" href="#" th:href="@{/}">홈
+                </a>
+            </li>
+            <li class="nav-item" th:classappend="${menu} == 'rank' ? 'active' ">
+                <a class="nav-link" href="#" th:href="@{/rank/interpark}">예매사이트별 일간 랭킹
+                </a>
+            </li>
+            <!-- 스프링시큐리티를 이용해서, 로그인 상태랑 로그아웃 상태에 따라 노출메뉴 변경 -->
+            <li class="nav-item">
+                <a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/member/signin}">로그인</a>
+                <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/member/signout}">로그아웃</a>
+            </li>
+
+            <li class="nav-item" th:classappend="${menu} == 'signup' ? 'active' ">
+                <a class="nav-link" href="#" th:href="@{/member/signup}">회원가입</a>
+            </li>
+        </ul>
+    </div>
+
+</nav>
