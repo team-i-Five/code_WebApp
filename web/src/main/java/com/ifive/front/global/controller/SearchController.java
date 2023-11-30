@@ -29,7 +29,7 @@ public class SearchController {
     }
 
     // 검색
-    @GetMapping("/")
+    @GetMapping("")
     public String search(Model model) {
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListOrderByEndDate(25);
 
@@ -40,11 +40,17 @@ public class SearchController {
     // 검색 결과
     @PostMapping("/result")
     public String searchResult(Model model, @RequestParam("searchKeyword") String searchKeyword) {
-        log.info("***** resultSearchKeyword={}", searchKeyword);
+        // log.info("***** resultSearchKeyword={}", searchKeyword);
         List<MusicalPastDTO> mpdl = musicalPastServiceImpl.getMusicalPastListBySearch(searchKeyword);
 
-        model.addAttribute("musicals", mpdl);
-        model.addAttribute("searchKeyword", searchKeyword);
-        return "basic/search";
+        // 검색 결과가 없을 때 null 페이지로, 하나라도 있으면 search 페이지로 리턴
+        if (mpdl.size()==0){
+            return "basic/null_search";
+        }
+        else{
+            model.addAttribute("musicals", mpdl);
+            model.addAttribute("searchKeyword", searchKeyword);
+            return "basic/search";
+        }
     }
 }

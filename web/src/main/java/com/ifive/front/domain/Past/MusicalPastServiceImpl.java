@@ -33,7 +33,7 @@ public class MusicalPastServiceImpl implements MusicalPastService{
         return mplDto;
     }
     
-    // past 데이터 count 갯수만큼 화면에 넘겨주기
+    //
     @Override
     public List<MusicalPastDTO> getMusicalPastListOrderByEndDate(int count){
         // Pageable을 통해 0부터 count까지의 쿼리 데이터만 가져옴.
