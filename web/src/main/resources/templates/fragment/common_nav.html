@@ -24,7 +24,7 @@
                 <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/member/signout}">로그아웃</a>
             </li>
 
-            <li class="nav-item" th:classappend="${menu} == 'signup' ? 'active' ">
+            <li class="nav-item" sec:authorize="isAnonymous()" th:classappend="${menu} == 'signup' ? 'active' ">
                 <a class="nav-link" href="#" th:href="@{/member/signup}">회원가입</a>
             </li>
         </ul>

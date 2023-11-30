@@ -14,13 +14,13 @@ public class FrontController {
     @GetMapping("/")
     public String drawHome(Model model) {
         log.info("log message : {} start", "home(index.html)");
-        return "basic/index";
+        return "global/index";
     }
 
     // 처음 모든 태그 리스트 값 출력된 페이지 이동
     @GetMapping("/tags")
     public String tagList() {
-        return "tag/init_tag";
+        return "Tag/init_tag";
     }
 
 }

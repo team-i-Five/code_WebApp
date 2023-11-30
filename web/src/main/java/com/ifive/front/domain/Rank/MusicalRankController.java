@@ -36,7 +36,7 @@ public class MusicalRankController {
         model.addAttribute("today", today);
         model.addAttribute("interparkList", mrd);
 
-        return "rankPage/rank_interpark";
+        return "Rank/rank_interpark";
     }
         
     @GetMapping("/ticketlink")
@@ -50,7 +50,7 @@ public class MusicalRankController {
         model.addAttribute("today", today);
         model.addAttribute("ticketlinkList", mrd);
 
-        return "rankPage/rank_ticketlink";
+        return "Rank/rank_ticketlink";
     }
         
     @GetMapping("/yes24")
@@ -64,6 +64,6 @@ public class MusicalRankController {
         model.addAttribute("today", today);
         model.addAttribute("yes24ticketList", mrd);
 
-        return "rankPage/rank_yes24ticket";
+        return "Rank/rank_yes24ticket";
     }
 }

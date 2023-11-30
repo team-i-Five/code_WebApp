@@ -56,23 +56,13 @@ public class MusicalPastController {
         this.musicalPastService = musicalPastService;
     }
 
-
-    @GetMapping("/list")
-    public String pastShow(Model model){
-        List<MusicalPastDTO> mpd = musicalPastService.getMusicalPastListOrderByEndDate(50);
-
-        model.addAttribute("musicalPastList", mpd);
-
-        return "basic/past";
-    }
-
     @GetMapping("/tags/tag1")
     public String sendTag1(@RequestParam(name = "tag1") String tag1, Model model){
         
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1(tagName.get(tag1));
         
         if(mpdl.size() == 0){
-            return "tag/null_tag" ;
+            return "Tag/null_tag" ;
         }
         else{
         model.addAttribute("musicals", mpdl);
@@ -83,7 +73,7 @@ public class MusicalPastController {
         model.addAttribute("tag2", null);
         model.addAttribute("tagName2", null);
         
-        return "tag/tag_list" ;
+        return "Tag/tag_list" ;
         }
     }
 
@@ -94,7 +84,7 @@ public class MusicalPastController {
         List<MusicalPastDTO> mpdl = musicalPastService.getMusicalPastListByTag1AndTag2(tagName.get(tag1), tagName.get(tag2));
 
         if(mpdl.size() == 0){
-            return "tag/null_tag" ;
+            return "Tag/null_tag" ;
         }
         else{
         
@@ -104,7 +94,7 @@ public class MusicalPastController {
             model.addAttribute("tagName1", tagNameFront.get(tag1));
             model.addAttribute("tagName2", tagNameFront.get(tag2));
 
-            return "tag/tag_list";
+            return "Tag/tag_list";
         }
         
     }
@@ -118,7 +108,7 @@ public class MusicalPastController {
                                         );
 
         if(mpdl.size() == 0){
-            return "tag/null_tag" ;
+            return "Tag/null_tag" ;
         }
         else{
 
@@ -127,7 +117,7 @@ public class MusicalPastController {
             model.addAttribute("tagName2", tagNameFront.get(tag2));
             model.addAttribute("tagName3", tagNameFront.get(tag3));
 
-            return "tag/all_tags_list" ;
+            return "Tag/all_tags_list" ;
         }
     }
 }
