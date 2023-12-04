@@ -34,7 +34,7 @@ public class MusicalRankController {
         ,"인터파크");
         
         model.addAttribute("today", today);
-        model.addAttribute("interparkList", mrd);
+        model.addAttribute("mrd", mrd);
 
         return "domain/Rank/rank_interpark";
     }
@@ -48,7 +48,7 @@ public class MusicalRankController {
         ,"티켓링크");
 
         model.addAttribute("today", today);
-        model.addAttribute("ticketlinkList", mrd);
+        model.addAttribute("mrd", mrd);
 
         return "domain/Rank/rank_ticketlink";
     }
@@ -62,7 +62,7 @@ public class MusicalRankController {
         ,"예스24티켓");
         
         model.addAttribute("today", today);
-        model.addAttribute("yes24ticketList", mrd);
+        model.addAttribute("mrd", mrd);
 
         return "domain/Rank/rank_yes24ticket";
     }

@@ -75,7 +75,11 @@
 
 .ranking_contents {
     width: 20%;
-    padding: .5rem;
+    height: 26.6%;
+    
+    padding: .25rem;
+    position: relative;
+
 }
 
 .ranking_contents a {
@@ -84,24 +88,31 @@
 }
 
 .ranking_contents_img {
-    width: 100%;
+    width: 90%;
+    height: 100%;
+   
     /* 항목 간 간격 조절 */
-    text-align: center;
     object-fit: cover;
 
     border: 0.1rem solid rgba(27, 26, 26, 0.2);
     border-radius: 1.2rem;
 }
 
+/* 순위를 이미지 위에 출력*/
 .rank_num {
-    font-size: 1.5rem;
+    position: absolute; 
+    left: 1.1rem;
+    top: .6rem;
+    /*이미지와 동일한 위치로*/
+    
+    color : #FFFFFF;
+    font-size: 1.7rem;
     font-weight: bold;
-    margin-top: .5rem;
 }
 
 .ranking_contents_text {
     /* 텍스트의 원하는 너비 */
-    width: 95%;
+    width: 80%;
     white-space: nowrap;
     padding-left: .2rem;
 
@@ -110,19 +121,25 @@
     overflow: hidden;
     text-overflow: clip;
 }
+.rank_num{
+    text-shadow: .1rem .1rem .11rem rgba(0, 0, 0, 0.7);
+}
 
 .musical_title {
-    font-size: 1.4rem;
+    margin-top: .8rem;
+    font-size: 1.7rem;
     font-weight: bold;
     margin-bottom: 0;
 }
 
 .musical_location {
-    font-size: .9rem;
+    color: #98989C;
+    font-size: 1.2rem;
     margin-bottom: 0;
 }
 
 .musical_duration {
+    color: #98989C;
     font-size: .9rem;
     margin-bottom: 30px;
 }
