@@ -1,23 +1,32 @@
 .ranking {
     display: block;
-    margin-top: 150px;
+    max-width: 80%;
+    margin: 8rem auto;
+}
+
+.head-message {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .head {
-    position: relative;
     display: flex;
-    justify-content: space-between; /* 요소들을 왼쪽과 오른쪽 끝으로 밀어 붙입니다. */
-    align-items: center; /* 수직 정렬을 중앙으로 설정합니다. */
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
-.site_title, .today_date, .site_list a {
-    font-weight: bold;
+.site_title,
+.site_tab,
+.today_date {
+    flex: 4;
+    /*화면 3등분*/
 }
 
 .site_title {
     font-weight: bold;
     font-size: 30px;
-    margin-left: 120px;
     text-align: left;
 }
 
@@ -28,125 +37,92 @@
     font-weight: bold;
     font-size: 18px;
     text-align: center;
-    margin-left: 220px; 
 }
 
 .arrow {
     display: inline-block;
-    margin: 0 20px; /* 화살표 사이의 간격 조정 */
+    margin: 0 20px;
+    /* 화살표 사이의 간격 조정 */
 }
 
 .site_list {
+    flex: 4;
+    text-align: right;
     font-weight: bold;
     font-size: 25px;
-    margin-right: 100px;
 }
 
-.site_list ul {
-    list-style: none;
-    margin: 20;
-    padding: 20;
-    display: flex;
+.site_tab_list a {
+    margin-left: 1rem;
 }
 
-.site_list li {
-    margin-right: 20px;
-}
-
-.site_list a {
+.site_tab_list a {
     text-decoration: none;
     color: #333;
     font-size: 22px;
-    transition: color 0.3s ease-in-out;
 }
 
-.tab_list .site_tab[aria-selected="true"] {
+.site_tab[aria-selected="true"] {
     color: #FF4C28;
 }
 
-.ranking_show {
+.ranking_contents_container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto 5rem;
-    
-}
-
-.musical_ranking {
-    position: relative;
-    /* margin: 10px 0; */
-    display: flex; 
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
+
 }
 
-/* .slider-content {
-    flex : 0 0 20;
-} */
-
-.musical_contents {
-    list-style: none;
-    margin: 1rem;
-    padding: 0;
+.ranking_contents {
+    width: 20%;
+    padding: .5rem;
 }
 
-.musical_contents a {
+.ranking_contents a {
     text-decoration: none;
     color: #333;
-    transition: color 0.3s ease-in-out;
 }
 
-.list-image {
-    width: 300px;
-    height: 400px;
+.ranking_contents_img {
+    width: 100%;
+    /* 항목 간 간격 조절 */
+    text-align: center;
     object-fit: cover;
-    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+
+    border: 0.1rem solid rgba(27, 26, 26, 0.2);
     border-radius: 1.2rem;
 }
 
 .rank_num {
-    display: block;
-    font-size: 22px;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: .5rem;
 }
 
-.musical_title {
-    white-space: nowrap; /* 줄 바꿈 방지 */
-    overflow: hidden; /* 넘치는 부분 숨김 */
-    text-overflow: ellipsis; /* 생략 부호 (...) 표시 */
-    display: inline-block; /* 한 줄에 표시하기 위해 block 요소를 inline으로 변환 */
-    max-width: 100%; /* 최대 너비 설정 */
-    vertical-align: bottom; /* 텍스트 아래에 정렬 */
-    /* 추가적인 스타일링을 위한 속성들 */
-}
-
-
-.text-container {
-    width: 300px; /* 텍스트의 원하는 너비 */
-    overflow: hidden;
+.ranking_contents_text {
+    /* 텍스트의 원하는 너비 */
+    width: 95%;
     white-space: nowrap;
-    position: relative;
-}
+    padding-left: .2rem;
 
-.text-container:hover {
-    white-space: normal;
-    overflow: visible;
+
+    /* 영역을 벗어나면 안보이게 */
+    overflow: hidden;
+    text-overflow: clip;
 }
 
 .musical_title {
-    font-size: 20px;
+    font-size: 1.4rem;
     font-weight: bold;
     margin-bottom: 0;
 }
 
 .musical_location {
-    font-size: 15px;
+    font-size: .9rem;
     margin-bottom: 0;
 }
 
 .musical_duration {
-    font-size: 15px;
+    font-size: .9rem;
     margin-bottom: 30px;
 }
